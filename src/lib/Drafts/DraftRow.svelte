@@ -1,5 +1,5 @@
 <script>
-  	import { getTeamNameFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+        import { getTeamNameFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
     import {Row, Cell } from '@smui/data-table';
     export let draftRow, draftType, row, reversalRound, previous=false, players, year, leagueTeamManagers;
 </script>
@@ -37,29 +37,29 @@
         line-height: 1.2em;
     }
 
-	:global(.prevQB) {
-		background-color: var(--QBfade);
-	}
+        :global(.prevQB) {
+                background-color: var(--QBfade);
+        }
 
-	:global(.prevWR) {
-		background-color: var(--WRfade);
-	}
+        :global(.prevWR) {
+                background-color: var(--WRfade);
+        }
 
-	:global(.prevRB) {
-		background-color: var(--RBfade);
-	}
+        :global(.prevRB) {
+                background-color: var(--RBfade);
+        }
 
-	:global(.prevTE) {
-		background-color: var(--TEfade);
-	}
+        :global(.prevTE) {
+                background-color: var(--TEfade);
+        }
 
-	:global(.prevK) {
-		background-color: var(--Kfade);
-	}
+        :global(.prevK) {
+                background-color: var(--Kfade);
+        }
 
-	:global(.prevDEF) {
-		background-color: var(--DEfadeFfade);
-	}
+        :global(.prevDEF) {
+                background-color: var(--DEfadeFfade);
+        }
 
     :global(.prevCB) {
         background-color: var(--CBfade);
@@ -85,19 +85,19 @@
         background-color: var(--LBfade);
     }
 
-	.playerAvatar {
-		display: inline-block;
+        .playerAvatar {
+                display: inline-block;
         position: absolute;
         transform: translate(-50%, -50%);
         left: 50%;
         top: 45%;
-		height: 25px;
-		width: 25px;
-		background-position: center;
-		border-radius: 100%;
-		background-repeat: no-repeat;
-		background-size: auto 25px;
-	}
+                height: 25px;
+                width: 25px;
+                background-position: center;
+                border-radius: 100%;
+                background-repeat: no-repeat;
+                background-size: auto 25px;
+        }
 
     .name {
         display: block;
@@ -142,7 +142,7 @@
                 {#if previous}
                     <div class="playerAvatar" style="{players[draftCol.player].pos == "DEF" ? `background-image: url(https://sleepercdn.com/images/team_logos/nfl/${draftCol.player.toLowerCase()}.png)` : `background-image: url(https://sleepercdn.com/content/nfl/players/thumb/${draftCol.player}.jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp)`}" />
                     <br />
-                    <div class="name">{`${players[draftCol.player].fn} ${players[draftCol.player].ln}`}{players[draftCol.player].pos == "DEF" ? "" : ` (${players[draftCol.player].t})`}</div>
+                    <div class="name">{`${players[draftCol.player].fn} ${players[draftCol.player].ln}`}{players[draftCol.player].pos == "DEF" ? "" : ` (${players[draftCol.player].t || "Free Agent"})`}</div>
                 {/if}
             </Cell>
         {/if}
