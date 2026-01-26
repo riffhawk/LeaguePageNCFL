@@ -17,6 +17,18 @@
     const CIRCLE_R = 28;
     const CIRCLE_CIRC = 2 * Math.PI * CIRCLE_R;
 
+    // get color based on trading scale value
+    const getProgressColor = (value) => {
+        const n = clampScale(value);
+        if (n === null || n === 0) return '#e6e6e6';
+        if (n >= 1 && n <= 3) return '#dc3545'; // Red
+        if (n >= 4 && n <= 7) return '#ffc107'; // Yellow
+        if (n >= 8 && n <= 10) return '#28a745'; // Green
+        return 'var(--blueOne)';
+    };
+
+    $: progressColor = getProgressColor(viewManager?.tradingScale);
+
     // animate progress (0..1) smoothly
     const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
     const animateProgress = (from, to, duration = 360) => {
@@ -298,7 +310,7 @@
                 <svg class="progressSvg" viewBox="0 0 70 70" width="70" height="70" aria-hidden="true">
                     <g transform="rotate(-90 35 35)">
                         <circle cx="35" cy="35" r="{CIRCLE_R}" class="progressTrack" fill="none" stroke="#e6e6e6" stroke-width="8" />
-                        <circle cx="35" cy="35" r="{CIRCLE_R}" class="progressBar" fill="none" stroke="var(--blueOne)" stroke-width="8" stroke-linecap="round"
+                        <circle cx="35" cy="35" r="{CIRCLE_R}" class="progressBar" fill="none" stroke="{progressColor}" stroke-width="8" stroke-linecap="round"
                             stroke-dasharray="{CIRCLE_CIRC}" stroke-dashoffset="{CIRCLE_CIRC * (1 - progress)}" />
                     </g>
                     <text x="35" y="36" text-anchor="middle" dominant-baseline="middle" class="progressText">{clampScale(viewManager.tradingScale) || 0}</text>
