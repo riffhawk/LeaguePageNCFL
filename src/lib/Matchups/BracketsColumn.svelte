@@ -426,11 +426,8 @@
                             <div class="name{matchups.bye && !matchup.roster_id ? ' bye': ''}">{getPlayoffName(matchup.roster_id, matchups.bye, leagueTeamManagers.currentYear)}</div>
                         </div>
                         {#if matchup.roster_id}
-                            {@const projectedPts = calculatePotentialPoints(matchup.starters, ix, players)}
                             <div class="points">
-                                {#if projectedPts > 0}
-                                    <span class="projectedPoints">{projectedPts}</span>
-                                {/if}
+                                <span class="projectedPoints">{calculatePotentialPoints(matchup.starters, ix, players)}</span>
                                 <span class="actualPoints">{calculatePoints(matchup.points)}</span>
                             </div>
                         {/if}
