@@ -37,7 +37,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        opacity: 0.2;
+        opacity: 0.13;
         pointer-events: none;
         z-index: 1;
         max-width: 300px;
