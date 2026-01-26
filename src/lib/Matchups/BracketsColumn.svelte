@@ -9,9 +9,12 @@
     let weekNum = 0;
     let isChampionship = false;
 
+    let finalIcon = '🏆';
+    
     const setLabel = (l) => {
         weekNum = playoffsStart + ix;
         isChampionship = false;
+        finalIcon = '🏆';
         
         if(matchCol.length > 1) {
             switch (playoffLength - ix) {
@@ -19,6 +22,7 @@
                     isChampionship = true;
                     if(losers) {
                         label = 'Toilet Bowl'
+                        finalIcon = '🚽'
                     } else {
                         label = 'Championship'
                     }
@@ -38,6 +42,7 @@
                 isChampionship = true;
                 if(losers) {
                     label = 'Toilet Bowl'
+                    finalIcon = '🚽'
                 } else {
                     label = 'Championship'
                 }
@@ -397,7 +402,7 @@
     {#if matchCol.length}
         <p class="label{isChampionship ? ' championshipLabel' : ''}" style="top: {labelY}px;">
             {#if isChampionship}
-                <span class="trophyIcon">🏆</span>
+                <span class="trophyIcon">{finalIcon}</span>
             {/if}
             {label}
             <br/>
