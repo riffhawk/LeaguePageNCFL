@@ -280,12 +280,19 @@
   }
 
   .matchup-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0.25rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .matchup-item:last-child {
     border-bottom: none;
+  }
+
+  .matchup-info {
+    flex: 1;
   }
 
   .matchup-week {
@@ -300,6 +307,13 @@
   .matchup-opponent {
     color: #666;
     font-size: 0.75rem;
+  }
+
+  .matchup-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
   }
 
   .no-matchups {
@@ -366,9 +380,12 @@
                     {:else}
                       {#each teamMatchups.luckyWins as match}
                         <div class="matchup-item">
-                          <span class="matchup-week">Week {match.week}:</span>
-                          <span class="matchup-score">{match.points} - {match.opponentPoints}</span>
-                          <div class="matchup-opponent">vs {match.opponentName}</div>
+                          <div class="matchup-info">
+                            <span class="matchup-week">Week {match.week}:</span>
+                            <span class="matchup-score">{match.points} - {match.opponentPoints}</span>
+                            <div class="matchup-opponent">vs {match.opponentName}</div>
+                          </div>
+                          <img class="matchup-icon lucky-icon" src="/icons8-clover.png" alt="Lucky" />
                         </div>
                       {/each}
                     {/if}
@@ -392,9 +409,12 @@
                     {:else}
                       {#each teamMatchups.unluckyLosses as match}
                         <div class="matchup-item">
-                          <span class="matchup-week">Week {match.week}:</span>
-                          <span class="matchup-score">{match.points} - {match.opponentPoints}</span>
-                          <div class="matchup-opponent">vs {match.opponentName}</div>
+                          <div class="matchup-info">
+                            <span class="matchup-week">Week {match.week}:</span>
+                            <span class="matchup-score">{match.points} - {match.opponentPoints}</span>
+                            <div class="matchup-opponent">vs {match.opponentName}</div>
+                          </div>
+                          <img class="matchup-icon unlucky-icon" src="/icons8-horseshoe.png" alt="Unlucky" />
                         </div>
                       {/each}
                     {/if}
