@@ -93,7 +93,7 @@
     height: 0.7em;
     width: auto;
     vertical-align: baseline;
-    margin-left: 0.15em;
+    margin-left: 0.05em;
   }
 
   h1 {
