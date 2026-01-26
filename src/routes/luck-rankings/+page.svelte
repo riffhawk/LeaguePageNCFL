@@ -100,6 +100,7 @@
     color: #888;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
+    font-family: 'Rubik', sans-serif;
   }
   
   table {
@@ -108,6 +109,7 @@
     background: #e8e8e8;
     border-radius: 8px;
     overflow: hidden;
+    font-family: 'Rubik', sans-serif;
   }
   
   thead {
