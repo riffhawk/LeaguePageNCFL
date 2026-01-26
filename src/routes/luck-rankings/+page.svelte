@@ -1,11 +1,11 @@
 <script>
   import { onMount } from 'svelte';
 
-  let rows = [];
-  let matchupData = [];
-  let loading = true;
-  let error = null;
-  let expandedRows = {};
+  let rows = $state([]);
+  let matchupData = $state([]);
+  let loading = $state(true);
+  let error = $state(null);
+  let expandedRows = $state({});
 
   onMount(async () => {
     try {
@@ -74,8 +74,7 @@
 
   function toggleRow(teamName, type) {
     const key = `${teamName}-${type}`;
-    expandedRows[key] = !expandedRows[key];
-    expandedRows = expandedRows;
+    expandedRows = { ...expandedRows, [key]: !expandedRows[key] };
   }
 
   function isExpanded(teamName, type) {
@@ -244,6 +243,11 @@
     font-size: 0.85rem;
     font-weight: 500;
     user-select: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
   }
 
   .collapsible-header:hover {
@@ -331,7 +335,7 @@
           <tr>
             <td>
               <div class="team-cell">
-                <img class="logo" src={r.logo_url} alt="" on:error={(e) => e.target.style.display = 'none'} />
+                <img class="logo" src={r.logo_url} alt="" onerror={(e) => e.target.style.display = 'none'} />
                 <span class="team-name">{r.team_name}</span>
               </div>
             </td>
@@ -347,16 +351,14 @@
             </td>
             <td class="details-cell">
               <div class="collapsible-section">
-                <div 
+                <button 
+                  type="button"
                   class="collapsible-header lucky-header" 
-                  on:click={() => toggleRow(r.team_name, 'lucky')}
-                  on:keydown={(e) => e.key === 'Enter' && toggleRow(r.team_name, 'lucky')}
-                  role="button"
-                  tabindex="0"
+                  onclick={() => toggleRow(r.team_name, 'lucky')}
                 >
                   <span class="arrow" class:expanded={isExpanded(r.team_name, 'lucky')}>&#9654;</span>
                   Lucky Wins ({teamMatchups.luckyWins.length})
-                </div>
+                </button>
                 {#if isExpanded(r.team_name, 'lucky')}
                   <div class="collapsible-content">
                     {#if teamMatchups.luckyWins.length === 0}
@@ -375,16 +377,14 @@
               </div>
               
               <div class="collapsible-section">
-                <div 
+                <button 
+                  type="button"
                   class="collapsible-header unlucky-header" 
-                  on:click={() => toggleRow(r.team_name, 'unlucky')}
-                  on:keydown={(e) => e.key === 'Enter' && toggleRow(r.team_name, 'unlucky')}
-                  role="button"
-                  tabindex="0"
+                  onclick={() => toggleRow(r.team_name, 'unlucky')}
                 >
                   <span class="arrow" class:expanded={isExpanded(r.team_name, 'unlucky')}>&#9654;</span>
                   Unlucky Losses ({teamMatchups.unluckyLosses.length})
-                </div>
+                </button>
                 {#if isExpanded(r.team_name, 'unlucky')}
                   <div class="collapsible-content">
                     {#if teamMatchups.unluckyLosses.length === 0}
