@@ -194,19 +194,19 @@
         text-align: center;
         margin: 0;
         font-family: 'Rubik', sans-serif;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 0.95em;
-        color: #ccc;
+        color: #333;
     }
 
     .weekLabel {
         font-size: 0.75em;
-        color: #888;
+        color: #666;
         font-weight: 400;
     }
 
     .championshipLabel {
-        color: #d4a853;
+        color: #b8860b;
     }
 
     .trophyIcon {
@@ -215,32 +215,28 @@
 
     .match {
         width: 280px;
-        background-color: #2d3748;
-        border-radius: 12px;
+        background-color: #fff;
+        border-radius: 8px;
         margin: 1.5em 1em;
         z-index: 2;
-        border: none;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        border: 1px solid #d0d0d0;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .match:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
 
     .championship {
-        border: 2px solid #d4a853;
-        box-shadow: 0 0 12px rgba(212, 168, 83, 0.4);
-    }
-
-    .championship .label {
-        color: #d4a853;
+        border: 2px solid #b8860b;
+        box-shadow: 0 0 8px rgba(184, 134, 11, 0.3);
     }
 
     .selected {
-        background-color: #3d4a5c;
-        box-shadow: 0 0 12px 4px rgba(100, 150, 200, 0.3);
+        background-color: #f0f7ff;
+        border-color: #4a90a4;
+        box-shadow: 0 0 8px rgba(74, 144, 164, 0.3);
     }
 
     .clickable {
@@ -254,7 +250,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid #3a4556;
+        border-bottom: 1px solid #d0d0d0;
     }
 
     .manager:last-child {
@@ -279,12 +275,12 @@
         font-size: 0.9em;
         line-height: 1.2em;
         word-break: break-word;
-        color: #e2e8f0;
+        color: #333;
         font-family: 'Rubik', sans-serif;
     }
 
     .bye {
-        color: #718096;
+        color: #999;
         font-style: italic;
     }
 
@@ -295,7 +291,7 @@
         width: 28px;
         margin: 0;
         border: 2px solid #4a90a4;
-        background-color: #4a90a4;
+        background-color: #eee;
         flex-shrink: 0;
     }
 
@@ -303,7 +299,7 @@
         display: flex;
         align-items: baseline;
         gap: 0.4em;
-        color: #e2e8f0;
+        color: #333;
         text-align: right;
     }
 
@@ -315,7 +311,7 @@
 
     .projectedPoints {
         font-size: 0.75em;
-        color: #718096;
+        color: #666;
     }
 
     /* SVG styling */
@@ -388,13 +384,12 @@
     .avatarBye {
         opacity: 0.3;
         border: none;
-        background-color: #4a5568;
+        background-color: #ccc;
     }
 
     .spacer {
         background: none;
         border: none;
-        box-shadow: none;
     }
 </style>
 

@@ -79,10 +79,9 @@
 <style>
     .brackets {
         margin: 2em 0 6em;
-        background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-        border-radius: 16px;
+        background: #e8e8e8;
+        border-radius: 8px;
         padding: 2em 1em;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     .bracket {
