@@ -89,23 +89,11 @@
     margin: 0 auto;
   }
   
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-  }
-
-  .header-text {
-    flex: 1;
-  }
-
   .lucky-duck-image {
-    width: 150px;
-    height: auto;
-    flex-shrink: 0;
-    margin-left: 1rem;
-    border-radius: 8px;
+    height: 0.9em;
+    width: auto;
+    vertical-align: baseline;
+    margin-left: 0.2em;
   }
 
   h1 {
@@ -346,13 +334,8 @@
 </style>
 
 <div class="page">
-  <div class="header-container">
-    <div class="header-text">
-      <h1>Lucky Wins & Unlucky Losses</h1>
-      <h3 class="subtitle">Sometimes it's better to be lucky than good</h3>
-    </div>
-    <img class="lucky-duck-image" src="/lucky-duck.png" alt="Lucky Duck" />
-  </div>
+  <h1>Lucky Wins & Unlucky Losses <img class="lucky-duck-image" src="/lucky-duck.png" alt="Lucky Duck" /></h1>
+  <h3 class="subtitle">Sometimes it's better to be lucky than good</h3>
 
   {#if loading}
     <p class="muted">Loading...</p>
