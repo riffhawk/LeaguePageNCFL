@@ -105,15 +105,18 @@
 
     .consolationsRow {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1em;
-        margin-top: 1em;
+        align-items: flex-start;
+        gap: 3em;
+        margin-top: 2em;
+        padding: 0 1em;
     }
 
     .consolationBracket {
-        display: flex;
-        justify-content: center;
+        display: inline-flex;
+        flex-shrink: 0;
     }
 </style>
 
