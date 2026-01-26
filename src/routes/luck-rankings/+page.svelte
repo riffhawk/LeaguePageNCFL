@@ -368,9 +368,9 @@
             <td class={getDiffClass(r.diff)}>{formatDiff(r.diff)}</td>
             <td class="label-cell">
               {#if r.label === 'Lucky Duck'}
-                <span class="badge badge-lucky">Lucky Duck</span>
+                <span class="badge badge-lucky">Lucky</span>
               {:else if r.label === 'Unlucky Duck'}
-                <span class="badge badge-unlucky">Unlucky Duck</span>
+                <span class="badge badge-unlucky">Unlucky</span>
               {/if}
             </td>
             <td class="details-cell">
