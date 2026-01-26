@@ -37,7 +37,7 @@
         const s = clampScale(viewManager && viewManager.tradingScale);
         const target = s == null ? 0 : (s / 10);
         progress = 0;
-        setTimeout(() => animateProgress(0, target, 800), 200);
+        setTimeout(() => animateProgress(0, target, 1500), 500);
     });
 
     onDestroy(() => {
