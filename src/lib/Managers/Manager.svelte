@@ -98,7 +98,7 @@
         font-size: 2.8em;
         margin: 1em 0 0em;
         line-height: 1em;
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Rubik', sans-serif;
         font-weight: 700;
     }
 
@@ -157,7 +157,7 @@
         font-size: 0.4em;
         line-height: 1em;
         color: #666;
-        font-family: 'Oswald', sans-serif;
+        font-family: 'Rubik', sans-serif;
         font-weight: 700;
     }
 
