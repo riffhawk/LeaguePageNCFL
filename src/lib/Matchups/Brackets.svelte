@@ -102,6 +102,20 @@
         align-items: center;
         margin: 3em 0;
     }
+
+    .consolation-row {
+        display: flex;
+        justify-content: center;
+        gap: 3em;
+        flex-wrap: wrap;
+        margin-top: 1em;
+    }
+
+    .consolation-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 </style>
 
 <div class="brackets">
@@ -111,13 +125,17 @@
         {/each}
     </div>
 
-    {#each consolations as consolation, consolationNum}
-        <div class="bracket">
-            {#each consolation as matchCol, ix}
-                <BracketsColumn bind:selected={selected} {leagueTeamManagers} {consolationNum} {matchCol} {ix} {players} {playoffsStart} playoffLength={consolation.length} {numRosters} consolation={true} losers={selection == 'losers'} />
+    {#if consolations.length > 0}
+        <div class="consolation-row">
+            {#each consolations as consolation, consolationNum}
+                <div class="consolation-item">
+                    {#each consolation as matchCol, ix}
+                        <BracketsColumn bind:selected={selected} {leagueTeamManagers} {consolationNum} {matchCol} {ix} {players} {playoffsStart} playoffLength={consolation.length} {numRosters} consolation={true} losers={selection == 'losers'} />
+                    {/each}
+                </div>
             {/each}
         </div>
-    {/each}
+    {/if}
 </div>
 
 <div class="matchupEnclosure" bind:this={el}>
