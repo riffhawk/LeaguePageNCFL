@@ -1,0 +1,100 @@
+{
+  "data": [
+    {
+      "team_name": "To Infinity and Bijan",
+      "lucky": 2,
+      "unlucky": 2,
+      "diff": 0,
+      "label": "",
+      "logo_url": "https://sleepercdn.com/avatars/55616f955ecd66d1461fcaace3805b7e"
+    },
+    {
+      "team_name": "I QUIT ",
+      "lucky": 1,
+      "unlucky": 4,
+      "diff": -3,
+      "label": "Unlucky Duck",
+      "logo_url": "https://sleepercdn.com/avatars/0f58ddd41fa157ac8daa85ffb8211070"
+    },
+    {
+      "team_name": "ThereGoesTheNaberhood",
+      "lucky": 2,
+      "unlucky": 1,
+      "diff": 1,
+      "label": "Lucky Duck",
+      "logo_url": "https://sleepercdn.com/avatars/498db24cece1c50961d53d1692cbf934"
+    },
+    {
+      "team_name": "JJ's Bombas 💣 & Bowers 🏈",
+      "lucky": 1,
+      "unlucky": 2,
+      "diff": -1,
+      "label": "",
+      "logo_url": "https://sleepercdn.com/avatars/4f4090e5e9c3941414db40a871e3e909"
+    },
+    {
+      "team_name": "The Jahmyracles",
+      "lucky": 1,
+      "unlucky": 3,
+      "diff": -2,
+      "label": "",
+      "logo_url": "https://sleepercdn.com/avatars/d22e52781a5d7a94bcbf2aa70e748382"
+    },
+    {
+      "team_name": "The HeineKings",
+      "lucky": 3,
+      "unlucky": 2,
+      "diff": 1,
+      "label": "Lucky Duck",
+      "logo_url": "https://sleepercdn.com/avatars/4f4090e5e9c3941414db40a871e3e909"
+    },
+    {
+      "team_name": "Cee Deez TDz",
+      "lucky": 3,
+      "unlucky": 3,
+      "diff": 0,
+      "label": "",
+      "logo_url": "https://sleepercdn.com/avatars/e7af4deab0289b4f5505646424895246"
+    },
+    {
+      "team_name": "Mystic Mac",
+      "lucky": 0,
+      "unlucky": 1,
+      "diff": -1,
+      "label": "",
+      "logo_url": "https://sleepercdn.com/avatars/8eb8f8bf999945d523f2c4033f70473e"
+    },
+    {
+      "team_name": "SaUcE iN yOuR eYe🥴",
+      "lucky": 2,
+      "unlucky": 1,
+      "diff": 1,
+      "label": "Lucky Duck",
+      "logo_url": "https://sleepercdn.com/avatars/8553f7fb95334a6a2de471358d8b1d16"
+    },
+    {
+      "team_name": "Injured Reserve",
+      "lucky": 4,
+      "unlucky": 3,
+      "diff": 1,
+      "label": "Lucky Duck",
+      "logo_url": "https://sleepercdn.com/avatars/15d7cf259bc30eab8f6120f45f652fb6"
+    },
+    {
+      "team_name": "Pitty Party",
+      "lucky": 1,
+      "unlucky": 0,
+      "diff": 1,
+      "label": "Lucky Duck",
+      "logo_url": "https://sleepercdn.com/avatars/15d7cf259bc30eab8f6120f45f652fb6"
+    },
+    {
+      "team_name": "ZYN Lords",
+      "lucky": 1,
+      "unlucky": 2,
+      "diff": -1,
+      "label": "",
+      "logo_url": "https://sleepercdn.com/avatars/f0edbf4278f53f9425db175073df6584"
+    }
+  ]
+}
