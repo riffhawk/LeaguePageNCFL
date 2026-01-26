@@ -97,10 +97,11 @@
   }
   
   .subtitle {
-    color: #888;
+    color: #666;
     margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+    font-size: 1.4rem;
     font-family: 'Rubik', sans-serif;
+    font-weight: 500;
   }
   
   table {
