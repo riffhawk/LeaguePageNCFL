@@ -105,6 +105,9 @@
     height: auto;
     flex-shrink: 0;
     margin-left: 1rem;
+    background: linear-gradient(to bottom, #e8e8e8, #f5f5f5);
+    border-radius: 8px;
+    mix-blend-mode: multiply;
   }
 
   h1 {
