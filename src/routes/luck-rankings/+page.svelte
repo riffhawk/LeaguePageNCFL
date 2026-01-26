@@ -327,7 +327,7 @@
 
 <div class="page">
   <h1>Lucky Wins & Unlucky Losses</h1>
-  <p class="subtitle">Who has the right to complain?</p>
+  <h3 class="subtitle">Sometimes it's better to be lucky than good</h3>
 
   {#if loading}
     <p class="muted">Loading...</p>
