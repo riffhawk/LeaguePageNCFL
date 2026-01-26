@@ -1,8 +1,8 @@
 <script>
-	import LinearProgress from '@smui/linear-progress';
-	import { getNflState, leagueName, getAwards, getLeagueTeamManagers, homepageText, managers, gotoManager, enableBlog, waitForAll } from '$lib/utils/helper';
-	import { Transactions, PowerRankings, HomePost} from '$lib/components';
-	import { getAvatarFromTeamManagers, getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+        import LinearProgress from '@smui/linear-progress';
+        import { getNflState, leagueName, getAwards, getLeagueTeamManagers, homepageText, managers, gotoManager, enableBlog, waitForAll } from '$lib/utils/helper';
+        import { Transactions, PowerRankings, HomePost} from '$lib/components';
+        import { getAvatarFromTeamManagers, getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
 
     const nflState = getNflState();
     const podiumsData = getAwards();
@@ -29,6 +29,24 @@
         padding: 0 30px;
         max-width: 620px;
         margin: 0 auto;
+        position: relative;
+    }
+
+    .text-watermark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.2;
+        pointer-events: none;
+        z-index: 1;
+        max-width: 300px;
+        width: 80%;
+    }
+
+    .text > :not(.text-watermark) {
+        position: relative;
+        z-index: 2;
     }
 
     .leagueData {
@@ -38,9 +56,9 @@
         min-width: 470px;
         max-width: 470px;
         min-height: 100%;
-		background-color: var(--ebebeb);
+                background-color: var(--ebebeb);
         border-left: var(--eee);
-		box-shadow: inset 8px 0px 6px -6px rgb(0 0 0 / 24%);
+                box-shadow: inset 8px 0px 6px -6px rgb(0 0 0 / 24%);
     }
 
     @media (max-width: 950px) {
@@ -48,7 +66,7 @@
             max-width: 100%;
             min-width: 100%;
             width: 100%;
-		    box-shadow: none;
+                    box-shadow: none;
         }
         #home {
             flex-wrap: wrap;
@@ -80,7 +98,7 @@
     /* champ styling */
     #currentChamp {
         padding: 25px 0;
-		background-color: var(--f3f3f3);
+                background-color: var(--f3f3f3);
         box-shadow: 5px 0 8px var(--champShadow);
         border-left: 1px solid var(--ddd);
     }
@@ -129,16 +147,17 @@
         cursor: pointer;
     }
     
-	:global(.curOwner) {
-		font-size: 0.75em;
-		color: #bbb;
-		font-style: italic;
-	}
+        :global(.curOwner) {
+                font-size: 0.75em;
+                color: #bbb;
+                font-style: italic;
+        }
 </style>
 
 <div id="home">
     <div id="main">
         <div class="text">
+            <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
             <h6>{leagueName}</h6>
             <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
             {@html homepageText }
