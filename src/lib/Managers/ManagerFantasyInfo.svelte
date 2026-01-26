@@ -33,9 +33,11 @@
     };
 
     onMount(() => {
-        // initialize progress from viewManager
+        // animate progress from 0 to target on mount
         const s = clampScale(viewManager && viewManager.tradingScale);
-        progress = s == null ? 0 : (s / 10);
+        const target = s == null ? 0 : (s / 10);
+        progress = 0;
+        setTimeout(() => animateProgress(0, target, 800), 200);
     });
 
     onDestroy(() => {
@@ -76,7 +78,7 @@
         border: 1px solid var(--ccc);
                 overflow: hidden;
         background-color: var(--fff);
-		transition: box-shadow 0.4s;
+                transition: box-shadow 0.4s;
     }
 
     .playerIcon {
