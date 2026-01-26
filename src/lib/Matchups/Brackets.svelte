@@ -79,12 +79,17 @@
 <style>
     .brackets {
         margin: 2em 0 6em;
+        background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+        border-radius: 16px;
+        padding: 2em 1em;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     .bracket {
         margin: 1em 0;
         display: flex;
         justify-content: center;
+        overflow-x: auto;
     }
 
     .matchupEnclosure {

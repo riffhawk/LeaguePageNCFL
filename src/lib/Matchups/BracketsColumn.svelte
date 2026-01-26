@@ -1,19 +1,26 @@
 <script>
     import { round } from "$lib/utils/helper";
-	import { getAvatarFromTeamManagers, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
+        import { getAvatarFromTeamManagers, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
 
     export let leagueTeamManagers, players, matchCol, playoffsStart, ix, playoffLength, consolation = false, losers = false, numRosters, consolationNum, selected;
 
     let label = '';
 
+    let weekNum = 0;
+    let isChampionship = false;
+
     const setLabel = (l) => {
+        weekNum = playoffsStart + ix;
+        isChampionship = false;
+        
         if(matchCol.length > 1) {
             switch (playoffLength - ix) {
                 case 1:
+                    isChampionship = true;
                     if(losers) {
                         label = 'Toilet Bowl'
                     } else {
-                        label = 'Championship Match'
+                        label = 'Championship'
                     }
                     break;
                 case 2:
@@ -22,20 +29,17 @@
                 case 3:
                     label = 'Quarterfinals'
                     break;
-                case 3:
-                    label = 'Eighth-Finals'
-                    break;
-            
                 default:
+                    label = `Round ${ix + 1}`
                     break;
             }
         } else {
-            // If it's not a consolation match the only single matchup is the final
             if(!consolation) {
+                isChampionship = true;
                 if(losers) {
                     label = 'Toilet Bowl'
                 } else {
-                    label = 'Championship Match'
+                    label = 'Championship'
                 }
                 return;
             }
@@ -189,20 +193,54 @@
         position: absolute;
         text-align: center;
         margin: 0;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 500;
+        font-size: 0.95em;
+        color: #ccc;
+    }
+
+    .weekLabel {
+        font-size: 0.75em;
+        color: #888;
+        font-weight: 400;
+    }
+
+    .championshipLabel {
+        color: #d4a853;
+    }
+
+    .trophyIcon {
+        font-size: 1.2em;
     }
 
     .match {
         width: 280px;
-        border: 1px solid var(--ccc);
-        background-color: var(--bracketMatch);
-        border-radius: 10px;
-        margin: 2em 1em;
+        background-color: #2d3748;
+        border-radius: 12px;
+        margin: 1.5em 1em;
         z-index: 2;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .match:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .championship {
+        border: 2px solid #d4a853;
+        box-shadow: 0 0 12px rgba(212, 168, 83, 0.4);
+    }
+
+    .championship .label {
+        color: #d4a853;
     }
 
     .selected {
-        background-color: var(--matchupSelected);
-        box-shadow: 0 0 8px 6px var(--matchupSelected);
+        background-color: #3d4a5c;
+        box-shadow: 0 0 12px 4px rgba(100, 150, 200, 0.3);
     }
 
     .clickable {
@@ -210,153 +248,185 @@
     }
 
     .manager {
-        flex-direction: column;
-        margin: 1em 0.5em;
+        flex-direction: row;
+        margin: 0;
+        padding: 0.75em 1em;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
+        border-bottom: 1px solid #3a4556;
+    }
+
+    .manager:last-child {
+        border-bottom: none;
+    }
+
+    .avatarNameBlock {
+        display: flex;
+        align-items: center;
+        gap: 0.6em;
+        flex: 1;
     }
 
     .avatarPointsBlock {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: center;
     }
 
     .name {
-        margin-top: 0.3em;
-        font-size: 1em;
-        line-height: 1.1em;
-        flex-grow: 1;
+        font-size: 0.9em;
+        line-height: 1.2em;
         word-break: break-word;
-        color: var(--g444);
-        width: 100%;
+        color: #e2e8f0;
+        font-family: 'Rubik', sans-serif;
     }
 
     .bye {
-        color: #999;
+        color: #718096;
         font-style: italic;
     }
 
     .avatar {
         vertical-align: middle;
         border-radius: 50%;
-        height: 25px;
-        width: 25px;
+        height: 28px;
+        width: 28px;
         margin: 0;
-        border: 0.25px solid #777;
-        background-color: #eee;
+        border: 2px solid #4a90a4;
+        background-color: #4a90a4;
+        flex-shrink: 0;
     }
 
     .points {
-        line-height: 1.1em;
-        font-size: 0.85em;
-        padding-left: 1em;
-        color: var(--g333);
+        display: flex;
+        align-items: baseline;
+        gap: 0.4em;
+        color: #e2e8f0;
         text-align: right;
     }
 
+    .actualPoints {
+        font-size: 1.1em;
+        font-weight: 700;
+        font-family: 'Rubik', sans-serif;
+    }
+
     .projectedPoints {
-        font-size: 0.8em;
-        color: var(--g999);
+        font-size: 0.75em;
+        color: #718096;
     }
 
     /* SVG styling */
 
-	.lineParent {
+        .lineParent {
         top: 0;
         left: 0;
         position: absolute;
-		overflow: visible;
-		width: 1px;
-		height: 1px;
-		pointer-events: none;
-	}
+                overflow: visible;
+                width: 1px;
+                height: 1px;
+                pointer-events: none;
+        }
 
-	.line{
+        .line{
         top: 0;
         left: 0;
-		position: absolute;
-		z-index: 1;
-	}
+                position: absolute;
+                z-index: 1;
+        }
 
     /* media queries */
-	@media (max-width: 1000px) {
+        @media (max-width: 1000px) {
         .match {
             width: 220px;
         }
-	}
+        }
 
-	@media (max-width: 800px) {
+        @media (max-width: 800px) {
         .match {
             width: 180px;
         }
-	}
+        }
 
     @media (max-width: 610px) {
         .match {
-            width: 130px;
-            font-size: 0.9em;
+            width: 150px;
+            font-size: 0.85em;
         }
 
         .avatar {
-            height: 20px;
-            width: 20px;
+            height: 22px;
+            width: 22px;
+        }
+
+        .manager {
+            padding: 0.5em 0.6em;
         }
     }
 
     @media (max-width: 500px) {
         .match {
-            width: 110px;
-            font-size: 0.8em;
+            width: 120px;
+            font-size: 0.75em;
         }
     }
 
     @media (max-width: 410px) {
         .match {
-            width: 80px;
-            font-size: 0.6em;
+            width: 90px;
+            font-size: 0.65em;
+        }
+
+        .avatar {
+            height: 18px;
+            width: 18px;
         }
     }
 
     .avatarBye {
         opacity: 0.3;
         border: none;
+        background-color: #4a5568;
     }
 
     .spacer {
         background: none;
         border: none;
+        box-shadow: none;
     }
 </style>
 
 <div class="bracketColumn" bind:this={el}>
     {#if matchCol.length}
-        <p class="label" style="top: {labelY}px;">{label}</p>
+        <p class="label{isChampionship ? ' championshipLabel' : ''}" style="top: {labelY}px;">
+            {#if isChampionship}
+                <span class="trophyIcon">🏆</span>
+            {/if}
+            {label}
+            <br/>
+            <span class="weekLabel">(Week {weekNum})</span>
+        </p>
     {/if}
-    <!-- If we need to draw a bracket, include anchor points and include svgs to draw the  bracket -->
     {#each matchCol as matchups, inx}
-        <div class="match{matchups[0].m == selected ? ' selected' : ''}{matchups[0].m && matchups[1].roster_id ? ' clickable' : ''}" bind:this={anchors[Math.floor(inx / 2)][inx % 2 == 0 ? 't' : 'b']} onclick={() => {changeSelection(matchups[0].m, matchups[1].roster_id)}}>
+        <div class="match{matchups[0].m == selected ? ' selected' : ''}{matchups[0].m && matchups[1].roster_id ? ' clickable' : ''}{isChampionship ? ' championship' : ''}" bind:this={anchors[Math.floor(inx / 2)][inx % 2 == 0 ? 't' : 'b']} onclick={() => {changeSelection(matchups[0].m, matchups[1].roster_id)}}>
             {#each matchups as matchup}
                 <div class="manager">
                     <div class="avatarPointsBlock">
-                        {#if !matchup.roster_id}
-                            <span />
-                        {/if}
-                        {#if matchup.roster_id || (!matchups.bye && !matchup.roster_id)}
-                            <img class="avatar{!matchups.bye && !matchup.roster_id ? ' avatarBye': ''}" src={getAvatarFromTeamManagers(leagueTeamManagers, matchup.roster_id, leagueTeamManagers.currentYear)} alt="team avatar" />
-                        {/if}
+                        <div class="avatarNameBlock">
+                            {#if matchup.roster_id || (!matchups.bye && !matchup.roster_id)}
+                                <img class="avatar{!matchups.bye && !matchup.roster_id ? ' avatarBye': ''}" src={getAvatarFromTeamManagers(leagueTeamManagers, matchup.roster_id, leagueTeamManagers.currentYear)} alt="team avatar" />
+                            {/if}
+                            <div class="name{matchups.bye && !matchup.roster_id ? ' bye': ''}">{getPlayoffName(matchup.roster_id, matchups.bye, leagueTeamManagers.currentYear)}</div>
+                        </div>
                         {#if matchup.roster_id}
                             <div class="points">
-                                <div class="actualPoints">{calculatePoints(matchup.points)}</div>
-                                <div class="projectedPoints">{calculatePotentialPoints(matchup.starters, ix, players)}</div>
+                                <span class="projectedPoints">{calculatePotentialPoints(matchup.starters, ix, players)}</span>
+                                <span class="actualPoints">{calculatePoints(matchup.points)}</span>
                             </div>
-                        {:else}
-                            <span />
                         {/if}
                     </div>
-                    <div class="name{matchups.bye && !matchup.roster_id ? ' bye': ''}">{getPlayoffName(matchup.roster_id, matchups.bye, leagueTeamManagers.currentYear)}</div>
                 </div>
             {/each}
         </div>
