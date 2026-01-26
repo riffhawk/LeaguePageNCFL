@@ -102,37 +102,22 @@
         align-items: center;
         margin: 3em 0;
     }
-
-    .consolationBracket {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
 </style>
 
 <div class="brackets">
     <div class="bracket">
         {#each bracket as matchCol, ix}
-            <!-- Show 5th Place next to Semifinals (second to last column) -->
-            {#if ix === bracket.length - 2 && consolations.length > 1}
-                <div class="consolationBracket">
-                    {#each consolations[1] as consolationMatchCol, cix}
-                        <BracketsColumn bind:selected={selected} {leagueTeamManagers} consolationNum={1} matchCol={consolationMatchCol} ix={cix} {players} {playoffsStart} playoffLength={consolations[1].length} {numRosters} consolation={true} losers={selection == 'losers'} />
-                    {/each}
-                </div>
-            {/if}
             <BracketsColumn bind:selected={selected} {leagueTeamManagers} {matchCol} {ix} {players} {playoffsStart} playoffLength={bracket.length} losers={selection == 'losers'} />
-            <!-- Show 3rd Place next to Championship (last column) -->
-            {#if ix === bracket.length - 1 && consolations.length > 0}
-                <div class="consolationBracket">
-                    {#each consolations[0] as consolationMatchCol, cix}
-                        <BracketsColumn bind:selected={selected} {leagueTeamManagers} consolationNum={0} matchCol={consolationMatchCol} ix={cix} {players} {playoffsStart} playoffLength={consolations[0].length} {numRosters} consolation={true} losers={selection == 'losers'} />
-                    {/each}
-                </div>
-            {/if}
         {/each}
     </div>
+
+    {#each consolations as consolation, consolationNum}
+        <div class="bracket">
+            {#each consolation as matchCol, ix}
+                <BracketsColumn bind:selected={selected} {leagueTeamManagers} {consolationNum} {matchCol} {ix} {players} {playoffsStart} playoffLength={consolation.length} {numRosters} consolation={true} losers={selection == 'losers'} />
+            {/each}
+        </div>
+    {/each}
 </div>
 
 <div class="matchupEnclosure" bind:this={el}>
