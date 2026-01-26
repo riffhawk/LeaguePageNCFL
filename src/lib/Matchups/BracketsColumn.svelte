@@ -244,6 +244,11 @@
         box-shadow: 0 0 8px rgba(74, 144, 164, 0.3);
     }
 
+    .championship.selected {
+        border-color: #b8860b;
+        box-shadow: 0 0 8px rgba(184, 134, 11, 0.3);
+    }
+
     .clickable {
         cursor: pointer;
     }
