@@ -127,10 +127,11 @@
 
     {#if consolations.length > 0}
         <div class="consolation-row">
-            {#each consolations as consolation, consolationNum}
+            {#each [...consolations].reverse() as consolation, ix}
+                {@const consolationNum = consolations.length - 1 - ix}
                 <div class="consolation-item">
-                    {#each consolation as matchCol, ix}
-                        <BracketsColumn bind:selected={selected} {leagueTeamManagers} {consolationNum} {matchCol} {ix} {players} {playoffsStart} playoffLength={consolation.length} {numRosters} consolation={true} losers={selection == 'losers'} />
+                    {#each consolation as matchCol, colIx}
+                        <BracketsColumn bind:selected={selected} {leagueTeamManagers} {consolationNum} matchCol={matchCol} ix={colIx} {players} {playoffsStart} playoffLength={consolation.length} {numRosters} consolation={true} losers={selection == 'losers'} />
                     {/each}
                 </div>
             {/each}
