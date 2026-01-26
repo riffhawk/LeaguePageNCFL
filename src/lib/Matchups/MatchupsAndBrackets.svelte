@@ -1,14 +1,14 @@
 
 <script>
-	import LinearProgress from '@smui/linear-progress';
-	import MatchupWeeks from './MatchupWeeks.svelte';
-	import Brackets from './Brackets.svelte';
+        import LinearProgress from '@smui/linear-progress';
+        import MatchupWeeks from './MatchupWeeks.svelte';
+        import Brackets from './Brackets.svelte';
     import Button, { Group, Label } from '@smui/button';
     import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
     import { loadPlayers } from '$lib/utils/helper';
 
-	export let queryWeek, leagueTeamManagersData, matchupsData, bracketsData, playersData;
+        export let queryWeek, leagueTeamManagersData, matchupsData, bracketsData, playersData;
 
     let players, matchupWeeks, year, week, regularSeasonLength, brackets, leagueTeamManagers;
 
@@ -87,11 +87,11 @@
                 <Group variant="outlined">
                     <!-- Championship Bracket -->
                     <Button class="selectionButtons" onclick={() => changeSelection('champions')} variant="{selection == 'champions' ? "raised" : "outlined"}">
-                        <Label>Champions' Bracket</Label>
+                        <Label>Road to Glory</Label>
                     </Button>
                     <!-- Losers Bracket -->
                     <Button class="selectionButtons" onclick={() => changeSelection('losers')} variant="{selection == 'losers' ? "raised" : "outlined"}">
-                        <Label>Losers' Bracket</Label>
+                        <Label>Toilet Bowl</Label>
                     </Button>
                 </Group>
             {/if}
