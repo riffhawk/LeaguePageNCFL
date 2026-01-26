@@ -1,14 +1,14 @@
 <script>
     import Button, { Group, Label } from '@smui/button';
-	import LinearProgress from '@smui/linear-progress';
+        import LinearProgress from '@smui/linear-progress';
     import {loadPlayers, getLeagueTransactions} from '$lib/utils/helper';
-	import Roster from '../Rosters/Roster.svelte';
-	import TransactionsPage from '../Transactions/TransactionsPage.svelte';
+        import Roster from '../Rosters/Roster.svelte';
+        import TransactionsPage from '../Transactions/TransactionsPage.svelte';
     import { goto } from '$app/navigation';
     import ManagerFantasyInfo from './ManagerFantasyInfo.svelte';
     import ManagerAwards from './ManagerAwards.svelte';
     import { onMount } from 'svelte';
-	import { getDatesActive, getRosterIDFromManagerID, getTeamNameFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+        import { getDatesActive, getRosterIDFromManagerID, getTeamNameFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
 
     export let manager, managers, rostersData, leagueTeamManagers, rosterPositions, transactionsData, awards, records;
 
@@ -98,6 +98,8 @@
         font-size: 2.8em;
         margin: 1em 0 0em;
         line-height: 1em;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
     }
 
     h3 {
@@ -155,6 +157,8 @@
         font-size: 0.4em;
         line-height: 1em;
         color: #666;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
     }
 
     .managerNav {
@@ -198,7 +202,7 @@
         }
     }
 
-	@media (max-width: 450px) {
+        @media (max-width: 450px) {
 
         .basicInfo {
             height: 20px;
@@ -211,7 +215,7 @@
         .infoTeam {
             height: 30px;
         }
-	}
+        }
 
     @media (max-width: 370px) {
 
