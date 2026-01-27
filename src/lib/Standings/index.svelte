@@ -72,6 +72,7 @@
         font-weight: 700;
         letter-spacing: -0.02em;
         margin-top: 1.5em;
+        font-size: 1em;
     }
 
     .standingsTable {
