@@ -116,6 +116,8 @@
         text-align: center;
         font-size: 2.4em;
         margin: 1.3em 0 0;
+        font-family: 'Svelte', sans-serif;
+        font-weight: 700;
     }
     h3 {
         text-align: center;
