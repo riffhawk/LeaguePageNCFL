@@ -144,9 +144,9 @@
 
     .foregroundImage {
         position: fixed;
-        top: 50%;
+        top: 0;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
         width: 80%;
         max-width: 900px;
         opacity: 0.12;
