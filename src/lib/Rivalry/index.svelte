@@ -152,6 +152,7 @@
         opacity: 0.12;
         pointer-events: none;
         z-index: 0;
+        clip-path: inset(30px 0 30px 0);
     }
     @media (max-width: 650px) {
         h3 {
