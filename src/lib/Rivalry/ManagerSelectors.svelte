@@ -70,6 +70,7 @@
     .vs {
         display: inline-block;
         margin: 1em 0;
+        font-family: 'Rubik', sans-serif;
     }
     .container {
         display: inline-block;
@@ -87,6 +88,7 @@
         background-repeat: no-repeat;
         text-align: center;
         color: var(--g000);
+        font-family: 'Rubik', sans-serif;
     }
     .left {
         border: 1px solid var(--barChartOne);
