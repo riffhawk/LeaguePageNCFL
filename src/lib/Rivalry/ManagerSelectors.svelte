@@ -7,7 +7,7 @@
     const users = Object.keys(leagueTeamManagers.users);
 
     const rivalries = {
-        "465265505495867392": ["604882221821530112", "333796262096687104"]
+        "825182685528989696": ["1126211909117669376", "1126215688974073856"]
     };
 
     const getUserIdByName = (name) => {
