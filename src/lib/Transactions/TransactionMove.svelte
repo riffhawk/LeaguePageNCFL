@@ -232,40 +232,44 @@
 
     @keyframes slideRight {
         0% {
-            transform: translateX(-15px);
-            opacity: 0.5;
+            transform: translateX(-100%);
+            opacity: 0;
         }
-        50% {
-            transform: translateX(15px);
+        20% {
+            opacity: 1;
+        }
+        80% {
             opacity: 1;
         }
         100% {
-            transform: translateX(-15px);
-            opacity: 0.5;
+            transform: translateX(100%);
+            opacity: 0;
         }
     }
 
     @keyframes slideLeft {
         0% {
-            transform: translateX(15px);
-            opacity: 0.5;
+            transform: translateX(100%);
+            opacity: 0;
         }
-        50% {
-            transform: translateX(-15px);
+        20% {
+            opacity: 1;
+        }
+        80% {
             opacity: 1;
         }
         100% {
-            transform: translateX(15px);
-            opacity: 0.5;
+            transform: translateX(-100%);
+            opacity: 0;
         }
     }
 
     .animateRight {
-        animation: slideRight 3s ease-in-out infinite;
+        animation: slideRight 2.5s ease-in-out infinite;
     }
 
     .animateLeft {
-        animation: slideLeft 3s ease-in-out infinite;
+        animation: slideLeft 2.5s ease-in-out infinite;
     }
 
     @media (max-width: 420px) {
