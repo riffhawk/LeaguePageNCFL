@@ -324,22 +324,21 @@
 
     /* SVG styling */
 
-        .lineParent {
-        top: 0;
-        left: 0;
+    .lineParent {
         position: absolute;
-                overflow: visible;
-                width: 1px;
-                height: 1px;
-                pointer-events: none;
-        }
-
-        .line{
         top: 0;
         left: 0;
-                position: absolute;
-                z-index: 1;
-        }
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .lineParent :global(line) {
+        stroke: #aaa;
+        stroke-width: 2px;
+    }
 
     /* media queries */
         @media (max-width: 1000px) {
@@ -440,13 +439,13 @@
             <!-- Only draw the bracket once for each pair -->
             <svg class="lineParent">
                 <!-- top line of bracket -->
-                <line stroke-width="2px" stroke="#ccc"  x1="{anchors[Math.floor(inx / 2)].xLeft}" y1="{anchors[Math.floor(inx / 2)].yTop}" x2="{anchors[Math.floor(inx / 2)].xMiddle}" y2="{anchors[Math.floor(inx / 2)].yTop}" class="line"/>
+                <line class="line" x1="{anchors[Math.floor(inx / 2)].xLeft}" y1="{anchors[Math.floor(inx / 2)].yTop}" x2="{anchors[Math.floor(inx / 2)].xMiddle}" y2="{anchors[Math.floor(inx / 2)].yTop}" />
                 <!-- vertical line of bracket -->
-                <line stroke-width="2px" stroke="#ccc"  x1="{anchors[Math.floor(inx / 2)].xMiddle}" y1="{anchors[Math.floor(inx / 2)].yTop}" x2="{anchors[Math.floor(inx / 2)].xMiddle}" y2="{anchors[Math.floor(inx / 2)].yBottom}" class="line"/>
+                <line class="line" x1="{anchors[Math.floor(inx / 2)].xMiddle}" y1="{anchors[Math.floor(inx / 2)].yTop}" x2="{anchors[Math.floor(inx / 2)].xMiddle}" y2="{anchors[Math.floor(inx / 2)].yBottom}" />
                 <!-- right line of bracket -->
-                <line stroke-width="2px" stroke="#ccc"  x1="{anchors[Math.floor(inx / 2)].xMiddle}" y1="{anchors[Math.floor(inx / 2)].yMiddle}" x2="{anchors[Math.floor(inx / 2)].xRight}" y2="{anchors[Math.floor(inx / 2)].yMiddle}" class="line"/>
+                <line class="line" x1="{anchors[Math.floor(inx / 2)].xMiddle}" y1="{anchors[Math.floor(inx / 2)].yMiddle}" x2="{anchors[Math.floor(inx / 2)].xRight}" y2="{anchors[Math.floor(inx / 2)].yMiddle}" />
                 <!-- bottom line of bracket -->
-                <line stroke-width="2px" stroke="#ccc"  x1="{anchors[Math.floor(inx / 2)].xLeft}" y1="{anchors[Math.floor(inx / 2)].yBottom}" x2="{anchors[Math.floor(inx / 2)].xMiddle}" y2="{anchors[Math.floor(inx / 2)].yBottom}" class="line"/>
+                <line class="line" x1="{anchors[Math.floor(inx / 2)].xLeft}" y1="{anchors[Math.floor(inx / 2)].yBottom}" x2="{anchors[Math.floor(inx / 2)].xMiddle}" y2="{anchors[Math.floor(inx / 2)].yBottom}" />
             </svg>
         {/if}
     {:else}
