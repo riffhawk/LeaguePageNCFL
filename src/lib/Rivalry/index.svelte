@@ -195,6 +195,7 @@
             <LinearProgress indeterminate />
         </div>
     {:else}
+        <img class="foregroundPaper" src="/crumpled-paper.png" alt="" />
         <div class="center">
             <img class="helmets" src="/rivalry-empty.png" alt="rivalry placeholder" />
         </div>
