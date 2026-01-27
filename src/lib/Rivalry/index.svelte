@@ -1,15 +1,15 @@
 <script>
-	import Matchup from "$lib/Matchups/Matchup.svelte";
-	import TradeTransaction from "$lib/Transactions/TradeTransaction.svelte";
-	import { getLeagueRecords, getLeagueTransactions, getRivalryMatchups, loadPlayers, round } from "$lib/utils/helper";
-	import { getRosterIDFromManagerIDAndYear } from "$lib/utils/helperFunctions/universalFunctions";
-	import LinearProgress from '@smui/linear-progress';
-	import { onMount } from "svelte";
-	import ComparissonBar from "./ComparissonBar.svelte";
-	import ManagerSelectors from "./ManagerSelectors.svelte";
-	import RivalryControls from "./RivalryControls.svelte";
+        import Matchup from "$lib/Matchups/Matchup.svelte";
+        import TradeTransaction from "$lib/Transactions/TradeTransaction.svelte";
+        import { getLeagueRecords, getLeagueTransactions, getRivalryMatchups, loadPlayers, round } from "$lib/utils/helper";
+        import { getRosterIDFromManagerIDAndYear } from "$lib/utils/helperFunctions/universalFunctions";
+        import LinearProgress from '@smui/linear-progress';
+        import { onMount } from "svelte";
+        import ComparissonBar from "./ComparissonBar.svelte";
+        import ManagerSelectors from "./ManagerSelectors.svelte";
+        import RivalryControls from "./RivalryControls.svelte";
 
-	export let leagueTeamManagers, playersInfo, transactionsInfo, recordsInfo, playerOne, playerTwo;
+        export let leagueTeamManagers, playersInfo, transactionsInfo, recordsInfo, playerOne, playerTwo;
 
     // refresh stale data
     onMount(async () => {
@@ -127,12 +127,12 @@
         max-width: 750px;
         margin: 2em auto;
     }
-	.loading {
-		display: block;
-		width: 85%;
-		max-width: 500px;
-		margin: 80px auto;
-	}
+        .loading {
+                display: block;
+                width: 85%;
+                max-width: 500px;
+                margin: 80px auto;
+        }
     .center {
         text-align: center;
     }
@@ -187,23 +187,10 @@
             <Matchup key={`${playerOne}-${playerTwo}`} ix={selected} active={selected} {year} {matchup} players={playersInfo.players} {displayWeek} expandOverride={true} {leagueTeamManagers} />
         </div>
     {/if}
-    <div class="scoreBoard">
-        {#if playerOne && playerTwo }
-            <!-- trades -->
-            <h3>Trade History</h3>
-            <div class="trades">
-                {#each tradeHistory as transaction }
-                    <TradeTransaction players={playersInfo.players} {transaction} {leagueTeamManagers} />
-                {:else}
-                    No trades yet...
-                {/each}
-            </div>
-        {/if}
-    </div>
     {#if playerOne && playerTwo && playerOneRecords && playerTwoRecords }
         <div class="scoreBoard">
             <!-- record comparisson -->
-            <h3>Performance Comparisson</h3>
+            <h3>Performance Comparison</h3>
             <ComparissonBar
                 sideOne={parseFloat(round(
                     playerOneRecords.wins/(playerOneRecords.wins + playerOneRecords.ties + playerOneRecords.losses) * 100
@@ -252,4 +239,17 @@
             />
         </div>
     {/if}
+    <div class="scoreBoard">
+        {#if playerOne && playerTwo }
+            <!-- trades -->
+            <h3>Trade History</h3>
+            <div class="trades">
+                {#each tradeHistory as transaction }
+                    <TradeTransaction players={playersInfo.players} {transaction} {leagueTeamManagers} />
+                {:else}
+                    No trades yet...
+                {/each}
+            </div>
+        {/if}
+    </div>
 {/if}
