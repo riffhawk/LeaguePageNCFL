@@ -142,6 +142,18 @@
         margin: -35px auto calc(2em - 30px - 35px);
     }
 
+    .foregroundPaper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.15;
+        pointer-events: none;
+        z-index: 0;
+    }
+
     .foregroundImage {
         position: fixed;
         top: 120px;
@@ -151,7 +163,7 @@
         max-width: 900px;
         opacity: 0.12;
         pointer-events: none;
-        z-index: 0;
+        z-index: 1;
         clip-path: inset(30px 0 30px 0);
     }
     @media (max-width: 650px) {
@@ -188,6 +200,7 @@
         </div>
     {/if}
 {:else}
+    <img class="foregroundPaper" src="/crumpled-paper.png" alt="" />
     <img class="foregroundImage" src="/rivalry-empty.png" alt="" />
     {#if rivalry?.matchups.length > 0 }
         <div class="scoreBoard">
