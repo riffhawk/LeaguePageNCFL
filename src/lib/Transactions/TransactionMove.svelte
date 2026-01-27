@@ -1,14 +1,14 @@
 <script>
-	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+        import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
 
-	export let move, leagueTeamManagers, players, season;
+        export let move, leagueTeamManagers, players, season;
 
-	const getAvatar = (pos, player) => {
-		if(pos == 'DEF') {
-			return `background-image: url(https://sleepercdn.com/images/team_logos/nfl/${player.toLowerCase()}.png)`;
-		}
-		return `background-image: url(https://sleepercdn.com/content/nfl/players/thumb/${player}.jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp)`;
-	}
+        const getAvatar = (pos, player) => {
+                if(pos == 'DEF') {
+                        return `background-image: url(https://sleepercdn.com/images/team_logos/nfl/${player.toLowerCase()}.png)`;
+                }
+                return `background-image: url(https://sleepercdn.com/content/nfl/players/thumb/${player}.jpg), url(https://sleepercdn.com/images/v2/icons/player_default.webp)`;
+        }
 
     let origin, dest;
 
@@ -66,24 +66,24 @@
 </script>
 
 <style>
-	.move {
-		text-align: center;
+        .move {
+                text-align: center;
         padding: 0;
         vertical-align: top;
-	}
+        }
 
-	.originalOwner {
-		color: #aaa;
-		font-style: italic;
-	}
+        .originalOwner {
+                color: #aaa;
+                font-style: italic;
+        }
 
-	.line {
-		height: 2px;
+        .line {
+                height: 2px;
         width: 50%;
         background-color: var(--aaa);
         position: absolute;
         top: 34px;
-	}
+        }
 
     .lineL {
         left: 0;
@@ -93,9 +93,9 @@
         right: 0;
     }
 
-	.indicator {
-		vertical-align: middle;
-	}
+        .indicator {
+                vertical-align: middle;
+        }
 
     .nameHolder {
         margin: 4px 0 0;
@@ -230,6 +230,44 @@
         color: var(--ccc);
     }
 
+    @keyframes slideRight {
+        0% {
+            transform: translateX(-15px);
+            opacity: 0.5;
+        }
+        50% {
+            transform: translateX(15px);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(-15px);
+            opacity: 0.5;
+        }
+    }
+
+    @keyframes slideLeft {
+        0% {
+            transform: translateX(15px);
+            opacity: 0.5;
+        }
+        50% {
+            transform: translateX(-15px);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(15px);
+            opacity: 0.5;
+        }
+    }
+
+    .animateRight {
+        animation: slideRight 3s ease-in-out infinite;
+    }
+
+    .animateLeft {
+        animation: slideLeft 3s ease-in-out infinite;
+    }
+
     @media (max-width: 420px) {
         .nameHolder {
             font-size: 0.7em;
@@ -238,13 +276,13 @@
 </style>
 
 <tr>
-	{#each move as cell, ix}
+        {#each move as cell, ix}
         <td class="move">
             <div class="cellParent">
                 <div class="line lineL {checkL(cell, ix) ? "hidden" : ""}" />
                 <div class="line lineR {checkR(cell, ix) ? "hidden" : ""}" />
                 {#if cell && cell.player}
-                    <div class="playerSlot">
+                    <div class="playerSlot {dest > origin ? 'animateRight' : 'animateLeft'}">
                             <div class="tradeSlot playerAvatar" style="border-color: var(--{players[cell.player].pos}); {getAvatar(players[cell.player].pos, cell.player)}">
                                 <i class="indicator material-icons" aria-hidden="true">add_circle</i>
                             </div>
@@ -260,7 +298,7 @@
                         </div>
                     </div>
                 {:else if cell && cell.pick}
-                    <div class="playerSlot">
+                    <div class="playerSlot {dest > origin ? 'animateRight' : 'animateLeft'}">
                         <div class="avatarHolder">
                             <div class="tradeSlot pick">
                                 <span class="round">Round</span>
@@ -280,7 +318,7 @@
                         </div>
                     </div>
                 {:else if cell && cell.budget}
-                    <div class="playerSlot">
+                    <div class="playerSlot {dest > origin ? 'animateRight' : 'animateLeft'}">
                         <div class="avatarHolder">
                             <div class="tradeSlot budgetHolder">
                                 <span class="budget">faab</span>
@@ -306,5 +344,5 @@
                 {/if}
             </div>
         </td>
-	{/each}
+        {/each}
 </tr>
