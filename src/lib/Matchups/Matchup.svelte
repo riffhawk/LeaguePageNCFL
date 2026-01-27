@@ -1,6 +1,6 @@
 <script>
     import {round} from '$lib/utils/helper'
-	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+        import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
 
     export let matchup, players, active, ix, displayWeek, expandOverride=false, matchupWeek, leagueTeamManagers, year;
 
@@ -126,7 +126,7 @@
         border-radius: 10px;
         opacity: 0.8;
         cursor: pointer;
-		transition: opacity 0.5s;
+                transition: opacity 0.5s;
         overflow: hidden;
     }
 
@@ -187,66 +187,66 @@
         font-style: italic;
     }
 
-	.avatar {
-		vertical-align: middle;
-		border-radius: 50%;
-		height: 35px;
-		width: 35px;
-		margin: 0;
-		border: 0.25px solid #777;
+        .avatar {
+                vertical-align: middle;
+                border-radius: 50%;
+                height: 35px;
+                width: 35px;
+                margin: 0;
+                border: 0.25px solid #777;
         background-color: #eee;
-	}
+        }
 
-	.playerAvatar {
+        .playerAvatar {
         position: relative;
-		vertical-align: middle;
-		height: 45px;
-		width: 45px;
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: auto 45px;
-	}
-	.pos {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 8px;
+                vertical-align: middle;
+                height: 45px;
+                width: 45px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: auto 45px;
+        }
+        .pos {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
         max-width: 32px;
         min-width: 32px;
-		height: 32px;
-	}
+                height: 32px;
+        }
 
-	.QB {
-		background-color: var(--QB);
-	}
+        .QB {
+                background-color: var(--QB);
+        }
 
-	.WR {
-		background-color: var(--WR);
-	}
+        .WR {
+                background-color: var(--WR);
+        }
 
-	.RB {
-		background-color: var(--RB);
-	}
+        .RB {
+                background-color: var(--RB);
+        }
 
-	.TE {
-		background-color: var(--TE);
-	}
+        .TE {
+                background-color: var(--TE);
+        }
 
-	.FLEX {
-		background: linear-gradient(to right, var(--WR), var(--WR) 33.33%, var(--RB) 33.33%, var(--RB) 66.66%, var(--TE) 66.66%);
-	}
+        .FLEX {
+                background: linear-gradient(to right, var(--WR), var(--WR) 33.33%, var(--RB) 33.33%, var(--RB) 66.66%, var(--TE) 66.66%);
+        }
 
-	.WRRB {
-		background: linear-gradient(to right, var(--WR), var(--WR) 50%, var(--RB) 50%);
-	}
+        .WRRB {
+                background: linear-gradient(to right, var(--WR), var(--WR) 50%, var(--RB) 50%);
+        }
 
-	.K {
-		background-color: var(--K);
-	}
+        .K {
+                background-color: var(--K);
+        }
 
-	.DEF {
-		background-color: var(--DEF);
-	}
+        .DEF {
+                background-color: var(--DEF);
+        }
 
     .DL, .DE, .DT {
         background-color: var(--DL);
@@ -272,7 +272,7 @@
         border-left: 1px solid #bbb;
         border-right: 1px solid #bbb;
         border-bottom: 1px solid #bbb;
-		transition: max-height 0.4s;
+                transition: max-height 0.4s;
     }
 
     .line {
@@ -485,11 +485,11 @@
         <div class="opponent home{winning == "home" ? " homeGlow" : ""}">
             <img class="avatar" src={home.manager.avatar} alt="home team avatar" />
             <div class="name">{home.manager.name}</div>
-            <div class="totalPoints totalPointsR">{round(homePointsTotal)}<div class="totalProjection">{round(homeProjectionTotal)}</div></div>
+            <div class="totalPoints totalPointsR">{round(homePointsTotal)}</div>
         </div>
         <img class="divider" src="/{winning}Divider.jpg" alt="divider" />
         <div class="opponent away{winning == "away" ? " awayGlow" : ""}">
-            <div class="totalPoints totalPointsL">{round(awayPointsTotal)}<div class="totalProjection">{round(awayProjectionTotal)}</div></div>
+            <div class="totalPoints totalPointsL">{round(awayPointsTotal)}</div>
             <div class="name" >{away.manager.name}</div>
             <img class="avatar" src={away.manager.avatar} alt="away team avatar" />
         </div>
@@ -521,7 +521,7 @@
                             {/if}
                         {/if}
                     </div>
-                    <span class="points pointsR">{round(player.home.points)}<div class="totalProjection">{round(player.home.projection)}</div></span>
+                    <span class="points pointsR">{round(player.home.points)}</span>
                 </div>
 
                 <div class="dividerLine" />
@@ -549,7 +549,7 @@
                         {/if}
                         <span class="playerInfo playerName playerNameAway">{player.away.name}</span>
                     </div>
-                    <span class="points pointsL">{round(player.away.points)}<div class="totalProjection">{round(player.away.projection)}</div></span>
+                    <span class="points pointsL">{round(player.away.points)}</span>
                 </div>
             </div>
         {/each}
