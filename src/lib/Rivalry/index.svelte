@@ -139,7 +139,7 @@
     .helmets {
         width: 100%;
         max-width: 1000px;
-        margin: 0 auto calc(2em - 30px);
+        margin: -35px auto calc(2em - 30px - 35px);
     }
 
     .foregroundImage {
