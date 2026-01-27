@@ -10,11 +10,6 @@
         .holder {
                 position: relative;
                 z-index: 1;
-                background-image: url("/rosters-background.png");
-                background-size: cover;
-                background-position: center;
-                background-repeat: repeat;
-                min-height: 100vh;
         }
         .loading {
                 display: block;
