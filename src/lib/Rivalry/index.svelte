@@ -137,9 +137,21 @@
         text-align: center;
     }
     .helmets {
-        width: 80%;
-        max-width: 800px;
+        width: 100%;
+        max-width: 1000px;
         margin: 0 auto 2em;
+    }
+
+    .foregroundImage {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 900px;
+        opacity: 0.2;
+        pointer-events: none;
+        z-index: 0;
     }
     @media (max-width: 650px) {
         h3 {
@@ -175,6 +187,7 @@
         </div>
     {/if}
 {:else}
+    <img class="foregroundImage" src="/rivalry-empty.png" alt="" />
     {#if rivalry?.matchups.length > 0 }
         <div class="scoreBoard">
             <h3>Head to Head</h3>
