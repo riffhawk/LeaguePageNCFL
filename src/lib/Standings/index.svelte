@@ -1,8 +1,8 @@
 <script>
     import { leagueName, round } from '$lib/utils/helper';
-	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
-  	import DataTable, { Head, Body, Row, Cell } from '@smui/data-table';
-	import LinearProgress from '@smui/linear-progress';
+        import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+        import DataTable, { Head, Body, Row, Cell } from '@smui/data-table';
+        import LinearProgress from '@smui/linear-progress';
     import { onMount } from 'svelte';
     import Standing from './Standing.svelte';
 
@@ -54,6 +54,7 @@
         width: 85%;
         max-width: 500px;
         margin: 80px auto;
+        font-family: 'Rubik', sans-serif;
     }
 
     :global(.center) {
@@ -69,12 +70,18 @@
         font-size: 2.2em;
         line-height: 1.3em;
         margin: 1.5em 0 2em;
+        font-family: 'Rubik', sans-serif;
     }
 
     .standingsTable {
         max-width: 100%;
         overflow-x: scroll;
         margin: 0.5em 0 5em;
+        font-family: 'Rubik', sans-serif;
+    }
+
+    .standingsTable :global(*) {
+        font-family: 'Rubik', sans-serif;
     }
 </style>
 
@@ -102,7 +109,7 @@
                 </Row>
             </Head>
             <Body>
-                <!-- 	Standing	 -->
+                <!--    Standing         -->
                 {#each standings as standing}
                     <Standing {columnOrder} {standing} {leagueTeamManagers} team={getTeamFromTeamManagers(leagueTeamManagers, standing.rosterID)} />
                 {/each}
