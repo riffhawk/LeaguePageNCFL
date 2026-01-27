@@ -1,12 +1,38 @@
 <script>
-	import { goto } from "$app/navigation";
-	import { getTeamData } from "$lib/utils/helperFunctions/universalFunctions";
+        import { goto } from "$app/navigation";
+        import { getTeamData } from "$lib/utils/helperFunctions/universalFunctions";
 
     export let playerOne, playerTwo, leagueTeamManagers;
 
     const users = Object.keys(leagueTeamManagers.users);
 
+    const rivalries = {
+        "465265505495867392": ["604882221821530112", "333796262096687104"]
+    };
+
+    const getUserIdByName = (name) => {
+        return Object.entries(leagueTeamManagers.users).find(
+            ([id, user]) => user.display_name === name
+        )?.[0];
+    };
+
+    const getRivals = (selectedPlayer) => {
+        if (!selectedPlayer) return [];
+        const rivalIds = rivalries[selectedPlayer] || [];
+        return rivalIds;
+    };
+
+    const getOtherTeams = (selectedPlayer, excludePlayer) => {
+        const rivalIds = getRivals(selectedPlayer);
+        return users.filter(u => u !== excludePlayer && !rivalIds.includes(u) && u !== selectedPlayer);
+    };
+
+    $: rivalsOne = getRivals(playerOne).filter(u => u !== playerTwo);
+    $: othersOne = getOtherTeams(playerOne, playerTwo);
     $: usersOne = users.filter(u => u !== playerTwo);
+    
+    $: rivalsTwo = getRivals(playerTwo).filter(u => u !== playerOne);
+    $: othersTwo = getOtherTeams(playerTwo, playerOne);
     $: usersTwo = users.filter(u => u !== playerOne);
 
     const analyzeRivalry = (p1, p2) => {
@@ -129,9 +155,22 @@
         <div class="container">
             <select class="selectInput left" id="managerOne" name="managerOne" bind:value={playerOne}>
                 <option value={null}>Select a manager</option>
-                {#each usersOne as user}
-                    <option value={user}>{leagueTeamManagers.users[user].display_name}</option>
-                {/each}
+                {#if playerTwo && rivalsTwo.length > 0}
+                    <optgroup label="Rivals:">
+                        {#each rivalsTwo as user}
+                            <option value={user}>{leagueTeamManagers.users[user].display_name}</option>
+                        {/each}
+                    </optgroup>
+                    <optgroup label="Other teams:">
+                        {#each othersTwo as user}
+                            <option value={user}>{leagueTeamManagers.users[user].display_name}</option>
+                        {/each}
+                    </optgroup>
+                {:else}
+                    {#each usersOne as user}
+                        <option value={user}>{leagueTeamManagers.users[user].display_name}</option>
+                    {/each}
+                {/if}
             </select>
             {#if playerOne}
                 <img class="avatar avatarLeft" src="{getTeamData(leagueTeamManagers.users, playerOne).avatar}"  alt="manager one avatar"/>
@@ -143,11 +182,24 @@
     <!-- manager 2 -->
     <div class="manager">
         <div class="container">
-            <select class="selectInput right" id="managerOne" name="managerOne" bind:value={playerTwo}>
+            <select class="selectInput right" id="managerTwo" name="managerTwo" bind:value={playerTwo}>
                 <option value={null}>Select a manager</option>
-                {#each usersTwo as user}
-                    <option value={user}>{leagueTeamManagers.users[user].display_name}</option>
-                {/each}
+                {#if playerOne && rivalsOne.length > 0}
+                    <optgroup label="Rivals:">
+                        {#each rivalsOne as user}
+                            <option value={user}>{leagueTeamManagers.users[user].display_name}</option>
+                        {/each}
+                    </optgroup>
+                    <optgroup label="Other teams:">
+                        {#each othersOne as user}
+                            <option value={user}>{leagueTeamManagers.users[user].display_name}</option>
+                        {/each}
+                    </optgroup>
+                {:else}
+                    {#each usersTwo as user}
+                        <option value={user}>{leagueTeamManagers.users[user].display_name}</option>
+                    {/each}
+                {/if}
             </select>
             {#if playerTwo}
                 <img class="avatar avatarRight" src="{getTeamData(leagueTeamManagers.users, playerTwo).avatar}"  alt="manager two avatar"/>
