@@ -239,9 +239,7 @@
     }
 
     .selected {
-        background-color: #f0f7ff;
-        border-color: #4a90a4;
-        box-shadow: 0 0 8px rgba(74, 144, 164, 0.3);
+        /* No special styling for selected state */
     }
 
     .championship.selected {
