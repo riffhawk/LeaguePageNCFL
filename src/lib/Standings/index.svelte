@@ -67,10 +67,11 @@
     }
 
     h1 {
-        font-size: 2.2em;
-        line-height: 1.3em;
-        margin: 1.5em 0 2em;
-        font-family: 'Rubik', sans-serif;
+        margin-bottom: 0.25rem;
+        font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-top: 1.5em;
     }
 
     .standingsTable {
