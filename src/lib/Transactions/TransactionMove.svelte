@@ -232,46 +232,54 @@
 
     @keyframes slideRight {
         0% {
-            transform: translateX(-80px);
+            transform: translateX(-120px);
             opacity: 0;
         }
-        30% {
+        10% {
             opacity: 1;
         }
-        70% {
+        60% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        90% {
             transform: translateX(0);
             opacity: 1;
         }
         100% {
             transform: translateX(0);
-            opacity: 1;
+            opacity: 0;
         }
     }
 
     @keyframes slideLeft {
         0% {
-            transform: translateX(80px);
+            transform: translateX(120px);
             opacity: 0;
         }
-        30% {
+        10% {
             opacity: 1;
         }
-        70% {
+        60% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        90% {
             transform: translateX(0);
             opacity: 1;
         }
         100% {
             transform: translateX(0);
-            opacity: 1;
+            opacity: 0;
         }
     }
 
     .animateRight {
-        animation: slideRight 2s ease-out infinite;
+        animation: slideRight 2.5s ease-out infinite;
     }
 
     .animateLeft {
-        animation: slideLeft 2s ease-out infinite;
+        animation: slideLeft 2.5s ease-out infinite;
     }
 
     @media (max-width: 420px) {
