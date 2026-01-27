@@ -149,7 +149,7 @@
         transform: translate(-50%, -50%);
         width: 80%;
         max-width: 900px;
-        opacity: 0.2;
+        opacity: 0.12;
         pointer-events: none;
         z-index: 0;
     }
