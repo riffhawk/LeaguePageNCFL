@@ -52,14 +52,25 @@
         margin: 0 auto;
         justify-content: space-between;
     }
-    @media (max-width: 650px) {
+    @media (max-width: 768px) {
+        .gray_bar, .stats {
+            width: 90%;
+        }
         h4 {
             font-size: 1.2em;
+            margin: 8px;
         }
     }
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
+        .gray_bar, .stats {
+            width: 95%;
+        }
         h4 {
-            font-size: 1.1em;
+            font-size: 1em;
+            margin: 6px;
+        }
+        .stats {
+            font-size: 0.85em;
         }
     }
 </style>

@@ -85,6 +85,27 @@
     .standingsTable :global(*) {
         font-family: 'Rubik', sans-serif;
     }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 0.9em;
+            margin-top: 1em;
+            padding: 0 0.5em;
+        }
+        .standingsTable {
+            margin: 0.25em 0 3em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 0.8em;
+        }
+        .loading {
+            width: 95%;
+            margin: 40px auto;
+        }
+    }
 </style>
 
 <h1>{year ?? ''} {leagueName} Standings</h1>

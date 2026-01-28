@@ -169,17 +169,47 @@
         z-index: 1;
         clip-path: inset(30px 0 30px 0);
     }
-    @media (max-width: 650px) {
-        h3 {
-            font-size: 1.6em;
+    @media (max-width: 768px) {
+        .scoreBoard {
+            width: 98%;
+            padding: 1.5em 0.5em;
+            margin: 1em auto;
         }
-    }
-    @media (max-width: 400px) {
         h2 {
             font-size: 2em;
+            margin: 1em 0 0;
         }
         h3 {
-            font-size: 1.3em;
+            font-size: 1.5em;
+            margin: 15px 0 12px;
+        }
+        .trades {
+            width: 98%;
+            margin: 1em auto;
+        }
+        .helmets {
+            width: 95%;
+            margin: -20px auto calc(1em - 20px);
+        }
+        .foregroundImage {
+            width: 95%;
+            top: 100px;
+        }
+    }
+    @media (max-width: 480px) {
+        .scoreBoard {
+            padding: 1em 0.25em;
+            border-radius: 12px;
+        }
+        h2 {
+            font-size: 1.6em;
+        }
+        h3 {
+            font-size: 1.2em;
+        }
+        .loading {
+            width: 95%;
+            margin: 40px auto;
         }
     }
 </style>

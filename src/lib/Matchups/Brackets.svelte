@@ -116,6 +116,33 @@
         flex-direction: column;
         align-items: center;
     }
+
+    @media (max-width: 768px) {
+        .brackets {
+            padding: 1em 0.5em;
+            margin: 1em 0 4em;
+        }
+        .consolation-row {
+            gap: 1.5em;
+        }
+        .matchupEnclosure {
+            padding: 1em 0;
+            margin-bottom: 1em;
+        }
+        .buttonHolder {
+            margin: 2em 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .brackets {
+            padding: 0.5em 0.25em;
+            border-radius: 6px;
+        }
+        .consolation-row {
+            gap: 1em;
+        }
+    }
 </style>
 
 <div class="brackets">
