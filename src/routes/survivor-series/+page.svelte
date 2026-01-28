@@ -358,13 +358,10 @@
     }
     
     .page-footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
         text-align: center;
+        margin-top: -60px;
         padding: 0;
-        margin: 0;
+        position: relative;
         z-index: 10;
         pointer-events: none;
     }
@@ -380,6 +377,10 @@
     @media (max-width: 768px) {
         .team-name {
             max-width: 100px;
+        }
+        
+        .page-footer {
+            margin-top: -40px;
         }
         
         .footer-image {
