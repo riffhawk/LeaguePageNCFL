@@ -202,11 +202,11 @@
         font-weight: 600;
         font-size: 0.8em;
         text-transform: uppercase;
-        color: #00316b;
-        background: #f5f5f5;
+        color: #ffffff;
+        background: #2d2d2d;
         padding: 0.8em 0.6em;
         text-align: center;
-        border-bottom: 2px solid #e0e0e0;
+        border-bottom: 2px solid #1a1a1a;
         white-space: nowrap;
     }
     
@@ -234,7 +234,7 @@
     }
     
     tr:hover {
-        background: #f9f9f9;
+        background: #f5f7fa;
     }
     
     .team-cell {
@@ -311,7 +311,7 @@
     }
     
     .sidebar-header {
-        background: #000000;
+        background: #2d2d2d;
         color: white;
         padding: 0.5em 1em;
     }
@@ -341,7 +341,7 @@
         align-items: center;
         gap: 8px;
         padding: 0.5em;
-        background: #f8f8f8;
+        background: #f0f3f6;
         border-radius: 8px;
         margin-bottom: 0.5em;
         font-family: 'Rubik', sans-serif;
@@ -359,7 +359,7 @@
     }
     
     .graveyard-info {
-        color: #e74c3c;
+        color: #6b8ba4;
         font-weight: 600;
         font-size: 0.8em;
     }
@@ -369,8 +369,8 @@
         align-items: center;
         gap: 8px;
         padding: 0.5em;
-        background: #fff8e6;
-        border-left: 3px solid #f39c12;
+        background: #f5f7fa;
+        border-left: 3px solid #6b8ba4;
         border-radius: 0 8px 8px 0;
         margin-bottom: 0.5em;
         font-family: 'Rubik', sans-serif;
@@ -388,7 +388,7 @@
     }
     
     .close-call-info {
-        color: #f39c12;
+        color: #4a6b82;
         font-weight: 600;
         font-size: 0.8em;
     }
