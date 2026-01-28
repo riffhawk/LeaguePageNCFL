@@ -289,13 +289,13 @@
     }
     
     .sidebar-header {
-        background: #00316b;
+        background: #000000;
         color: white;
         padding: 0.8em 1em;
     }
     
     .sidebar-header h3 {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Rubik', sans-serif;
         font-weight: 700;
         font-size: 1em;
         margin: 0;
