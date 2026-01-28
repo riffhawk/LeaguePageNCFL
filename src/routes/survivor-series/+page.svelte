@@ -242,6 +242,10 @@
     .score {
         font-weight: 500;
         color: #333;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        white-space: nowrap;
     }
     
     .score.danger {
@@ -266,10 +270,9 @@
     }
     
     .eliminated-icon {
-        width: 18px;
-        height: 18px;
-        margin-left: 4px;
-        vertical-align: middle;
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
     }
     
     .sidebar {
