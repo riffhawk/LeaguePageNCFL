@@ -72,7 +72,7 @@ export const tabs = [
                 dest: '/luck-rankings',
             },
             {
-                icon: 'skull',
+                icon: 'dangerous',
                 label: 'Survivor Series',
                 dest: '/survivor-series',
             },
