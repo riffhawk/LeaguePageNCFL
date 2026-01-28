@@ -270,6 +270,8 @@
         align-items: center;
         gap: 0.6em;
         flex: 1;
+        min-width: 0;
+        overflow: hidden;
     }
 
     .avatarPointsBlock {
@@ -282,9 +284,12 @@
     .name {
         font-size: 0.9em;
         line-height: 1.2em;
-        word-break: break-word;
         color: #333;
         font-family: 'Rubik', sans-serif;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
     }
 
     .bye {
