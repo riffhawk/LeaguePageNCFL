@@ -228,23 +228,25 @@
     .position-stat-card {
         flex: 1;
         max-width: 90px;
-        padding: 0.35em 0.4em;
-        border-radius: 6px;
+        padding: 0.15em 0.4em;
+        border-radius: 5px;
         text-align: center;
         color: white;
         font-family: 'Rubik', sans-serif;
     }
     
     .position-stat-card .pos-name {
-        font-size: 0.8em;
+        font-size: 0.75em;
         font-weight: 700;
-        margin-bottom: 0.1em;
+        margin-bottom: 0;
+        line-height: 1.2;
     }
     
     .position-stat-card .pos-points {
-        font-size: 0.7em;
+        font-size: 0.65em;
         font-weight: 500;
         opacity: 0.95;
+        line-height: 1.2;
     }
     
     .percentile-green {
