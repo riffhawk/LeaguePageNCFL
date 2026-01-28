@@ -320,7 +320,7 @@
             {/each}
             
             {#key animationKey}
-                <g in:scale={{ duration: 600, start: 0, opacity: 0 }} style="transform-origin: {centerX}px {centerY}px;">
+                <g in:scale={{ duration: 1800, start: 0, opacity: 0 }} style="transform-origin: {centerX}px {centerY}px;">
                     <polygon 
                         class="data-polygon"
                         points={generatePolygonPoints(positionData, centerX, centerY, maxRadius)}
