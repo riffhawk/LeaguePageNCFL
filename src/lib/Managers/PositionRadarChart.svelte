@@ -1,5 +1,4 @@
 <script>
-    import { onMount } from 'svelte';
     import { fade, scale } from 'svelte/transition';
     
     export let teamId;
@@ -7,6 +6,7 @@
     let positionData = [];
     let loading = true;
     let currentSeason = new Date().getFullYear();
+    let cachedJson = null;
     
     const positions = ['QB', 'RB', 'WR', 'TE', 'FLEX', 'K', 'DEF'];
     const positionColors = {
@@ -19,12 +19,15 @@
         'DEF': '#e67e22'
     };
     
-    onMount(async () => {
+    async function loadPositionData(id) {
+        loading = true;
         try {
-            const response = await fetch('/posRanks.json');
-            const json = await response.json();
+            if (!cachedJson) {
+                const response = await fetch('/posRanks.json');
+                cachedJson = await response.json();
+            }
             
-            const teamData = json.data.filter(d => d.team_id === teamId);
+            const teamData = cachedJson.data.filter(d => d.team_id === id);
             
             positionData = positions.map(pos => {
                 const match = teamData.find(d => d.player_position_fantasy === pos);
@@ -39,7 +42,11 @@
             console.error('Error loading position data:', e);
         }
         loading = false;
-    });
+    }
+    
+    $: if (teamId !== undefined) {
+        loadPositionData(teamId);
+    }
     
     function getStrengthScore(rank, totalTeams) {
         return ((totalTeams - rank + 1) / totalTeams) * 100;
