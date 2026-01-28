@@ -78,6 +78,14 @@
         return 'average';
     }
     
+    function getPercentileColor(rank, totalTeams) {
+        const percentile = (rank / totalTeams) * 100;
+        if (percentile <= 25) return 'percentile-green';
+        if (percentile <= 50) return 'percentile-yellow';
+        if (percentile <= 75) return 'percentile-orange';
+        return 'percentile-red';
+    }
+    
     const centerX = 150;
     const centerY = 150;
     const maxRadius = 100;
@@ -204,6 +212,72 @@
             font-size: 8px;
         }
     }
+    
+    .position-stats-container {
+        margin-top: 1.5em;
+        padding: 0 0.5em;
+    }
+    
+    .position-stats-row {
+        display: flex;
+        justify-content: center;
+        gap: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .position-stat-card {
+        flex: 1;
+        max-width: 90px;
+        padding: 0.6em 0.4em;
+        border-radius: 8px;
+        text-align: center;
+        color: white;
+        font-family: 'Rubik', sans-serif;
+    }
+    
+    .position-stat-card .pos-name {
+        font-size: 0.85em;
+        font-weight: 700;
+        margin-bottom: 0.2em;
+    }
+    
+    .position-stat-card .pos-points {
+        font-size: 0.75em;
+        font-weight: 500;
+        opacity: 0.95;
+    }
+    
+    .percentile-green {
+        background: #27ae60;
+    }
+    
+    .percentile-yellow {
+        background: #f1c40f;
+        color: #333;
+    }
+    
+    .percentile-orange {
+        background: #e67e22;
+    }
+    
+    .percentile-red {
+        background: #c0392b;
+    }
+    
+    @media (max-width: 480px) {
+        .position-stat-card {
+            max-width: 70px;
+            padding: 0.5em 0.3em;
+        }
+        
+        .position-stat-card .pos-name {
+            font-size: 0.75em;
+        }
+        
+        .position-stat-card .pos-points {
+            font-size: 0.65em;
+        }
+    }
 </style>
 
 <div class="radar-container">
@@ -270,6 +344,25 @@
             <div class="legend-item">
                 <span class="legend-dot weakness-dot"></span>
                 <span>Weakness</span>
+            </div>
+        </div>
+        
+        <div class="position-stats-container">
+            <div class="position-stats-row">
+                {#each positionData.slice(0, 3) as data}
+                    <div class="position-stat-card {getPercentileColor(data.rank, data.totalTeams)}">
+                        <div class="pos-name">{data.position}</div>
+                        <div class="pos-points">{data.points.toFixed(1)} pts</div>
+                    </div>
+                {/each}
+            </div>
+            <div class="position-stats-row">
+                {#each positionData.slice(3, 7) as data}
+                    <div class="position-stat-card {getPercentileColor(data.rank, data.totalTeams)}">
+                        <div class="pos-name">{data.position}</div>
+                        <div class="pos-points">{data.points.toFixed(1)} pts</div>
+                    </div>
+                {/each}
             </div>
         </div>
     {:else}
