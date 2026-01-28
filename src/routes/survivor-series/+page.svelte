@@ -1,86 +1,77 @@
 <script>
-    import { onMount } from 'svelte';
+    export let data;
     
-    let data = [];
-    let loading = true;
-    let error = null;
-    let weeks = [];
     let teams = [];
+    let weeks = [];
     let graveyard = [];
     let closeCalls = [];
     
-    const API_URL = 'https://fantasygenius-fastapi.azurewebsites.net/latest_week_team_ranks/1082055802648637440/2025';
-    
-    onMount(async () => {
-        try {
-            const response = await fetch(API_URL);
-            if (!response.ok) throw new Error('Failed to fetch data');
-            const json = await response.json();
-            data = json.data || [];
-            
-            const uniqueWeeks = [...new Set(data.map(d => d.week))].sort((a, b) => a - b);
-            weeks = uniqueWeeks;
-            
-            const teamMap = {};
-            data.forEach(d => {
-                if (!teamMap[d.team_id]) {
-                    teamMap[d.team_id] = {
-                        team_id: d.team_id,
-                        team_name: d.team_name || d.display_name,
-                        username: d.username,
-                        logo_url: d.logo_url,
-                        weeks: {},
-                        eliminated: false,
-                        eliminatedWeek: null
-                    };
-                }
-                teamMap[d.team_id].weeks[d.week] = {
-                    points: d.team_fantasy_points,
-                    rank: d.team_fantasy_points_rank
+    $: {
+        const rawData = data.data || [];
+        
+        const uniqueWeeks = [...new Set(rawData.map(d => d.week))].sort((a, b) => a - b);
+        weeks = uniqueWeeks;
+        
+        const teamMap = {};
+        rawData.forEach(d => {
+            if (!teamMap[d.team_id]) {
+                teamMap[d.team_id] = {
+                    team_id: d.team_id,
+                    team_name: d.team_name || d.display_name,
+                    username: d.username,
+                    logo_url: d.logo_url,
+                    weeks: {},
+                    eliminated: false,
+                    eliminatedWeek: null
                 };
-            });
-            
-            teams = Object.values(teamMap);
-            
-            teams.forEach(team => {
-                weeks.forEach(week => {
-                    if (team.weeks[week] && team.weeks[week].rank >= 11 && !team.eliminated) {
-                        team.eliminated = true;
-                        team.eliminatedWeek = week;
-                        graveyard.push({
-                            ...team,
-                            points: team.weeks[week].points,
-                            week: week
-                        });
-                    }
-                });
-            });
-            
-            data.forEach(d => {
-                if (d.team_fantasy_points_rank >= 9 && d.team_fantasy_points_rank <= 10) {
-                    closeCalls.push({
-                        team_name: d.team_name || d.display_name,
-                        week: d.week,
-                        points: d.team_fantasy_points
+            }
+            teamMap[d.team_id].weeks[d.week] = {
+                points: d.team_fantasy_points,
+                rank: d.team_fantasy_points_rank
+            };
+        });
+        
+        let tempTeams = Object.values(teamMap);
+        let tempGraveyard = [];
+        let tempCloseCalls = [];
+        
+        tempTeams.forEach(team => {
+            weeks.forEach(week => {
+                if (team.weeks[week] && team.weeks[week].rank >= 11 && !team.eliminated) {
+                    team.eliminated = true;
+                    team.eliminatedWeek = week;
+                    tempGraveyard.push({
+                        ...team,
+                        points: team.weeks[week].points,
+                        week: week
                     });
                 }
             });
-            
-            teams.sort((a, b) => {
-                if (a.eliminated && !b.eliminated) return 1;
-                if (!a.eliminated && b.eliminated) return -1;
-                const lastWeek = weeks[weeks.length - 1];
-                const aRank = a.weeks[lastWeek]?.rank || 99;
-                const bRank = b.weeks[lastWeek]?.rank || 99;
-                return aRank - bRank;
-            });
-            
-        } catch (e) {
-            error = e.message;
-        } finally {
-            loading = false;
-        }
-    });
+        });
+        
+        rawData.forEach(d => {
+            if (d.team_fantasy_points_rank >= 9 && d.team_fantasy_points_rank <= 10) {
+                tempCloseCalls.push({
+                    team_name: d.team_name || d.display_name,
+                    week: d.week,
+                    points: d.team_fantasy_points
+                });
+            }
+        });
+        
+        tempTeams.sort((a, b) => {
+            if (a.eliminated && !b.eliminated) return 1;
+            if (!a.eliminated && b.eliminated) return -1;
+            const lastWeek = weeks[weeks.length - 1];
+            const aRank = a.weeks[lastWeek]?.rank || 99;
+            const bRank = b.weeks[lastWeek]?.rank || 99;
+            return aRank - bRank;
+        });
+        
+        teams = tempTeams;
+        graveyard = tempGraveyard;
+        closeCalls = tempCloseCalls;
+    }
     
     function getScoreClass(rank, eliminated) {
         if (eliminated) return 'eliminated';
@@ -123,16 +114,13 @@
         }
     }
     
-    .loading, .error {
+    .error {
         background: white;
         border-radius: 12px;
         padding: 2em;
         text-align: center;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         font-family: 'Rubik', sans-serif;
-    }
-    
-    .error {
         color: #e74c3c;
     }
     
@@ -371,10 +359,8 @@
         <h1 class="page-title">SQUID GAMES</h1>
     </div>
     
-    {#if loading}
-        <div class="loading">Loading...</div>
-    {:else if error}
-        <div class="error">{error}</div>
+    {#if data.error}
+        <div class="error">{data.error}</div>
     {:else}
         <div class="content-layout">
             <div class="simulator-card">
