@@ -359,8 +359,10 @@
     
     .page-footer {
         text-align: center;
-        margin-top: 2em;
-        padding: 1em 0;
+        margin-top: -60px;
+        padding: 0;
+        position: relative;
+        z-index: 10;
     }
     
     .footer-image {
