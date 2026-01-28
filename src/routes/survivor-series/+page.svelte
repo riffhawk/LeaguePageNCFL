@@ -34,38 +34,61 @@
         let tempTeams = Object.values(teamMap);
         let tempGraveyard = [];
         let tempCloseCalls = [];
+        let eliminatedTeamIds = new Set();
         
-        tempTeams.forEach(team => {
-            weeks.forEach(week => {
-                if (team.weeks[week] && team.weeks[week].rank >= 11 && !team.eliminated) {
-                    team.eliminated = true;
-                    team.eliminatedWeek = week;
-                    tempGraveyard.push({
-                        ...team,
-                        points: team.weeks[week].points,
-                        week: week
-                    });
+        weeks.forEach(week => {
+            let lowestScore = Infinity;
+            let lowestTeam = null;
+            let secondLowestScore = Infinity;
+            let secondLowestTeam = null;
+            
+            tempTeams.forEach(team => {
+                if (eliminatedTeamIds.has(team.team_id)) return;
+                
+                const weekData = team.weeks[week];
+                if (weekData) {
+                    if (weekData.points < lowestScore) {
+                        secondLowestScore = lowestScore;
+                        secondLowestTeam = lowestTeam;
+                        lowestScore = weekData.points;
+                        lowestTeam = team;
+                    } else if (weekData.points < secondLowestScore) {
+                        secondLowestScore = weekData.points;
+                        secondLowestTeam = team;
+                    }
                 }
             });
-        });
-        
-        rawData.forEach(d => {
-            if (d.team_fantasy_points_rank >= 9 && d.team_fantasy_points_rank <= 10) {
+            
+            if (lowestTeam) {
+                lowestTeam.eliminated = true;
+                lowestTeam.eliminatedWeek = week;
+                eliminatedTeamIds.add(lowestTeam.team_id);
+                tempGraveyard.push({
+                    ...lowestTeam,
+                    points: lowestScore,
+                    week: week
+                });
+            }
+            
+            if (secondLowestTeam && secondLowestScore - lowestScore <= 10) {
                 tempCloseCalls.push({
-                    team_name: d.team_name || d.display_name,
-                    week: d.week,
-                    points: d.team_fantasy_points
+                    team_name: secondLowestTeam.team_name,
+                    week: week,
+                    points: secondLowestScore
                 });
             }
         });
         
         tempTeams.sort((a, b) => {
-            if (a.eliminated && !b.eliminated) return 1;
+            if (!a.eliminated && !b.eliminated) {
+                const lastWeek = weeks[weeks.length - 1];
+                const aRank = a.weeks[lastWeek]?.rank || 99;
+                const bRank = b.weeks[lastWeek]?.rank || 99;
+                return aRank - bRank;
+            }
             if (!a.eliminated && b.eliminated) return -1;
-            const lastWeek = weeks[weeks.length - 1];
-            const aRank = a.weeks[lastWeek]?.rank || 99;
-            const bRank = b.weeks[lastWeek]?.rank || 99;
-            return aRank - bRank;
+            if (a.eliminated && !b.eliminated) return 1;
+            return b.eliminatedWeek - a.eliminatedWeek;
         });
         
         teams = tempTeams;
@@ -73,10 +96,9 @@
         closeCalls = tempCloseCalls;
     }
     
-    function getScoreClass(rank, eliminated) {
-        if (eliminated) return 'eliminated';
-        if (rank >= 11) return 'danger';
-        if (rank >= 9) return 'warning';
+    function getScoreClass(rank, isElimWeek, isPastElim) {
+        if (isPastElim) return 'past-eliminated';
+        if (isElimWeek) return 'danger';
         return '';
     }
 </script>
@@ -210,18 +232,17 @@
         color: #333;
     }
     
-    .score.warning {
-        color: #f39c12;
-    }
-    
     .score.danger {
         color: #e74c3c;
         font-weight: 600;
     }
     
-    .score.eliminated {
+    .score.past-eliminated {
         color: #999;
-        text-decoration: line-through;
+    }
+    
+    .no-score {
+        color: #ccc;
     }
     
     .eliminated-marker {
@@ -392,14 +413,18 @@
                                             {#if team.weeks[week]}
                                                 {@const isElimWeek = team.eliminated && team.eliminatedWeek === week}
                                                 {@const isPastElim = team.eliminated && week > team.eliminatedWeek}
-                                                <span class="score {getScoreClass(team.weeks[week].rank, isPastElim)}">
-                                                    {team.weeks[week].points?.toFixed(1)}
-                                                    {#if isElimWeek}
-                                                        <span class="eliminated-marker">X</span>
-                                                    {/if}
-                                                </span>
+                                                {#if isPastElim}
+                                                    <span class="no-score">—</span>
+                                                {:else}
+                                                    <span class="score {getScoreClass(team.weeks[week].rank, isElimWeek, false)}">
+                                                        {team.weeks[week].points?.toFixed(1)}
+                                                        {#if isElimWeek}
+                                                            <span class="eliminated-marker">X</span>
+                                                        {/if}
+                                                    </span>
+                                                {/if}
                                             {:else}
-                                                <span class="score eliminated">—</span>
+                                                <span class="no-score">—</span>
                                             {/if}
                                         </td>
                                     {/each}
