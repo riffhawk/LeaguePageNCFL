@@ -359,22 +359,32 @@
     
     .page-footer {
         text-align: center;
-        margin-top: -120px;
+        margin-top: -60px;
         padding: 0;
         position: relative;
         z-index: 10;
         pointer-events: none;
+        overflow: hidden;
+        height: 180px;
     }
     
     .footer-image {
-        max-width: 800px;
-        width: 100%;
+        width: 600px;
         height: auto;
+        object-fit: cover;
+        object-position: bottom center;
+        margin-top: -200px;
     }
     
     @media (max-width: 1024px) {
         .page-footer {
-            margin-top: -100px;
+            margin-top: -50px;
+            height: 150px;
+        }
+        
+        .footer-image {
+            width: 500px;
+            margin-top: -180px;
         }
     }
     
@@ -384,12 +394,13 @@
         }
         
         .page-footer {
-            margin-top: -80px;
+            margin-top: -40px;
+            height: 120px;
         }
         
         .footer-image {
-            max-width: 100%;
-            width: 100%;
+            width: 400px;
+            margin-top: -150px;
         }
     }
 </style>
