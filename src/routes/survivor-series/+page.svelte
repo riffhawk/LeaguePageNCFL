@@ -5,6 +5,7 @@
     let weeks = [];
     let graveyard = [];
     let closeCalls = [];
+    let winnerId = null;
     
     $: {
         const rawData = data.data || [];
@@ -94,6 +95,20 @@
         teams = tempTeams;
         graveyard = tempGraveyard;
         closeCalls = tempCloseCalls;
+        
+        // Find winner: highest scorer in week 11 among non-eliminated teams
+        const finalWeek = 11;
+        let highestScore = -Infinity;
+        let winner = null;
+        tempTeams.forEach(team => {
+            if (!team.eliminated && team.weeks[finalWeek]) {
+                if (team.weeks[finalWeek].points > highestScore) {
+                    highestScore = team.weeks[finalWeek].points;
+                    winner = team.team_id;
+                }
+            }
+        });
+        winnerId = winner;
     }
     
     function getScoreClass(rank, isElimWeek, isPastElim) {
@@ -232,6 +247,14 @@
     .score.danger {
         color: #e74c3c;
         font-weight: 600;
+    }
+    
+    .score.winner {
+        color: #27ae60;
+        font-weight: 700;
+        background: rgba(39, 174, 96, 0.15);
+        padding: 0.2em 0.4em;
+        border-radius: 4px;
     }
     
     .score.past-eliminated {
@@ -452,10 +475,11 @@
                                             {#if team.weeks[week]}
                                                 {@const isElimWeek = team.eliminated && team.eliminatedWeek === week}
                                                 {@const isPastElim = team.eliminated && week > team.eliminatedWeek}
+                                                {@const isWinner = week === 11 && team.team_id === winnerId}
                                                 {#if isPastElim}
                                                     <span class="no-score">—</span>
                                                 {:else}
-                                                    <span class="score {getScoreClass(team.weeks[week].rank, isElimWeek, false)}">
+                                                    <span class="score {getScoreClass(team.weeks[week].rank, isElimWeek, false)} {isWinner ? 'winner' : ''}">
                                                         {team.weeks[week].points?.toFixed(1)}
                                                         {#if isElimWeek}
                                                             <span class="eliminated-marker">X</span>
