@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { fade, scale } from 'svelte/transition';
     
     export let teamId;
     
@@ -127,19 +128,6 @@
         fill: rgba(0, 49, 107, 0.25);
         stroke: #00316b;
         stroke-width: 2;
-        animation: zoomIn 0.6s ease-out forwards;
-        transform-origin: 150px 150px;
-    }
-    
-    @keyframes zoomIn {
-        0% {
-            transform: scale(0);
-            opacity: 0;
-        }
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
     }
     
     .position-label {
@@ -308,10 +296,14 @@
                 />
             {/each}
             
-            <polygon 
-                class="data-polygon"
-                points={generatePolygonPoints(positionData, centerX, centerY, maxRadius)}
-            />
+            {#key teamId}
+                <g in:scale={{ duration: 600, start: 0, opacity: 0 }} style="transform-origin: {centerX}px {centerY}px;">
+                    <polygon 
+                        class="data-polygon"
+                        points={generatePolygonPoints(positionData, centerX, centerY, maxRadius)}
+                    />
+                </g>
+            {/key}
             
             {#each positionData as data, i}
                 {@const angle = (360 / positions.length) * i}
