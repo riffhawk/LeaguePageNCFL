@@ -359,7 +359,7 @@
     
     .page-footer {
         text-align: center;
-        margin-top: -80px;
+        margin-top: -120px;
         padding: 0;
         position: relative;
         z-index: 10;
@@ -367,9 +367,15 @@
     }
     
     .footer-image {
-        max-width: 600px;
-        width: 90%;
+        max-width: 800px;
+        width: 100%;
         height: auto;
+    }
+    
+    @media (max-width: 1024px) {
+        .page-footer {
+            margin-top: -100px;
+        }
     }
     
     @media (max-width: 768px) {
@@ -378,12 +384,12 @@
         }
         
         .page-footer {
-            margin-top: -50px;
+            margin-top: -80px;
         }
         
         .footer-image {
-            max-width: 350px;
-            width: 85%;
+            max-width: 100%;
+            width: 100%;
         }
     }
 </style>
