@@ -163,15 +163,19 @@
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         overflow: hidden;
+        padding-bottom: 0;
     }
     
     .table-wrapper {
         overflow-x: auto;
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
     
     table {
         width: 100%;
         border-collapse: collapse;
+        margin-bottom: 0;
         min-width: 600px;
     }
     
