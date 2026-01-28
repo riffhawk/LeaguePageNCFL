@@ -7,18 +7,20 @@ import { getLeagueData } from './leagueData';
 
 export const getLeagueTeamManagers = async () => {
     if(get(teamManagersStore) && get(teamManagersStore).currentSeason) {
-		return get(teamManagersStore);
-	}
+                return get(teamManagersStore);
+        }
     let currentLeagueID = leagueID;
-	let teamManagersMap = {};
+        let teamManagersMap = {};
     let finalUsers = {};
     let currentSeason = null;
 
+    let yearToLeagueID = {};
+
     // loop through all seasons and create a [year][roster_id]: team, managers object
-	while(currentLeagueID && currentLeagueID != 0) {
-		const [usersRaw, leagueData, rostersRaw] = await waitForAll(
+        while(currentLeagueID && currentLeagueID != 0) {
+                const [usersRaw, leagueData, rostersRaw] = await waitForAll(
             fetch(`https://api.sleeper.app/v1/league/${currentLeagueID}/users`, {compress: true}),
-			getLeagueData(currentLeagueID),
+                        getLeagueData(currentLeagueID),
             fetch(`https://api.sleeper.app/v1/league/${currentLeagueID}/rosters`, {compress: true}),
         ).catch((err) => { console.error(err); });
 
@@ -28,6 +30,7 @@ export const getLeagueTeamManagers = async () => {
         ).catch((err) => { console.error(err); });
 
         const year = parseInt(leagueData.season);
+        yearToLeagueID[year] = currentLeagueID;
         currentLeagueID = leagueData.previous_league_id;
         if(!currentSeason) {
             currentSeason = year;
@@ -51,20 +54,21 @@ export const getLeagueTeamManagers = async () => {
         currentSeason,
         teamManagersMap,
         users: finalUsers,
+        yearToLeagueID,
     }
     teamManagersStore.update(() => response);
     return response;
 }
 
 const processUsers = (rawUsers) => {
-	let finalUsers = {};
-	for(const user of rawUsers) {
+        let finalUsers = {};
+        for(const user of rawUsers) {
         user.user_name = user.user_name ?? user.display_name;
-		finalUsers[user.user_id] = user;
+                finalUsers[user.user_id] = user;
         const manager = managers.find(m => m.managerID === user.user_id);
         if(manager) {
             finalUsers[user.user_id].display_name = manager.name;
         }
-	}
-	return finalUsers;
+        }
+        return finalUsers;
 }

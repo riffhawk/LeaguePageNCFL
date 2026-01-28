@@ -10,6 +10,7 @@
     import { onMount } from 'svelte';
         import { getDatesActive, getRosterIDFromManagerID, getTeamNameFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
     import PositionRadarChart from './PositionRadarChart.svelte';
+    import { getLeagueRosters } from '$lib/utils/helperFunctions/leagueRosters';
 
     export let manager, managers, rostersData, leagueTeamManagers, rosterPositions, transactionsData, awards, records;
 
@@ -28,12 +29,24 @@
 
     const  startersAndReserve = rostersData.startersAndReserve;
     let rosters = rostersData.rosters;
+    let historicalRosters = {};
 
     $: ({rosterID, year} = viewManager.managerID ? getRosterIDFromManagerID(leagueTeamManagers, viewManager.managerID) : {rosterID: viewManager.roster, year: null});
 
     $: teamTransactions = transactions.filter(t => t.rosters.includes(parseInt(rosterID)));
 
-    $: roster = rosters[rosterID];
+    $: isHistoricalManager = year && year !== leagueTeamManagers.currentSeason;
+    
+    $: if (isHistoricalManager && leagueTeamManagers.yearToLeagueID && leagueTeamManagers.yearToLeagueID[year]) {
+        fetchHistoricalRoster(leagueTeamManagers.yearToLeagueID[year]);
+    }
+    
+    async function fetchHistoricalRoster(leagueId) {
+        const historicalData = await getLeagueRosters(leagueId);
+        historicalRosters = historicalData.rosters;
+    }
+
+    $: roster = isHistoricalManager && historicalRosters[rosterID] ? historicalRosters[rosterID] : rosters[rosterID];
 
     $: coOwners = year && rosterID ? leagueTeamManagers.teamManagersMap[year][rosterID].managers.length > 1 : roster.co_owners;
 
