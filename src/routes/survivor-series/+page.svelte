@@ -115,13 +115,10 @@
         margin-bottom: 1.5em;
     }
     
-    .page-title {
-        font-family: 'Inter', sans-serif;
-        font-weight: 800;
-        font-size: 2.5em;
-        color: #00316b;
-        margin: 0;
-        letter-spacing: 2px;
+    .page-logo {
+        max-width: 400px;
+        width: 100%;
+        height: auto;
     }
     
     .content-layout {
@@ -377,7 +374,7 @@
 
 <div class="survivor-container">
     <div class="page-header">
-        <h1 class="page-title">SQUID GAMES</h1>
+        <img src="/squid-games-logo.png" alt="Squid Games" class="page-logo" />
     </div>
     
     {#if data.error}
