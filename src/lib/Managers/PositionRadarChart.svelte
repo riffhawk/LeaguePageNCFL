@@ -5,6 +5,7 @@
     
     let positionData = [];
     let loading = true;
+    let currentSeason = new Date().getFullYear();
     
     const positions = ['QB', 'RB', 'WR', 'TE', 'FLEX', 'K', 'DEF'];
     const positionColors = {
@@ -193,7 +194,7 @@
 </style>
 
 <div class="radar-container">
-    <div class="radar-title">Position Strengths</div>
+    <div class="radar-title">{currentSeason} Roster Strengths</div>
     
     {#if loading}
         <p class="loading-text">Loading position data...</p>
@@ -251,11 +252,11 @@
         <div class="legend">
             <div class="legend-item">
                 <span class="legend-dot strength-dot"></span>
-                <span>Top 3 (Strength)</span>
+                <span>Strength</span>
             </div>
             <div class="legend-item">
                 <span class="legend-dot weakness-dot"></span>
-                <span>Bottom 3 (Weakness)</span>
+                <span>Weakness</span>
             </div>
         </div>
     {:else}
