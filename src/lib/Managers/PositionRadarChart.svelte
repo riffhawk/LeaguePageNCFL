@@ -102,19 +102,6 @@
     .radar-svg {
         width: 100%;
         height: auto;
-        animation: zoomIn 0.6s ease-out forwards;
-        transform-origin: center center;
-    }
-    
-    @keyframes zoomIn {
-        0% {
-            transform: scale(0.3);
-            opacity: 0;
-        }
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
     }
     
     .grid-line {
@@ -132,6 +119,19 @@
         fill: rgba(0, 49, 107, 0.25);
         stroke: #00316b;
         stroke-width: 2;
+        animation: zoomIn 0.6s ease-out forwards;
+        transform-origin: 150px 150px;
+    }
+    
+    @keyframes zoomIn {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
     }
     
     .position-label {
