@@ -265,17 +265,11 @@
         color: #ccc;
     }
     
-    .eliminated-marker {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        background: #e74c3c;
-        color: white;
-        border-radius: 50%;
-        font-size: 10px;
-        line-height: 16px;
-        text-align: center;
+    .eliminated-icon {
+        width: 18px;
+        height: 18px;
         margin-left: 4px;
+        vertical-align: middle;
     }
     
     .sidebar {
@@ -482,7 +476,7 @@
                                                     <span class="score {getScoreClass(team.weeks[week].rank, isElimWeek, false)} {isWinner ? 'winner' : ''}">
                                                         {team.weeks[week].points?.toFixed(1)}
                                                         {#if isElimWeek}
-                                                            <span class="eliminated-marker">X</span>
+                                                            <img src="/skull-icon.png" alt="Eliminated" class="eliminated-icon" />
                                                         {/if}
                                                     </span>
                                                 {/if}
