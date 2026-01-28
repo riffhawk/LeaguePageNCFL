@@ -359,33 +359,14 @@
     
     .page-footer {
         text-align: center;
-        margin-top: -60px;
+        margin-top: 2em;
         padding: 0;
-        position: relative;
-        z-index: 10;
-        pointer-events: none;
-        overflow: hidden;
-        height: 180px;
     }
     
     .footer-image {
-        width: 600px;
+        max-width: 500px;
+        width: 80%;
         height: auto;
-        object-fit: cover;
-        object-position: bottom center;
-        margin-top: -200px;
-    }
-    
-    @media (max-width: 1024px) {
-        .page-footer {
-            margin-top: -50px;
-            height: 150px;
-        }
-        
-        .footer-image {
-            width: 500px;
-            margin-top: -180px;
-        }
     }
     
     @media (max-width: 768px) {
@@ -393,14 +374,9 @@
             max-width: 100px;
         }
         
-        .page-footer {
-            margin-top: -40px;
-            height: 120px;
-        }
-        
         .footer-image {
-            width: 400px;
-            margin-top: -150px;
+            max-width: 350px;
+            width: 90%;
         }
     }
 </style>
