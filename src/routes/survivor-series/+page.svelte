@@ -168,8 +168,21 @@
     
     .table-wrapper {
         overflow-x: auto;
-        margin-bottom: 0;
-        padding-bottom: 0;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .table-wrapper::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .table-wrapper::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    .table-wrapper::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 3px;
     }
     
     table {
