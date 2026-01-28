@@ -123,6 +123,8 @@
         max-width: 1400px;
         margin: 0 auto;
         padding: 1.5em 1em 0 1em;
+        display: flex;
+        flex-direction: column;
     }
     
     .page-header {
@@ -140,6 +142,8 @@
         display: grid;
         grid-template-columns: 1fr 320px;
         gap: 1.5em;
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
     
     @media (max-width: 1024px) {
