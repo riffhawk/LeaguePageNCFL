@@ -108,9 +108,6 @@
         max-width: 1400px;
         margin: 0 auto;
         padding: 1.5em 1em 0 1em;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
     }
     
     .page-header {
@@ -362,7 +359,7 @@
     
     .page-footer {
         text-align: center;
-        margin-top: auto;
+        margin-top: -60px;
         margin-bottom: 0 !important;
         padding: 0 !important;
         position: relative;
@@ -370,7 +367,6 @@
         pointer-events: none;
         line-height: 0;
         font-size: 0;
-        background: transparent;
     }
     
     .footer-image {
@@ -381,13 +377,11 @@
         margin: 0 auto;
         padding: 0;
         vertical-align: bottom;
-        background: transparent;
     }
     
     .survivor-container {
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
-        background: transparent;
     }
     
     @media (max-width: 768px) {
@@ -406,18 +400,13 @@
     }
     
     :global(html),
-    :global(body) {
+    :global(body),
+    :global(#app),
+    :global(main),
+    :global(.app-container) {
         margin: 0 !important;
-        padding: 0 !important;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
-    
-    :global(main) {
-        margin: 0 !important;
-        padding: 0 !important;
-        margin-bottom: 0 !important;
         padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
     }
 </style>
 
