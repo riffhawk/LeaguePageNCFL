@@ -9,7 +9,7 @@
     $: {
         const rawData = data.data || [];
         
-        const uniqueWeeks = [...new Set(rawData.map(d => d.week))].sort((a, b) => a - b);
+        const uniqueWeeks = [...new Set(rawData.map(d => d.week))].sort((a, b) => a - b).filter(w => w <= 11);
         weeks = uniqueWeeks;
         
         const teamMap = {};
