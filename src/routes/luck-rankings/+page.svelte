@@ -331,6 +331,138 @@
     font-style: italic;
     font-size: 0.8rem;
   }
+
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .page {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tr {
+      margin-bottom: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    td {
+      padding: 0.5rem 0;
+      border-bottom: none;
+      text-align: left !important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #666;
+      margin-right: 1rem;
+    }
+
+    td:first-child {
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #e0e0e0;
+      margin-bottom: 0.5rem;
+    }
+
+    td:first-child::before {
+      display: none;
+    }
+
+    .team-cell {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .label-cell {
+      min-width: auto;
+    }
+
+    .details-cell {
+      min-width: auto;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .details-cell::before {
+      display: none;
+    }
+
+    .collapsible-section {
+      width: 100%;
+    }
+
+    .collapsible-header {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .legend {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .page {
+      padding: 0.75rem;
+    }
+
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+    }
+
+    tr {
+      padding: 0.75rem;
+    }
+
+    .logo {
+      width: 28px;
+      height: 28px;
+    }
+
+    .team-name {
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .collapsible-content {
+      font-size: 0.75rem;
+    }
+
+    .matchup-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
 </style>
 
 <div class="page">
@@ -363,10 +495,10 @@
                 <span class="team-name">{r.team_name}</span>
               </div>
             </td>
-            <td class="lucky">{r.lucky}</td>
-            <td class="unlucky">{r.unlucky}</td>
-            <td class={getDiffClass(r.diff)}>{formatDiff(r.diff)}</td>
-            <td class="label-cell">
+            <td class="lucky" data-label="Lucky">{r.lucky}</td>
+            <td class="unlucky" data-label="Unlucky">{r.unlucky}</td>
+            <td class={getDiffClass(r.diff)} data-label="+/-">{formatDiff(r.diff)}</td>
+            <td class="label-cell" data-label="Label">
               {#if r.label === 'Lucky Duck'}
                 <span class="badge badge-lucky">Lucky</span>
               {:else if r.label === 'Unlucky Duck'}
