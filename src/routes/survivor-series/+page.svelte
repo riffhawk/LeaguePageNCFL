@@ -305,7 +305,7 @@
     .sidebar-header p {
         font-family: 'Rubik', sans-serif;
         font-size: 0.75em;
-        margin: 0.1em 0 0 0;
+        margin: 2px 0 0 0;
         opacity: 0.8;
         line-height: 1.2;
     }
