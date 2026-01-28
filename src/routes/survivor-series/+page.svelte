@@ -359,15 +359,16 @@
     
     .page-footer {
         text-align: center;
-        margin-top: -60px;
+        margin-top: -80px;
         padding: 0;
         position: relative;
         z-index: 10;
+        pointer-events: none;
     }
     
     .footer-image {
-        max-width: 500px;
-        width: 100%;
+        max-width: 600px;
+        width: 90%;
         height: auto;
     }
     
@@ -376,8 +377,13 @@
             max-width: 100px;
         }
         
+        .page-footer {
+            margin-top: -50px;
+        }
+        
         .footer-image {
-            max-width: 300px;
+            max-width: 350px;
+            width: 85%;
         }
     }
 </style>
