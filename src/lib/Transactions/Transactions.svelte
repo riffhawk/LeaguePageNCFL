@@ -54,7 +54,7 @@
 	}
 
 	.link:hover {
-		color: #00316b;
+		color: #2d2d2d;
 	}
 
 	.nothingYet {

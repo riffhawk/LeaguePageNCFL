@@ -47,7 +47,7 @@
     }
 
     .button {
-        background-color: #0082c3;
+        background-color: #6b8ba4;
         font-size: 1em;
         border-radius: 1em;
         text-decoration: none;
@@ -57,7 +57,7 @@
     }
 
     .button:hover {
-        background-color: #00316b;
+        background-color: #2d2d2d;
     }
 
     :global(.body blockquote) {

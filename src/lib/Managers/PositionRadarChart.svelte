@@ -149,7 +149,7 @@
     
     .data-polygon {
         fill: rgba(0, 49, 107, 0.25);
-        stroke: #00316b;
+        stroke: #2d2d2d;
         stroke-width: 2;
     }
     
