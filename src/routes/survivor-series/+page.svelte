@@ -107,7 +107,7 @@
     .survivor-container {
         max-width: 1400px;
         margin: 0 auto;
-        padding: 1.5em 1em;
+        padding: 1.5em 1em 0 1em;
     }
     
     .page-header {
@@ -360,10 +360,12 @@
     .page-footer {
         text-align: center;
         margin-top: -60px;
+        margin-bottom: 0;
         padding: 0;
         position: relative;
         z-index: 10;
         pointer-events: none;
+        line-height: 0;
     }
     
     .footer-image {
@@ -372,6 +374,7 @@
         height: auto;
         display: block;
         margin: 0 auto;
+        vertical-align: bottom;
     }
     
     @media (max-width: 768px) {
@@ -392,6 +395,11 @@
     :global(body) {
         margin: 0;
         padding: 0;
+    }
+    
+    :global(html, body) {
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
 </style>
 
