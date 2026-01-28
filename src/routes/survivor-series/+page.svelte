@@ -360,12 +360,13 @@
     .page-footer {
         text-align: center;
         margin-top: -60px;
-        margin-bottom: 0;
-        padding: 0;
+        margin-bottom: 0 !important;
+        padding: 0 !important;
         position: relative;
         z-index: 10;
         pointer-events: none;
         line-height: 0;
+        font-size: 0;
     }
     
     .footer-image {
@@ -374,7 +375,13 @@
         height: auto;
         display: block;
         margin: 0 auto;
+        padding: 0;
         vertical-align: bottom;
+    }
+    
+    .survivor-container {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
     
     @media (max-width: 768px) {
@@ -392,14 +399,14 @@
         }
     }
     
-    :global(body) {
-        margin: 0;
-        padding: 0;
-    }
-    
-    :global(html, body) {
-        margin-bottom: 0;
-        padding-bottom: 0;
+    :global(html),
+    :global(body),
+    :global(#app),
+    :global(main),
+    :global(.app-container) {
+        margin: 0 !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
     }
 </style>
 
