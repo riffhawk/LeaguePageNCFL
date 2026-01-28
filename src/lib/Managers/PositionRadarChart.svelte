@@ -9,6 +9,7 @@
     let currentSeason = new Date().getFullYear();
     let cachedJson2024 = null;
     let cachedJson2025 = null;
+    let animationKey = 0;
     
     const positions = ['QB', 'RB', 'WR', 'TE', 'FLEX', 'K', 'DEF'];
     const positionColors = {
@@ -52,6 +53,7 @@
                     totalTeams: match ? match.total_teams : 12
                 };
             });
+            animationKey++;
         } catch (e) {
             console.error('Error loading position data:', e);
         }
@@ -317,7 +319,7 @@
                 />
             {/each}
             
-            {#key teamId}
+            {#key animationKey}
                 <g in:scale={{ duration: 600, start: 0, opacity: 0 }} style="transform-origin: {centerX}px {centerY}px;">
                     <polygon 
                         class="data-polygon"
