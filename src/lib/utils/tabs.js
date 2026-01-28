@@ -72,6 +72,11 @@ export const tabs = [
                 dest: '/luck-rankings',
             },
             {
+                icon: 'skull',
+                label: 'Survivor Series',
+                dest: '/survivor-series',
+            },
+            {
                 icon: 'history_edu',
                 label: 'Constitution',
                 dest: '/constitution',
