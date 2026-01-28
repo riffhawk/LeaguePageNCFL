@@ -2,11 +2,13 @@
     import { fade, scale } from 'svelte/transition';
     
     export let teamId;
+    export let year = null;
     
     let positionData = [];
     let loading = true;
     let currentSeason = new Date().getFullYear();
-    let cachedJson = null;
+    let cachedJson2024 = null;
+    let cachedJson2025 = null;
     
     const positions = ['QB', 'RB', 'WR', 'TE', 'FLEX', 'K', 'DEF'];
     const positionColors = {
@@ -19,15 +21,27 @@
         'DEF': '#e67e22'
     };
     
-    async function loadPositionData(id) {
+    async function loadPositionData(id, dataYear) {
         loading = true;
         try {
-            if (!cachedJson) {
-                const response = await fetch('/posRanks.json');
-                cachedJson = await response.json();
+            const useYear = dataYear || currentSeason;
+            let jsonData;
+            
+            if (useYear === 2024) {
+                if (!cachedJson2024) {
+                    const response = await fetch('/posRanks2024.json');
+                    cachedJson2024 = await response.json();
+                }
+                jsonData = cachedJson2024;
+            } else {
+                if (!cachedJson2025) {
+                    const response = await fetch('/posRanks.json');
+                    cachedJson2025 = await response.json();
+                }
+                jsonData = cachedJson2025;
             }
             
-            const teamData = cachedJson.data.filter(d => d.team_id === id);
+            const teamData = jsonData.data.filter(d => d.team_id === id);
             
             positionData = positions.map(pos => {
                 const match = teamData.find(d => d.player_position_fantasy === pos);
@@ -45,7 +59,7 @@
     }
     
     $: if (teamId !== undefined) {
-        loadPositionData(teamId);
+        loadPositionData(teamId, year);
     }
     
     function getStrengthScore(rank, totalTeams) {

@@ -288,7 +288,7 @@
             {/if}
         </div>
 
-        <PositionRadarChart teamId={parseInt(rosterID)} />
+        <PositionRadarChart teamId={parseInt(rosterID)} year={year} />
 
         <div class="managerNav upper">
             <Group variant="outlined">
