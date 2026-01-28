@@ -70,7 +70,7 @@
                 });
             }
             
-            if (secondLowestTeam && secondLowestScore - lowestScore <= 10) {
+            if (secondLowestTeam && secondLowestScore - lowestScore <= 5) {
                 tempCloseCalls.push({
                     team_name: secondLowestTeam.team_name,
                     week: week,
@@ -458,7 +458,7 @@
                 <div class="sidebar-card">
                     <div class="sidebar-header">
                         <h3>Close Calls</h3>
-                        <p>Survived by ≤10 points</p>
+                        <p>Survived by ≤5 points</p>
                     </div>
                     <div class="sidebar-content">
                         {#if closeCalls.length > 0}
