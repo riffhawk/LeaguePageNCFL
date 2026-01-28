@@ -320,6 +320,56 @@ export const managers = [
     tradingScale: 1, // 1 - 10
     preferredContact: "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
+
+  // Rafa 12
+  {
+    managerID: "1126211909117669376", // ID of the roster that the manager manages (look at the order of the power rankings graph)
+    name: "Rafa",
+    location: "Montana", // (optional)
+    bio: "puerto rico",
+    photo:
+      "https://sleepercdn.com/avatars/thumbs/b319fdf8b7b5b0359d3c78622ba4d70c", // square ratio recommended (no larger than 500x500)
+    fantasyStart: 2023, // (optional) when did the manager start playing fantasy football
+    favoriteTeam: "phi", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
+    mode: "Rebuild", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
+    rival: {
+      name: "Eric", // Can be anything (usually your rival's name)
+      link: 5, // manager array number within this array, or null to link back to all managers page
+      image:
+        "https://sleepercdn.com/avatars/thumbs/8553f7fb95334a6a2de471358d8b1d16", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
+    },
+    favoritePlayer: 6904, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
+    valuePosition: "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    rookieOrVets: "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    philosophy: "OH YEA",
+    tradingScale: 2, // 1 - 10
+    preferredContact: "Carrier Pigeon", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
+  },
+
+  // Aris 13
+  {
+    managerID: "1126604697621643264", // ID of the roster that the manager manages (look at the order of the power rankings graph)
+    name: "Aris",
+    location: "Brooklyn", // (optional)
+    bio: "Green Bay",
+    photo:
+      "https://sleepercdn.com/avatars/thumbs/e7af4deab0289b4f5505646424895246", // square ratio recommended (no larger than 500x500)
+    fantasyStart: 2023, // (optional) when did the manager start playing fantasy football
+    favoriteTeam: "gb", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
+    mode: "Rebuild", // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
+    rival: {
+      name: "Wilson", // Can be anything (usually your rival's name)
+      link: 5, // manager array number within this array, or null to link back to all managers page
+      image:
+        "https://sleepercdn.com/avatars/thumbs/498db24cece1c50961d53d1692cbf934", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
+    },
+    favoritePlayer: 96, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
+    valuePosition: "TE", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    rookieOrVets: "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    philosophy: "OH YEA",
+    tradingScale: 1, // 1 - 10
+    preferredContact: "WhatsApp", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
+  },
 ];
 
 /*   !!  !!  IMPORTANT  !!  !! */
