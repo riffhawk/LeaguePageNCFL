@@ -102,6 +102,19 @@
     .radar-svg {
         width: 100%;
         height: auto;
+        animation: zoomIn 0.6s ease-out forwards;
+        transform-origin: center center;
+    }
+    
+    @keyframes zoomIn {
+        0% {
+            transform: scale(0.3);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
     }
     
     .grid-line {
@@ -194,7 +207,7 @@
 </style>
 
 <div class="radar-container">
-    <div class="radar-title">{currentSeason} Roster Strengths</div>
+    <div class="radar-title">Roster Strengths</div>
     
     {#if loading}
         <p class="loading-text">Loading position data...</p>
