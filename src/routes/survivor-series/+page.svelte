@@ -358,17 +358,23 @@
     }
     
     .page-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
         text-align: center;
-        margin-top: -50px;
         padding: 0;
-        position: relative;
+        margin: 0;
         z-index: 10;
+        pointer-events: none;
     }
     
     .footer-image {
         max-width: 450px;
         width: 80%;
         height: auto;
+        display: block;
+        margin: 0 auto;
     }
     
     @media (max-width: 768px) {
@@ -376,14 +382,15 @@
             max-width: 100px;
         }
         
-        .page-footer {
-            margin-top: -40px;
-        }
-        
         .footer-image {
             max-width: 320px;
             width: 85%;
         }
+    }
+    
+    :global(body) {
+        margin: 0;
+        padding: 0;
     }
 </style>
 
