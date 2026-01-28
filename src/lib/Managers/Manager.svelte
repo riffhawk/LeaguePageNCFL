@@ -9,6 +9,7 @@
     import ManagerAwards from './ManagerAwards.svelte';
     import { onMount } from 'svelte';
         import { getDatesActive, getRosterIDFromManagerID, getTeamNameFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+    import PositionRadarChart from './PositionRadarChart.svelte';
 
     export let manager, managers, rostersData, leagueTeamManagers, rosterPositions, transactionsData, awards, records;
 
@@ -273,6 +274,8 @@
                 </div>
             {/if}
         </div>
+
+        <PositionRadarChart teamId={parseInt(rosterID)} />
 
         <div class="managerNav upper">
             <Group variant="outlined">
