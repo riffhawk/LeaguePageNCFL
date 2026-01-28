@@ -323,7 +323,7 @@ export const managers = [
 
   // Rafa 12
   {
-    managerID: "1126211909117669376", // ID of the roster that the manager manages (look at the order of the power rankings graph)
+    managerID: "1119400729959108608", // ID of the roster that the manager manages (look at the order of the power rankings graph)
     name: "Rafa",
     location: "Montana", // (optional)
     bio: "puerto rico",
