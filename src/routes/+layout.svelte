@@ -1,6 +1,6 @@
 <!-- __layout.svelte -->
 <script>
-	import { Nav, Footer } from "$lib/components"
+        import { Nav } from "$lib/components"
     import { dev } from '$app/environment';
     import { injectAnalytics } from '@vercel/analytics/sveltekit';
  
@@ -11,6 +11,4 @@
     <Nav /> <!-- adds the nav (small and large) -->
   
     <slot />
-
-    <Footer /> <!-- adds the footer -->
 </main>
