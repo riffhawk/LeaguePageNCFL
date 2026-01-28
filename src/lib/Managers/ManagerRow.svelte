@@ -1,6 +1,6 @@
 <script>
     import { goto } from "$app/navigation";
-	import { getDatesActive, getRosterIDFromManagerID, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
+        import { getDatesActive, getRosterIDFromManagerID, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
     import {dynasty} from "$lib/utils/leagueInfo"
 
     export let manager, leagueTeamManagers, key;
@@ -51,23 +51,33 @@
         box-shadow: 0 0 2px 1px var(--bbb);
     }
 
+    .nameTeamWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1em;
+        min-width: 0;
+        flex: 1;
+        max-width: 200px;
+    }
+
     .name {
-        text-align: center;
-        display: inline-block;
         color: var(--g555);
         line-height: 1.2em;
-        margin-left: 1em;
         font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .team {
-        text-align: center;
-        display: inline-block;
         font-style: italic;
         line-height: 1.2em;
         color: var(--g555);
         font-weight: 300;
-        margin-left: 1em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .spacer {
@@ -129,19 +139,22 @@
         color: #fff;
     }
 
-	@media (max-width: 665px) {
+        @media (max-width: 665px) {
+        .nameTeamWrapper {
+            margin-left: 0.5em;
+            max-width: 160px;
+        }
+
         .name {
             font-size: 0.9em;
-            margin-left: 0.5em;
         }
 
         .team {
             font-size: 0.8em;
-            margin-left: 0.5em;
         }
     }
 
-	@media (max-width: 595px) {
+        @media (max-width: 595px) {
         .manager {
             padding: 0.5em 0;
             margin: 0.3em 0;
@@ -182,14 +195,17 @@
     }
 
     @media (max-width: 475px) {
+        .nameTeamWrapper {
+            margin-left: 0.4em;
+            max-width: 120px;
+        }
+
         .name {
             font-size: 0.8em;
-            margin-left: 0.4em;
         }
 
         .team {
             font-size: 0.7em;
-            margin-left: 0.4em;
         }
 
         .photo {
@@ -238,8 +254,10 @@
             </div>
         {/if}
     </div>
-    <div class="name">{manager.name}</div>
-    <div class="team">{getTeamNameFromTeamManagers(leagueTeamManagers, rosterID, year)}</div>
+    <div class="nameTeamWrapper">
+        <div class="name">{manager.name}</div>
+        <div class="team">{getTeamNameFromTeamManagers(leagueTeamManagers, rosterID, year)}</div>
+    </div>
     <div class="spacer" />
     <div class="info">
         <!-- Favorite team (optional) -->
