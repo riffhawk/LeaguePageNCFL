@@ -4,8 +4,8 @@
 
 // Svelte Colors!
 @use '@material/theme/index' as theme with (
-  $primary: #00316b,
-  $secondary: #0082c3,
+  $primary: #2d2d2d,
+  $secondary: #6b8ba4,
   $surface: #fff,
   $background: #fff,
   $error: color-palette.$red-900,
@@ -65,12 +65,12 @@
   --fadeTwo: rgba(255, 255, 255, 0.7) 50%;
   --fadeThree: rgba(255, 255, 255, 0.9) 90%;
   --fadeFour: rgba(255, 255, 255, 1) 100%;
-  --blueOne: #00316b;
-  --blueTwo: #0082c3;
+  --blueOne: #2d2d2d;
+  --blueTwo: #6b8ba4;
   --r1: #f7f9fd;
   --r2: #fbf7f7;
   --r3: #f7fbf7;
-  --headerPrimary: #ddedfa;
+  --headerPrimary: #e8eef3;
   --borderOverride: rgba(0,0,0,.12);
   --rivalryBack: #f8f8f8;
 
@@ -103,17 +103,17 @@
   --DLfade: #c392d3;
   --LBfade: #98c097;
 
-	--QB: #ff2a6d;
-	--WR: #58a7ff;
-	--RB: #00ceb8;
-	--TE: #ffae58;
-	--K: #bd66ff;
-	--Budget: #7947d4;
-	--DEF: #eee45e;
-	--DL: #ff795a;
-	--LB: #6d7df5;
-	--DB: #ff7cb6;
-	--BN: #b6d0eb;
+        --QB: #ff2a6d;
+        --WR: #58a7ff;
+        --RB: #00ceb8;
+        --TE: #ffae58;
+        --K: #bd66ff;
+        --Budget: #7947d4;
+        --DEF: #eee45e;
+        --DL: #ff795a;
+        --LB: #6d7df5;
+        --DB: #ff7cb6;
+        --BN: #b6d0eb;
 }
 
 html,
