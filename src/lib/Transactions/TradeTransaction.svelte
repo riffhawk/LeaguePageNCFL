@@ -1,9 +1,9 @@
 <script>
-	import { gotoManager } from '$lib/utils/helper';
-	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
-	import TransactionMove from './TransactionMove.svelte';
+        import { gotoManager } from '$lib/utils/helper';
+        import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+        import TransactionMove from './TransactionMove.svelte';
 
-	export let transaction, players, leagueTeamManagers;
+        export let transaction, players, leagueTeamManagers;
 </script>
 
 <style>
@@ -17,6 +17,8 @@
     .name {
         position: relative;
         text-align: center;
+        overflow: hidden;
+        padding: 0.5em 0.25em;
     }
 
     .avatar {
@@ -28,10 +30,15 @@
     }
 
     .ownerName {
-        display: inline-block;
+        display: block;
         font-weight: normal;
-        line-height: 1em;
-        margin: 0.2em;
+        line-height: 1.2em;
+        margin: 0.2em 0;
+        font-size: 0.85em;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .currentOwner {
@@ -82,6 +89,8 @@
         justify-content: space-between;
         align-items: center;
         height: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     @media (max-width: 420px) {
