@@ -94,7 +94,7 @@
                                                 {:else}
                                                         <Item href="javascript:void(0)" onSMUIAction={() => selectTab(subTab)} activated={active == subTab.dest}  ontouchstart={() => {if(subTab.label != 'Go to Sleeper') preloadData(subTab.dest)}} onmouseover={() => {if(subTab.label != 'Go to Sleeper') preloadData(subTab.dest)}}>
                                                                 {#if subTab.customIcon}
-                                                                        <Graphic><img src={subTab.customIcon} alt={subTab.label} style="width: 24px; height: 24px; filter: brightness(0) saturate(100%);" /></Graphic>
+                                                                        <Graphic><img src={subTab.customIcon} alt={subTab.label} style="width: 24px; height: 24px; filter: brightness(0) saturate(100%) opacity(0.6);" /></Graphic>
                                                                 {:else}
                                                                         <Graphic class="material-icons{active == subTab.dest ? "" : " nav-item"}" aria-hidden="true">{subTab.icon}</Graphic>
                                                                 {/if}
