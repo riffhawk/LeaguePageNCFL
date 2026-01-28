@@ -446,7 +446,7 @@
                             {#each graveyard as team}
                                 <div class="graveyard-item">
                                     <span class="graveyard-name">{team.team_name}</span>
-                                    <span class="graveyard-info">W{team.week} {team.points?.toFixed(1)}</span>
+                                    <span class="graveyard-info">Week {team.week} {team.points?.toFixed(1)}</span>
                                 </div>
                             {/each}
                         {:else}
