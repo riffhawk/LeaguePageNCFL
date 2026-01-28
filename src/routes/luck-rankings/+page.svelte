@@ -481,7 +481,7 @@
           <th>Lucky</th>
           <th>Unlucky</th>
           <th>+/-</th>
-          <th class="label-cell">Label</th>
+          <th class="label-cell">Verdict</th>
           <th class="details-cell">Details</th>
         </tr>
       </thead>
@@ -498,7 +498,7 @@
             <td class="lucky" data-label="Lucky">{r.lucky}</td>
             <td class="unlucky" data-label="Unlucky">{r.unlucky}</td>
             <td class={getDiffClass(r.diff)} data-label="+/-">{formatDiff(r.diff)}</td>
-            <td class="label-cell" data-label="Label">
+            <td class="label-cell" data-label="Verdict">
               {#if r.label === 'Lucky Duck'}
                 <span class="badge badge-lucky">Lucky</span>
               {:else if r.label === 'Unlucky Duck'}
