@@ -228,21 +228,21 @@
     .position-stat-card {
         flex: 1;
         max-width: 90px;
-        padding: 0.6em 0.4em;
-        border-radius: 8px;
+        padding: 0.35em 0.4em;
+        border-radius: 6px;
         text-align: center;
         color: white;
         font-family: 'Rubik', sans-serif;
     }
     
     .position-stat-card .pos-name {
-        font-size: 0.85em;
+        font-size: 0.8em;
         font-weight: 700;
-        margin-bottom: 0.2em;
+        margin-bottom: 0.1em;
     }
     
     .position-stat-card .pos-points {
-        font-size: 0.75em;
+        font-size: 0.7em;
         font-weight: 500;
         opacity: 0.95;
     }
@@ -267,15 +267,15 @@
     @media (max-width: 480px) {
         .position-stat-card {
             max-width: 70px;
-            padding: 0.5em 0.3em;
+            padding: 0.3em 0.3em;
         }
         
         .position-stat-card .pos-name {
-            font-size: 0.75em;
+            font-size: 0.7em;
         }
         
         .position-stat-card .pos-points {
-            font-size: 0.65em;
+            font-size: 0.6em;
         }
     }
 </style>
