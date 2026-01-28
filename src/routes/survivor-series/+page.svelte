@@ -144,6 +144,7 @@
         gap: 1.5em;
         margin-bottom: 0;
         padding-bottom: 0;
+        align-items: start;
     }
     
     @media (max-width: 1024px) {
