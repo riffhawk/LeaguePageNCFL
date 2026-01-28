@@ -357,13 +357,25 @@
         padding: 1em;
     }
     
+    .page-footer {
+        text-align: center;
+        margin-top: 2em;
+        padding: 1em 0;
+    }
+    
+    .footer-image {
+        max-width: 500px;
+        width: 100%;
+        height: auto;
+    }
+    
     @media (max-width: 768px) {
-        .page-title {
-            font-size: 1.8em;
-        }
-        
         .team-name {
             max-width: 100px;
+        }
+        
+        .footer-image {
+            max-width: 300px;
         }
     }
 </style>
@@ -473,4 +485,8 @@
             </div>
         </div>
     {/if}
+    
+    <div class="page-footer">
+        <img src="/squid-games-footer.png" alt="Squid Games Guards" class="footer-image" />
+    </div>
 </div>
