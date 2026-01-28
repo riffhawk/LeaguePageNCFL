@@ -155,6 +155,10 @@
     }
 
         @media (max-width: 595px) {
+        .infoAnswer {
+            display: none;
+        }
+
         .manager {
             padding: 0.5em 0;
             margin: 0.3em 0;
