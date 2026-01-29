@@ -363,6 +363,10 @@
         font-weight: 600;
         font-size: 0.8em;
     }
+
+    .graveyard-info .week-number {
+        color: #ff69b4;
+    }
     
     .close-call-item {
         display: flex;
@@ -530,7 +534,7 @@
                             {#each graveyard as team}
                                 <div class="graveyard-item">
                                     <span class="graveyard-name">{team.team_name}</span>
-                                    <span class="graveyard-info">Week {team.week} {team.points?.toFixed(1)}</span>
+                                    <span class="graveyard-info">Week <span class="week-number">{team.week}</span> {team.points?.toFixed(1)}</span>
                                 </div>
                             {/each}
                         {:else}
