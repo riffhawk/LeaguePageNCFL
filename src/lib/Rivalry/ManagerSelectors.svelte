@@ -77,7 +77,7 @@
         position: relative;
     }
     .selectInput {
-        padding: 0.5em 2em;
+        padding: 0.5em 2.5em;
         font-size: 1.2em;
         border-radius: 6px;
         background-color: var(--fff);
@@ -89,10 +89,12 @@
         text-align: center;
         color: var(--g000);
         font-family: 'Rubik', sans-serif;
+        min-width: 160px;
     }
     .left {
         border: 1px solid var(--barChartOne);
         background-position: 100%;
+        padding-left: 3em;
     }
     select.left:focus {
         outline: none;
@@ -101,6 +103,7 @@
     .right {
         border: 1px solid var(--barChartSix);
         background-position: 0%;
+        padding-right: 3em;
     }
     select.right:focus {
         outline: none;
