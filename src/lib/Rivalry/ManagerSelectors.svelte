@@ -86,10 +86,12 @@
         -moz-appearance: none !important;
         background-image: url(/dropdown.png);
         background-repeat: no-repeat;
+        background-size: 20px auto;
         text-align: center;
-        color: #333;
+        color: #333 !important;
         font-family: 'Rubik', sans-serif;
         min-width: 160px;
+        -webkit-text-fill-color: #333;
     }
     .selectInput option {
         color: #333;
@@ -97,7 +99,7 @@
     }
     .left {
         border: 1px solid var(--barChartOne);
-        background-position: 100%;
+        background-position: right 10px center;
         padding-left: 3em;
     }
     select.left:focus {
@@ -106,7 +108,7 @@
     }
     .right {
         border: 1px solid var(--barChartSix);
-        background-position: 0%;
+        background-position: left 10px center;
         padding-right: 3em;
     }
     select.right:focus {
