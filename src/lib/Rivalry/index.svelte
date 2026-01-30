@@ -168,6 +168,8 @@
         pointer-events: none;
         z-index: 1;
         clip-path: inset(30px 0 30px 0);
+        object-fit: cover;
+        object-position: top;
     }
     @media (max-width: 768px) {
         .scoreBoard {
