@@ -80,16 +80,20 @@
         padding: 0.5em 2.5em;
         font-size: 1.2em;
         border-radius: 6px;
-        background-color: var(--fff);
+        background-color: #fff;
         appearance: none !important;
         -webkit-appearance: none !important;
         -moz-appearance: none !important;
         background-image: url(/dropdown.png);
         background-repeat: no-repeat;
         text-align: center;
-        color: var(--g000);
+        color: #333;
         font-family: 'Rubik', sans-serif;
         min-width: 160px;
+    }
+    .selectInput option {
+        color: #333;
+        background-color: #fff;
     }
     .left {
         border: 1px solid var(--barChartOne);
@@ -111,6 +115,7 @@
     }
     select option {
         text-align: left;
+        color: #333;
     }
     .avatar {
         width: 60px;
