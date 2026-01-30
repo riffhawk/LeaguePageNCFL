@@ -77,21 +77,15 @@
         position: relative;
     }
     .selectInput {
-        padding: 0.5em 2.5em;
+        padding: 0.5em 1em;
         font-size: 1.2em;
         border-radius: 6px;
         background-color: #fff;
-        appearance: none !important;
-        -webkit-appearance: none !important;
-        -moz-appearance: none !important;
-        background-image: url(/dropdown.png);
-        background-repeat: no-repeat;
-        background-size: 20px auto;
         text-align: center;
-        color: #333 !important;
+        color: #333;
         font-family: 'Rubik', sans-serif;
-        min-width: 160px;
-        -webkit-text-fill-color: #333;
+        min-width: 180px;
+        cursor: pointer;
     }
     .selectInput option {
         color: #333;
@@ -99,8 +93,6 @@
     }
     .left {
         border: 1px solid var(--barChartOne);
-        background-position: right 10px center;
-        padding-left: 3em;
     }
     select.left:focus {
         outline: none;
@@ -108,8 +100,6 @@
     }
     .right {
         border: 1px solid var(--barChartSix);
-        background-position: left 10px center;
-        padding-right: 3em;
     }
     select.right:focus {
         outline: none;
