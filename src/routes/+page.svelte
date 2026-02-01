@@ -155,7 +155,7 @@
     .laurel {
         position: absolute;
         transform: translate(-50%, -50%);
-        width: 250px;
+        width: 280px;
         height: auto;
         left: 50%;
         top: 43%;
