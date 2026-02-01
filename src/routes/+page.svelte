@@ -44,7 +44,6 @@
         margin: 0 -30px;
         padding: 0;
         background: url('/wilson-schefter.webp') center center / contain no-repeat;
-        background-color: #e8e8e8;
         aspect-ratio: 16 / 9;
         display: flex;
         align-items: center;
