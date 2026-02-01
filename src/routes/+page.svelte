@@ -46,6 +46,12 @@
         overflow: hidden;
     }
     
+    @media (max-width: 768px) {
+        .twitter-timeline-container {
+            margin: 20px 10px;
+        }
+    }
+    
     .twitter-timeline-container :global(*) {
         max-width: 100% !important;
     }
