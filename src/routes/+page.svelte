@@ -39,16 +39,43 @@
         margin: 0 auto;
     }
 
+    .twitter-hero-section {
+        position: relative;
+        margin: 0 -30px;
+        padding: 40px 30px;
+        background: url('/wilson-schefter.webp') center center / cover no-repeat;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .twitter-hero-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+    }
+    
     .twitter-timeline-container {
-        margin: 20px -30px;
+        position: relative;
+        z-index: 1;
         background: #fff;
-        border-radius: 0;
+        border-radius: 12px;
         overflow: hidden;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
     
     @media (max-width: 768px) {
+        .twitter-hero-section {
+            margin: 0 10px;
+            padding: 20px 15px;
+            border-radius: 12px;
+        }
         .twitter-timeline-container {
-            margin: 20px 10px;
+            border-radius: 8px;
         }
     }
     
@@ -255,18 +282,12 @@
     <div id="main">
         <div class="text">
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
-            <h6 class="league-title">
-                {#if visible}
-                    {#each leagueName.split(' ') as word, wordIndex}
-                        {@const charOffset = leagueName.split(' ').slice(0, wordIndex).join(' ').length + (wordIndex > 0 ? 1 : 0)}
-                        <span class="word">{#each word as char, i}<span in:fade={{ delay: (charOffset + i) * 50, duration: 400 }}>{char}</span>{/each}</span>{#if wordIndex < leagueName.split(' ').length - 1}<span in:fade={{ delay: (charOffset + word.length) * 50, duration: 400 }}>&nbsp;</span>{/if}
-                    {/each}
-                {/if}
-            </h6>
-            <!-- Elfsight Twitter Feed -->
-            <div class="twitter-timeline-container">
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-1de33d25-070e-4503-b2f2-9a8932c77da1" data-elfsight-app-lazy></div>
+            <!-- Twitter Feed Hero Section -->
+            <div class="twitter-hero-section">
+                <div class="twitter-timeline-container">
+                    <script src="https://elfsightcdn.com/platform.js" async></script>
+                    <div class="elfsight-app-1de33d25-070e-4503-b2f2-9a8932c77da1" data-elfsight-app-lazy></div>
+                </div>
             </div>
             <!-- Most recent Blog Post (if enabled) -->
             {#if enableBlog}
