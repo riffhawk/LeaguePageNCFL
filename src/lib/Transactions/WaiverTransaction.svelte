@@ -1,8 +1,8 @@
 <script>
-	import { gotoManager } from '$lib/utils/helper';
-	import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+        import { gotoManager } from '$lib/utils/helper';
+        import { getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
 
-	export let transaction, players, leagueTeamManagers;
+        export let transaction, players, leagueTeamManagers;
 
     const owner = transaction.rosters[0];
 
@@ -136,8 +136,8 @@
 
     .date {
         color: var(--g999);
-        font-style: italic;
-        font-size: 0.7em;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 0.5em;
         text-align: center;
         margin-top: 0.7em;
     }

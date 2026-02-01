@@ -53,8 +53,8 @@
 
     .date {
         color: var(--g999);
-        font-style: italic;
-        font-size: 0.7em;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 0.5em;
         text-align: center;
         padding: 0.7em 0 1em;
         background-color: var(--fff);
