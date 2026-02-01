@@ -255,23 +255,10 @@
                     {/each}
                 {/if}
             </h6>
-            <!-- Twitter/X Live Feed Widget -->
+            <!-- Elfsight Twitter Feed -->
             <div class="twitter-timeline-container">
-                <div class="feed-header">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#000">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    <span>@UnderdogNFL</span>
-                    <a href="https://x.com/UnderdogNFL" target="_blank" rel="noopener noreferrer" class="follow-btn">Follow</a>
-                </div>
-                <a class="twitter-timeline" 
-                   data-height="400"
-                   data-theme="light"
-                   data-chrome="noheader nofooter transparent"
-                   data-dnt="true"
-                   href="https://twitter.com/UnderdogNFL?ref_src=twsrc%5Etfw">
-                </a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div class="elfsight-app-1de33d25-070e-4503-b2f2-9a8932c77da1" data-elfsight-app-lazy></div>
             </div>
             <!-- Most recent Blog Post (if enabled) -->
             {#if enableBlog}
