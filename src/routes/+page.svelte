@@ -67,6 +67,32 @@
         0%, 100% { opacity: 1; }
         50% { opacity: 0.4; }
     }
+    
+    .feed-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px;
+        border-bottom: 1px solid #e1e8ed;
+        font-weight: 700;
+        font-size: 1.1em;
+    }
+    
+    .follow-btn {
+        margin-left: auto;
+        background: #000;
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 0.85em;
+        font-weight: 700;
+        transition: background 0.2s;
+    }
+    
+    .follow-btn:hover {
+        background: #333;
+    }
 
     .text-watermark {
         position: absolute;
@@ -231,22 +257,22 @@
             </h6>
             <!-- Twitter/X Live Feed Widget -->
             <div class="twitter-timeline-container">
+                <div class="feed-header">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#000">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <span>@UnderdogNFL</span>
+                    <a href="https://x.com/UnderdogNFL" target="_blank" rel="noopener noreferrer" class="follow-btn">Follow</a>
+                </div>
                 <a class="twitter-timeline" 
-                   data-height="450"
+                   data-height="400"
                    data-theme="light"
-                   data-chrome="noheader nofooter"
+                   data-chrome="noheader nofooter transparent"
+                   data-dnt="true"
                    href="https://twitter.com/UnderdogNFL?ref_src=twsrc%5Etfw">
-                    <div class="twitter-loading">
-                        <div class="twitter-loading-icon">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="#1da1f2">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
-                        </div>
-                        <span>Loading @UnderdogNFL tweets...</span>
-                    </div>
                 </a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <!-- Most recent Blog Post (if enabled) -->
             {#if enableBlog}
                 <HomePost />
