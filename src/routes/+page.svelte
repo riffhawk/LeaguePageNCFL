@@ -148,15 +148,17 @@
         border: 1px solid #ccc;
         left: 50%;
         top: 43%;
+        z-index: 2;
     }
 
     .laurel {
         position: absolute;
         transform: translate(-50%, -50%);
-        width: 135px;
+        width: 160px;
         height: auto;
         left: 50%;
-        top: 50%;
+        top: 43%;
+        z-index: 1;
     }
 
     h4 {

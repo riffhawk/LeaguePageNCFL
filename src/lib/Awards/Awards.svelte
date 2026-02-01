@@ -50,12 +50,13 @@
 
         .laurel {
                 position: absolute;
-                width: 33%;
+                width: 38%;
                 height: auto;
                 transform: translate(-50%, -50%);
-                bottom: 56.6%;
+                bottom: 54%;
                 left: 50%;
                 pointer-events: none;
+                mix-blend-mode: multiply;
         }
 
         .first {
