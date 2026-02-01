@@ -119,7 +119,8 @@
         background-color: var(--blueOne);
         color: #fff;
         padding: 0.5em 0;
-        font-weight: 500;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 700;
         font-size: 1.5em;
     }
 
