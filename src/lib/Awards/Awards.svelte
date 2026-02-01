@@ -56,7 +56,6 @@
                 bottom: 54%;
                 left: 50%;
                 pointer-events: none;
-                mix-blend-mode: multiply;
         }
 
         .first {
