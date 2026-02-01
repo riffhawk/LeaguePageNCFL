@@ -44,7 +44,7 @@
         h5 {
                 text-align: center;
                 margin: 10px auto 16px;
-                font-family: 'Pacifico', cursive;
+                font-family: 'Permanent Marker', cursive;
         }
 
         .link {

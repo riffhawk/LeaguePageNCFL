@@ -163,7 +163,7 @@
         text-align: center;
         font-size: 1.8em;
         margin: 10px;
-        font-family: 'Pacifico', cursive;
+        font-family: 'Permanent Marker', cursive;
     }
 
     .label {
