@@ -43,7 +43,7 @@
         position: relative;
         margin: 0 -30px;
         padding: 0;
-        background: url('/wilson-schefter.webp') center center / contain no-repeat;
+        background: url('/wilson-schefter.webp') center center / 140% auto no-repeat;
         aspect-ratio: 16 / 9;
         display: flex;
         align-items: center;
