@@ -145,7 +145,7 @@
         font-size: 1.7em;
         margin: 6px auto 10px;
         cursor: pointer;
-        font-family: 'Pacifico', cursive;
+        font-family: 'Playfair Display', serif;
     }
     
         :global(.curOwner) {
