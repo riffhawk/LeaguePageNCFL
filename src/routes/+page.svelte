@@ -42,40 +42,40 @@
     .twitter-hero-section {
         position: relative;
         margin: 0 -30px;
-        padding: 40px 30px;
-        background: url('/wilson-schefter.webp') center center / cover no-repeat;
-        min-height: 400px;
+        padding: 0;
+        background: url('/wilson-schefter.webp') center center / contain no-repeat;
+        background-color: #e8e8e8;
+        aspect-ratio: 16 / 9;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     
-    .twitter-hero-section::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.3);
-    }
-    
     .twitter-timeline-container {
-        position: relative;
-        z-index: 1;
+        position: absolute;
+        top: 18%;
+        left: 10%;
+        width: 65%;
+        height: 72%;
         background: #fff;
-        border-radius: 12px;
+        border-radius: 16px;
         overflow: hidden;
-        max-width: 600px;
-        width: 100%;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        box-shadow: none;
     }
     
     @media (max-width: 768px) {
         .twitter-hero-section {
             margin: 0 10px;
-            padding: 20px 15px;
-            border-radius: 12px;
+            border-radius: 8px;
+            aspect-ratio: 4 / 5;
+            background-size: cover;
         }
         .twitter-timeline-container {
-            border-radius: 8px;
+            top: 12%;
+            left: 8%;
+            width: 70%;
+            height: 70%;
+            border-radius: 12px;
         }
     }
     
