@@ -3,10 +3,17 @@
         import { getNflState, leagueName, getAwards, getLeagueTeamManagers, homepageText, managers, gotoManager, enableBlog, waitForAll } from '$lib/utils/helper';
         import { Transactions, PowerRankings, HomePost} from '$lib/components';
         import { getAvatarFromTeamManagers, getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+        import { fade } from 'svelte/transition';
+        import { onMount } from 'svelte';
 
     const nflState = getNflState();
     const podiumsData = getAwards();
     const leagueTeamManagersData = getLeagueTeamManagers();
+    
+    let visible = false;
+    onMount(() => {
+        visible = true;
+    });
 </script>
 
 <style>
@@ -86,6 +93,27 @@
     h6 {
         text-align: center;
     }
+    
+    .league-title {
+        font-family: 'Permanent Marker', cursive;
+        font-size: 1.8em;
+        text-align: center;
+        letter-spacing: 0.05em;
+        color: #2d2d2d;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .league-title span {
+        display: inline;
+        will-change: opacity;
+    }
+    
+    .league-title .word {
+        display: inline-block;
+        white-space: nowrap;
+    }
 
     .homeBanner {
         background-color: var(--blueOne);
@@ -160,7 +188,14 @@
     <div id="main">
         <div class="text">
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
-            <h6>{leagueName}</h6>
+            <h6 class="league-title">
+                {#if visible}
+                    {#each leagueName.split(' ') as word, wordIndex}
+                        {@const charOffset = leagueName.split(' ').slice(0, wordIndex).join(' ').length + (wordIndex > 0 ? 1 : 0)}
+                        <span class="word">{#each word as char, i}<span in:fade={{ delay: (charOffset + i) * 50, duration: 400 }}>{char}</span>{/each}</span>{#if wordIndex < leagueName.split(' ').length - 1}<span in:fade={{ delay: (charOffset + word.length) * 50, duration: 400 }}>&nbsp;</span>{/if}
+                    {/each}
+                {/if}
+            </h6>
             <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
             {@html homepageText }
             <!-- Most recent Blog Post (if enabled) -->
