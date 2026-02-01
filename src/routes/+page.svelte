@@ -145,7 +145,8 @@
         font-size: 1.7em;
         margin: 6px auto 10px;
         cursor: pointer;
-        font-family: 'Playfair Display', serif;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 1em;
     }
     
         :global(.curOwner) {
