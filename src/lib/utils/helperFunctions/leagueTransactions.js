@@ -211,7 +211,7 @@ const digestTransaction = ({transaction, currentSeason}) => {
         const transactionRosters = transaction.roster_ids;
         const bid = transaction.settings?.waiver_bid;
         const date = digestDate(transaction.status_updated)
-        const season = parseInt(date.split(',')[0].split(' ')[2]);
+        const season = parseInt(date.split(', ')[1]);
 
 
         let digestedTransaction = {
