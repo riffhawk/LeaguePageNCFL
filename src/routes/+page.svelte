@@ -40,12 +40,14 @@
     }
 
     .twitter-timeline-container {
-        margin: 20px 0;
+        margin: 20px -30px;
         background: #fff;
-        border-radius: 12px;
+        border-radius: 0;
         overflow: hidden;
-        min-height: 450px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .twitter-timeline-container :global(*) {
+        max-width: 100% !important;
     }
     
     .twitter-loading {
