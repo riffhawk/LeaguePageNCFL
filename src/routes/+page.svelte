@@ -11,15 +11,9 @@
     const leagueTeamManagersData = getLeagueTeamManagers();
     
     let visible = false;
+    
     onMount(() => {
         visible = true;
-        
-        // Load Twitter widget script
-        const script = document.createElement('script');
-        script.src = 'https://platform.twitter.com/widgets.js';
-        script.async = true;
-        script.charset = 'utf-8';
-        document.body.appendChild(script);
     });
 </script>
 
@@ -45,10 +39,59 @@
         margin: 0 auto;
     }
 
-    .twitter-feed {
+    .twitter-feed-card {
         margin: 20px 0;
+    }
+    
+    .twitter-link {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
         border-radius: 12px;
-        overflow: hidden;
+        text-decoration: none;
+        color: #fff;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .twitter-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .twitter-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        border-radius: 50%;
+        color: #000;
+        flex-shrink: 0;
+    }
+    
+    .twitter-content {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        flex-grow: 1;
+    }
+    
+    .twitter-handle {
+        font-weight: 700;
+        font-size: 1.2em;
+    }
+    
+    .twitter-cta {
+        font-size: 0.9em;
+        opacity: 0.8;
+    }
+    
+    .twitter-arrow {
+        font-size: 1.5em;
+        opacity: 0.6;
         position: relative;
     }
 
@@ -213,13 +256,19 @@
                     {/each}
                 {/if}
             </h6>
-            <!-- Twitter/X Live Feed from @UnderdogNFL -->
-            <div class="twitter-feed">
-                <a class="twitter-timeline" 
-                   data-height="400" 
-                   data-theme="light" 
-                   href="https://twitter.com/UnderdogNFL">
-                    Loading tweets from @UnderdogNFL...
+            <!-- Twitter/X Feed Link -->
+            <div class="twitter-feed-card">
+                <a href="https://x.com/UnderdogNFL" target="_blank" rel="noopener noreferrer" class="twitter-link">
+                    <div class="twitter-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </div>
+                    <div class="twitter-content">
+                        <span class="twitter-handle">@UnderdogNFL</span>
+                        <span class="twitter-cta">Follow for NFL News & Updates</span>
+                    </div>
+                    <div class="twitter-arrow">→</div>
                 </a>
             </div>
             <!-- Most recent Blog Post (if enabled) -->
