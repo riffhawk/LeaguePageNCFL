@@ -54,7 +54,7 @@
         position: absolute;
         top: 18%;
         left: 40%;
-        width: 65%;
+        width: 59%;
         height: 72%;
         background: #fff;
         border-radius: 16px;
