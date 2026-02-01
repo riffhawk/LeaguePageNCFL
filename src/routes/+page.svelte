@@ -13,6 +13,13 @@
     let visible = false;
     onMount(() => {
         visible = true;
+        
+        // Load Twitter widget script
+        const script = document.createElement('script');
+        script.src = 'https://platform.twitter.com/widgets.js';
+        script.async = true;
+        script.charset = 'utf-8';
+        document.body.appendChild(script);
     });
 </script>
 
@@ -36,6 +43,12 @@
         padding: 0 30px;
         max-width: 620px;
         margin: 0 auto;
+    }
+
+    .twitter-feed {
+        margin: 20px 0;
+        border-radius: 12px;
+        overflow: hidden;
         position: relative;
     }
 
@@ -200,8 +213,15 @@
                     {/each}
                 {/if}
             </h6>
-            <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
-            {@html homepageText }
+            <!-- Twitter/X Live Feed from @UnderdogNFL -->
+            <div class="twitter-feed">
+                <a class="twitter-timeline" 
+                   data-height="400" 
+                   data-theme="light" 
+                   href="https://twitter.com/UnderdogNFL">
+                    Loading tweets from @UnderdogNFL...
+                </a>
+            </div>
             <!-- Most recent Blog Post (if enabled) -->
             {#if enableBlog}
                 <HomePost />
