@@ -135,7 +135,7 @@
         text-align: center;
         font-size: 1.8em;
         margin: 10px;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Pacifico', cursive;
     }
 
     .label {
@@ -145,7 +145,7 @@
         font-size: 1.7em;
         margin: 6px auto 10px;
         cursor: pointer;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Pacifico', cursive;
     }
     
         :global(.curOwner) {

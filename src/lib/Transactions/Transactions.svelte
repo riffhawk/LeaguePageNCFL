@@ -44,7 +44,7 @@
         h5 {
                 text-align: center;
                 margin: 10px auto 16px;
-                font-family: 'Montserrat', sans-serif;
+                font-family: 'Pacifico', cursive;
         }
 
         .link {
