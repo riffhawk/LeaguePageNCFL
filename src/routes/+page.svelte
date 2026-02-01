@@ -78,12 +78,19 @@
     .twitter-hero-section {
         margin: 0 10px;
         border-radius: 8px;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 9 / 16;
     }
     
     .twitter-hero-section::after {
-        background-size: 200% auto;
-        background-position: 65% center;
+        background-size: 280% auto;
+        background-position: 58% 35%;
+    }
+    
+    .twitter-timeline-container {
+        top: 18%;
+        left: 12%;
+        width: 68%;
+        height: 55%;
     }
 }
     
