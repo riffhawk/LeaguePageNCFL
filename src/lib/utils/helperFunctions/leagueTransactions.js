@@ -201,9 +201,7 @@ const digestDate = (tStamp) => {
         const year = a.getFullYear();
         const month = months[a.getMonth()];
         const date = a.getDate();
-        const hour = a.getHours();
-        const min = a.getMinutes();
-        return month + ' ' + date + ' ' + year + ', ' + (hour % 12 == 0 ? 12 : hour % 12) + ':' + min + (hour / 12 >= 1 ? "PM" : "AM");
+        return month + ' ' + date + ', ' + year;
 }
 
 const digestTransaction = ({transaction, currentSeason}) => {
