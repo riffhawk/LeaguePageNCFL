@@ -20,7 +20,7 @@ export const getLeagueTransactions = async (preview, refresh = false) => {
 
         // if this isn't a refresh data call, check if there are already transactions stored in localStorage
         if(!refresh && browser) {
-                let localTransactions = await JSON.parse(localStorage.getItem("transactions"));
+                let localTransactions = await JSON.parse(localStorage.getItem("transactions_v2"));
                 // check if transactions have been saved to localStorage before
                 if(localTransactions) {
                         localTransactions.transactions = checkPreview(preview, localTransactions.transactions);
@@ -48,7 +48,7 @@ export const getLeagueTransactions = async (preview, refresh = false) => {
 
     if(browser) {
             // update localStorage
-        localStorage.setItem("transactions", JSON.stringify(transactionPackage));
+        localStorage.setItem("transactions_v2", JSON.stringify(transactionPackage));
     
         // update the store
         transactionsStore.update(() => transactionPackage);
