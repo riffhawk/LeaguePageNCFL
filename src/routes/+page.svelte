@@ -88,6 +88,10 @@
 }
 
 @media (max-width: 768px) {
+    #main {
+        padding: 0 0;
+    }
+    
     .twitter-hero-section {
         max-width: 320px;
     }
