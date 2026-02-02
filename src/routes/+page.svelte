@@ -56,7 +56,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('/blank-background.png') center center / 542px 475px no-repeat;
+    background: url('/blank-background.png') center center / 532px 465px no-repeat;
     pointer-events: none;
     z-index: 2;
 }
@@ -94,7 +94,7 @@
     }
     
     .twitter-hero-section::before {
-        background-size: 542px 475px;
+        background-size: 532px 465px;
         background-position: center center;
     }
     
