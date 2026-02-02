@@ -284,6 +284,9 @@
         }
 
         @media (max-width: 510px) {
+                .awards {
+                        padding-top: 5px;
+                }
                 #podium {
                         width: 400px;
                         height: 333px;
