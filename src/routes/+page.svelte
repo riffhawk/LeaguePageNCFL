@@ -93,9 +93,9 @@
     }
     
     .twitter-timeline-container {
-        top: 30%;
+        top: 32%;
         left: 21%;
-        width: 62%;
+        width: 60%;
         height: 42%;
     }
 }
