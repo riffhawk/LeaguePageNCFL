@@ -80,14 +80,11 @@
 }
 
 .cspn-logo {
-    position: absolute;
-    top: 2%;
-    left: 50%;
-    transform: translateX(-50%);
+    display: block;
     width: 40%;
     max-width: 180px;
     height: auto;
-    z-index: 10;
+    margin: 0 auto 10px;
 }
 
 @media (max-width: 768px) {
@@ -316,8 +313,8 @@
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
             <!-- Twitter Feed Hero Section -->
             <div class="twitter-hero-section">
+                <img src="/cspn-logo.png" alt="CSPN" class="cspn-logo" />
                 <div class="twitter-hero-wrapper">
-                    <img src="/cspn-logo.png" alt="CSPN" class="cspn-logo" />
                     <div class="twitter-timeline-container">
                         <script src="https://elfsightcdn.com/platform.js" async></script>
                         <div class="elfsight-app-1de33d25-070e-4503-b2f2-9a8932c77da1" data-elfsight-app-lazy></div>
