@@ -239,8 +239,8 @@
 
     #champ {
         position: relative;
-        width: 280px;
-        height: 280px;
+        width: 150px;
+        height: 150px;
         margin: 0 auto;
         cursor: pointer;
     }
@@ -248,22 +248,22 @@
     .first {
         position: absolute;
         transform: translate(-50%, -50%);
-        width: 140px;
-        height: 140px;
+        width: 80px;
+        height: 80px;
         border-radius: 100%;
         border: 1px solid #ccc;
         left: 50%;
-        top: 50%;
+        top: 43%;
         z-index: 1;
     }
 
     .laurel {
         position: absolute;
         transform: translate(-50%, -50%);
-        width: 340px;
+        width: 280px;
         height: auto;
         left: 50%;
-        top: 50%;
+        top: 43%;
         z-index: 2;
         pointer-events: none;
     }
