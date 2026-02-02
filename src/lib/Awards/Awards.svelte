@@ -50,7 +50,7 @@
 
         .laurel {
                 position: absolute;
-                width: 340px;
+                width: 345px;
                 height: auto;
                 transform: translate(-50%, -50%);
                 bottom: 56%;
