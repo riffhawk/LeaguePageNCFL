@@ -85,6 +85,7 @@
     max-width: 180px;
     height: auto;
     margin: 0 auto 10px;
+    mix-blend-mode: screen;
 }
 
 @media (max-width: 768px) {
