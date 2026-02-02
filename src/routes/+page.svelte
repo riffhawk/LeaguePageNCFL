@@ -56,7 +56,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('/wilson-schefter.webp') center center / 390px 450px no-repeat;
+    background: url('/wilson-schefter.webp') center center / 460px 455px no-repeat;
     pointer-events: none;
     z-index: 2;
 }
@@ -82,7 +82,7 @@
     }
     
     .twitter-hero-section::after {
-        background-size: 390px 450px;
+        background-size: 460px 455px;
         background-position: center center;
     }
     
