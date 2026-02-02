@@ -60,12 +60,6 @@
     pointer-events: none;
 }
 
-.blank-background-img {
-    width: 85.2%; /* 525/616 */
-    height: auto;
-    z-index: 2;
-}
-
 .wilson-schefter-img {
     width: 100%;
     height: auto;
@@ -92,10 +86,6 @@
     
     .twitter-hero-wrapper {
         padding-bottom: 120%;
-    }
-    
-    .blank-background-img {
-        width: 90%;
     }
     
     .wilson-schefter-img {
@@ -316,12 +306,11 @@
             <!-- Twitter Feed Hero Section -->
             <div class="twitter-hero-section">
                 <div class="twitter-hero-wrapper">
-                    <img src="/blank-background.png" alt="" class="blank-background-img" />
                     <div class="twitter-timeline-container">
                         <script src="https://elfsightcdn.com/platform.js" async></script>
                         <div class="elfsight-app-1de33d25-070e-4503-b2f2-9a8932c77da1" data-elfsight-app-lazy></div>
                     </div>
-                    <img src="/wilson-schefter.webp" alt="" class="wilson-schefter-img" />
+                    <img src="/wilson-schefter.png" alt="" class="wilson-schefter-img" />
                 </div>
             </div>
             <!-- Most recent Blog Post (if enabled) -->
