@@ -76,6 +76,7 @@
 
         h3 {
                 text-align: center;
+                font-family: 'Permanent Marker', cursive;
         }
 
         .leaderBlock {
