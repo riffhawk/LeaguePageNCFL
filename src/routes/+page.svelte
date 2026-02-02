@@ -110,6 +110,40 @@
         height: 38%;
     }
 }
+
+@media (max-width: 480px) {
+    .twitter-hero-section::before {
+        background-size: 350px 318px;
+    }
+    
+    .twitter-hero-section::after {
+        background-size: 420px 378px;
+    }
+    
+    .twitter-timeline-container {
+        top: 33%;
+        left: 14%;
+        width: 74%;
+        height: 38%;
+    }
+}
+
+@media (max-width: 375px) {
+    .twitter-hero-section::before {
+        background-size: 290px 263px;
+    }
+    
+    .twitter-hero-section::after {
+        background-size: 350px 315px;
+    }
+    
+    .twitter-timeline-container {
+        top: 33%;
+        left: 14%;
+        width: 74%;
+        height: 38%;
+    }
+}
     
     .twitter-timeline-container :global(*) {
         max-width: 100% !important;
