@@ -94,7 +94,7 @@
     }
     
     .twitter-hero-section::before {
-        background-size: 420px 363px;
+        background-size: 419px 365px;
         background-position: center center;
     }
     
