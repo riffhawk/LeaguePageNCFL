@@ -79,6 +79,11 @@
                 font-family: 'Permanent Marker', cursive;
         }
 
+        h6 {
+                font-family: 'Rubik', sans-serif;
+                font-weight: 700;
+        }
+
         .leaderBlock {
                 position: relative;
                 width: 80px;
@@ -366,7 +371,7 @@
                         {#if division.rosterID}
                                 <div class="division">
                                         {#if division.name}
-                                                <h6>{division.name} Division</h6>
+                                                <h6>{division.name} Winner</h6>
                                         {:else}
                                                 <h6>Regular Season Champion</h6>
                                         {/if}
