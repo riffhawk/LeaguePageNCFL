@@ -68,8 +68,8 @@
 
 .twitter-timeline-container {
     position: absolute;
-    top: 30%;
-    left: 25%;
+    top: 27%;
+    left: 26%;
     width: 52%;
     height: 60%;
     background: #ffffff;
