@@ -76,7 +76,7 @@
     border-radius: 16px;
     overflow: hidden;
     box-shadow: none;
-    z-index: 3;
+    z-index: 5;
 }
 
 @media (max-width: 768px) {
