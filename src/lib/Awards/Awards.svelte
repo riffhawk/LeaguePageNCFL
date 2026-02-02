@@ -4,6 +4,10 @@
         export let podium, leagueTeamManagers;
 
         const { year, champion, second, third, divisions, toilet } = podium;
+
+        function toTitleCase(str) {
+                return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+        }
 </script>
 
 <style>
@@ -82,7 +86,6 @@
         h6 {
                 font-family: 'Rubik', sans-serif;
                 font-weight: 700;
-                text-transform: capitalize;
         }
 
         .leaderBlock {
@@ -372,7 +375,7 @@
                         {#if division.rosterID}
                                 <div class="division">
                                         {#if division.name}
-                                                <h6>{division.name} Winner</h6>
+                                                <h6>{toTitleCase(division.name)} Winner</h6>
                                         {:else}
                                                 <h6>Regular Season Champion</h6>
                                         {/if}
