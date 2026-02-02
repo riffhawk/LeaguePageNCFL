@@ -79,6 +79,14 @@
     z-index: 5;
 }
 
+.cspn-logo {
+    display: block;
+    width: 60%;
+    max-width: 150px;
+    height: auto;
+    margin: 10px auto;
+}
+
 @media (max-width: 768px) {
     .twitter-hero-section {
         max-width: 320px;
@@ -307,6 +315,7 @@
             <div class="twitter-hero-section">
                 <div class="twitter-hero-wrapper">
                     <div class="twitter-timeline-container">
+                        <img src="/cspn-logo.png" alt="CSPN" class="cspn-logo" />
                         <script src="https://elfsightcdn.com/platform.js" async></script>
                         <div class="elfsight-app-1de33d25-070e-4503-b2f2-9a8932c77da1" data-elfsight-app-lazy></div>
                     </div>
