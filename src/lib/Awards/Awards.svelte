@@ -6,7 +6,7 @@
         const { year, champion, second, third, divisions, toilet } = podium;
 
         function toTitleCase(str) {
-                return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+                return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase()).replace(/ncfl/gi, 'NCFL');
         }
 </script>
 
