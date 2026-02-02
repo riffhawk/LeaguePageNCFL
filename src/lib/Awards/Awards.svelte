@@ -290,7 +290,7 @@
                 }
                 .laurel {
                         width: 275px;
-                        bottom: 54%;
+                        bottom: 50%;
                 }
         }
 
