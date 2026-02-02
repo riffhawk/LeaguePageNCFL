@@ -81,8 +81,8 @@
 
 .cspn-logo {
     display: block;
-    width: 40%;
-    max-width: 180px;
+    width: 60%;
+    max-width: 280px;
     height: auto;
     margin: 0 auto 10px;
 }
