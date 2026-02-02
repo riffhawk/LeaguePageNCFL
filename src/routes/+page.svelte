@@ -58,7 +58,7 @@
     height: 100%;
     background: url('/wilson-schefter.webp') center center / 616px 538px no-repeat;
     pointer-events: none;
-    z-index: 2;
+    z-index: 4;
 }
 
 .twitter-timeline-container {
