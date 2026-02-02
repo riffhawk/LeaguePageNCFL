@@ -41,35 +41,34 @@
 
 .twitter-hero-section {
     position: relative;
-    margin: 0 -30px;
-    padding: 0;
-    aspect-ratio: 16 / 12;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 616px;
 }
 
-.twitter-hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.twitter-hero-wrapper {
+    position: relative;
     width: 100%;
-    height: 100%;
-    background: url('/blank-background.png') center center / 525px 456px no-repeat;
+    padding-bottom: 87.34%; /* 538/616 aspect ratio */
+}
+
+.twitter-hero-wrapper img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     pointer-events: none;
+}
+
+.blank-background-img {
+    width: 85.2%; /* 525/616 */
+    height: auto;
     z-index: 2;
 }
 
-.twitter-hero-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.wilson-schefter-img {
     width: 100%;
-    height: 100%;
-    background: url('/wilson-schefter.webp') center center / 616px 538px no-repeat;
-    pointer-events: none;
+    height: auto;
     z-index: 4;
 }
 
@@ -88,19 +87,15 @@
 
 @media (max-width: 768px) {
     .twitter-hero-section {
-        margin: 0 10px;
-        border-radius: 8px;
-        aspect-ratio: 9 / 16;
+        max-width: 500px;
     }
     
-    .twitter-hero-section::before {
-        background-size: 419px 381px;
-        background-position: center center;
+    .twitter-hero-wrapper {
+        padding-bottom: 90%; /* slightly taller on mobile */
     }
     
-    .twitter-hero-section::after {
-        background-size: 500px 450px;
-        background-position: center center;
+    .blank-background-img {
+        width: 83.8%; /* 419/500 */
     }
     
     .twitter-timeline-container {
@@ -316,9 +311,13 @@
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
             <!-- Twitter Feed Hero Section -->
             <div class="twitter-hero-section">
-                <div class="twitter-timeline-container">
-                    <script src="https://elfsightcdn.com/platform.js" async></script>
-                    <div class="elfsight-app-1de33d25-070e-4503-b2f2-9a8932c77da1" data-elfsight-app-lazy></div>
+                <div class="twitter-hero-wrapper">
+                    <img src="/blank-background.png" alt="" class="blank-background-img" />
+                    <div class="twitter-timeline-container">
+                        <script src="https://elfsightcdn.com/platform.js" async></script>
+                        <div class="elfsight-app-1de33d25-070e-4503-b2f2-9a8932c77da1" data-elfsight-app-lazy></div>
+                    </div>
+                    <img src="/wilson-schefter.webp" alt="" class="wilson-schefter-img" />
                 </div>
             </div>
             <!-- Most recent Blog Post (if enabled) -->
