@@ -86,6 +86,7 @@
         h6 {
                 font-family: 'Rubik', sans-serif;
                 font-weight: 700;
+                text-align: center;
         }
 
         .leaderBlock {
@@ -375,7 +376,7 @@
                         {#if division.rosterID}
                                 <div class="division">
                                         {#if division.name}
-                                                <h6>{toTitleCase(division.name)} Winner</h6>
+                                                <h6>NCFL<br>{toTitleCase(division.name.replace(/ncfl/gi, '').trim())} Winner</h6>
                                         {:else}
                                                 <h6>Regular Season Champion</h6>
                                         {/if}
