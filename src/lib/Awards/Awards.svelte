@@ -288,6 +288,10 @@
                         width: 400px;
                         height: 333px;
                 }
+                .laurel {
+                        width: 275px;
+                        bottom: 54%;
+                }
         }
 
         @media (max-width: 425px) {
@@ -303,6 +307,10 @@
                 #podium {
                         width: 300px;
                         height: 250px;
+                }
+                .laurel {
+                        width: 200px;
+                        bottom: 52%;
                 }
 
                 .firstLabel {
