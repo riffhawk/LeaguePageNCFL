@@ -49,6 +49,18 @@
     justify-content: center;
 }
 
+.twitter-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/blank-background.png') center center / 616px 538px no-repeat;
+    pointer-events: none;
+    z-index: 2;
+}
+
 .twitter-hero-section::after {
     content: '';
     position: absolute;
@@ -79,6 +91,11 @@
         margin: 0 10px;
         border-radius: 8px;
         aspect-ratio: 9 / 16;
+    }
+    
+    .twitter-hero-section::before {
+        background-size: 616px 538px;
+        background-position: center center;
     }
     
     .twitter-hero-section::after {
