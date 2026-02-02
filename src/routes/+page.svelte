@@ -313,7 +313,7 @@
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
             <!-- Twitter Feed Hero Section -->
             <div class="twitter-hero-section">
-                <img src="/cspn-logo.png" alt="CSPN" class="cspn-logo" />
+                <video src="/cspn-logo.mp4" class="cspn-logo" autoplay loop muted playsinline></video>
                 <div class="twitter-hero-wrapper">
                     <div class="twitter-timeline-container">
                         <script src="https://elfsightcdn.com/platform.js" async></script>
