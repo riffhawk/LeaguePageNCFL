@@ -110,50 +110,6 @@
         height: 38%;
     }
 }
-
-@media (max-width: 480px) {
-    .twitter-hero-section::before {
-        background-size: 360px 328px;
-    }
-    
-    .twitter-hero-section::after {
-        background-size: 440px 396px;
-    }
-    
-    .twitter-timeline-container {
-        top: 33%;
-        left: 14%;
-        width: 74%;
-        height: 38%;
-    }
-}
-
-@media (max-width: 400px) {
-    .twitter-hero-section::before {
-        background-size: 330px 300px;
-    }
-    
-    .twitter-hero-section::after {
-        background-size: 400px 360px;
-    }
-}
-
-@media (max-width: 375px) {
-    .twitter-hero-section::before {
-        background-size: 300px 273px;
-    }
-    
-    .twitter-hero-section::after {
-        background-size: 365px 329px;
-    }
-    
-    .twitter-timeline-container {
-        top: 33%;
-        left: 14%;
-        width: 74%;
-        height: 38%;
-    }
-}
     
     .twitter-timeline-container :global(*) {
         max-width: 100% !important;
