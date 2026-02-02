@@ -105,7 +105,7 @@
     
     .twitter-timeline-container {
         top: 40%;
-        left: 23%;
+        left: 21%;
         width: 70%;
         height: 38%;
     }
