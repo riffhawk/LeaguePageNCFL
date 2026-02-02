@@ -84,7 +84,7 @@
     width: 60%;
     max-width: 280px;
     height: auto;
-    margin: 0;
+    margin: 0 auto 0;
 }
 
 @media (max-width: 768px) {
