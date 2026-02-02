@@ -87,22 +87,26 @@
 
 @media (max-width: 768px) {
     .twitter-hero-section {
-        max-width: 500px;
+        max-width: 320px;
     }
     
     .twitter-hero-wrapper {
-        padding-bottom: 90%; /* slightly taller on mobile */
+        padding-bottom: 120%;
     }
     
     .blank-background-img {
-        width: 83.8%; /* 419/500 */
+        width: 90%;
+    }
+    
+    .wilson-schefter-img {
+        width: 110%;
     }
     
     .twitter-timeline-container {
-        top: 33%;
-        left: 14%;
-        width: 74%;
-        height: 38%;
+        top: 22%;
+        left: 15%;
+        width: 70%;
+        height: 50%;
     }
 }
     
