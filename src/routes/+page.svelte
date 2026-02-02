@@ -113,11 +113,11 @@
 
 @media (max-width: 480px) {
     .twitter-hero-section::before {
-        background-size: 350px 318px;
+        background-size: 390px 355px;
     }
     
     .twitter-hero-section::after {
-        background-size: 420px 378px;
+        background-size: 470px 423px;
     }
     
     .twitter-timeline-container {
@@ -130,11 +130,11 @@
 
 @media (max-width: 375px) {
     .twitter-hero-section::before {
-        background-size: 290px 263px;
+        background-size: 340px 310px;
     }
     
     .twitter-hero-section::after {
-        background-size: 350px 315px;
+        background-size: 410px 369px;
     }
     
     .twitter-timeline-container {
