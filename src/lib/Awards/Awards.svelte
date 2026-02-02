@@ -82,6 +82,7 @@
         h6 {
                 font-family: 'Rubik', sans-serif;
                 font-weight: 700;
+                text-transform: capitalize;
         }
 
         .leaderBlock {
