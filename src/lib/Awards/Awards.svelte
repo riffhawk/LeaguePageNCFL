@@ -53,7 +53,7 @@
                 width: 340px;
                 height: auto;
                 transform: translate(-50%, -50%);
-                bottom: 58%;
+                bottom: 60%;
                 left: 50%;
                 pointer-events: none;
                 z-index: 4;
