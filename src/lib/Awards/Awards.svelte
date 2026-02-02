@@ -287,6 +287,9 @@
                 .awards {
                         padding-top: 5px;
                 }
+                h3 {
+                        margin-top: 1em;
+                }
                 #podium {
                         width: 400px;
                         height: 333px;
