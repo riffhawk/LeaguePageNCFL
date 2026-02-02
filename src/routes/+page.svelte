@@ -94,20 +94,20 @@
     }
     
     .twitter-hero-section::before {
-        background-size: 525px 456px;
+        background-size: 340px 295px;
         background-position: center center;
     }
     
     .twitter-hero-section::after {
-        background-size: 616px 538px;
+        background-size: 400px 350px;
         background-position: center center;
     }
     
     .twitter-timeline-container {
-        top: 18%;
-        left: 12%;
-        width: 68%;
-        height: 55%;
+        top: 22%;
+        left: 16%;
+        width: 60%;
+        height: 50%;
     }
 }
     
