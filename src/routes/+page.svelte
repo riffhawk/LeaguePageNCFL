@@ -85,7 +85,6 @@
     max-width: 180px;
     height: auto;
     margin: 0 auto 10px;
-    mix-blend-mode: screen;
 }
 
 @media (max-width: 768px) {
@@ -314,7 +313,7 @@
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
             <!-- Twitter Feed Hero Section -->
             <div class="twitter-hero-section">
-                <video src="/cspn-logo.mp4" class="cspn-logo" autoplay loop muted playsinline></video>
+                <img src="/cspn-logo.webp" alt="CSPN" class="cspn-logo" />
                 <div class="twitter-hero-wrapper">
                     <div class="twitter-timeline-container">
                         <script src="https://elfsightcdn.com/platform.js" async></script>
