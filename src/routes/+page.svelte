@@ -66,7 +66,7 @@
     top: 22%;
     left: 24%;
     width: 52%;
-    height: 66%;
+    height: 60%;
     background: #fff;
     border-radius: 16px;
     overflow: hidden;
