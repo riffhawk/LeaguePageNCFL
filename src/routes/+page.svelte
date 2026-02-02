@@ -39,32 +39,41 @@
         margin: 0 auto;
     }
 
-.livefeed {
+.twitter-hero-section {
     position: relative;
-    width: min(90vw, 500px);
-    aspect-ratio: 9 / 16;
-    margin: 0 auto;
+    margin: 0 -30px;
+    padding: 0;
+    aspect-ratio: 16 / 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.livefeed .frame {
+.twitter-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    display: block;
-    position: relative;
-    z-index: 4;
+    background: url('/blank-background.png') center center / 525px 456px no-repeat;
     pointer-events: none;
-}
-
-.livefeed .background {
-    position: absolute;
-    inset: 10% 8% 20% 8%;
-    object-fit: contain;
     z-index: 2;
-    pointer-events: none;
 }
 
-.livefeed .tweet {
+.twitter-hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/wilson-schefter.webp') center center / 616px 538px no-repeat;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.twitter-timeline-container {
     position: absolute;
     top: 28%;
     left: 24%;
@@ -73,25 +82,38 @@
     background: #ffffff;
     border-radius: 16px;
     overflow: hidden;
+    box-shadow: none;
     z-index: 3;
 }
 
-.livefeed .tweet :global(*) {
-    max-width: 100% !important;
-}
-
 @media (max-width: 768px) {
-    .livefeed {
-        width: min(95vw, 400px);
+    .twitter-hero-section {
+        margin: 0 10px;
+        border-radius: 8px;
+        aspect-ratio: 9 / 16;
     }
     
-    .livefeed .tweet {
+    .twitter-hero-section::before {
+        background-size: 419px 381px;
+        background-position: center center;
+    }
+    
+    .twitter-hero-section::after {
+        background-size: 500px 450px;
+        background-position: center center;
+    }
+    
+    .twitter-timeline-container {
         top: 33%;
         left: 14%;
         width: 74%;
         height: 38%;
     }
 }
+    
+    .twitter-timeline-container :global(*) {
+        max-width: 100% !important;
+    }
     
     .twitter-loading {
         display: flex;
@@ -293,10 +315,8 @@
         <div class="text">
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
             <!-- Twitter Feed Hero Section -->
-            <div class="livefeed">
-                <img class="background" src="/blank-background.png" alt="" />
-                <img class="frame" src="/wilson-schefter.webp" alt="Live Feed Frame" />
-                <div class="tweet">
+            <div class="twitter-hero-section">
+                <div class="twitter-timeline-container">
                     <script src="https://elfsightcdn.com/platform.js" async></script>
                     <div class="elfsight-app-1de33d25-070e-4503-b2f2-9a8932c77da1" data-elfsight-app-lazy></div>
                 </div>
