@@ -254,7 +254,7 @@
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.5);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        color: #e5e7eb;
+        color: #1f2937;
         font-family: 'Rubik', sans-serif;
         font-weight: 700;
         font-size: 1.5em;
