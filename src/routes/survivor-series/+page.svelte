@@ -226,9 +226,9 @@
     }
     
     th {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Press Start 2P', cursive;
         font-weight: 600;
-        font-size: 0.8em;
+        font-size: 0.55em;
         text-transform: uppercase;
         color: #ffffff;
         background: #2d2d2d;
@@ -345,9 +345,9 @@
     }
     
     .sidebar-header h3 {
-        font-family: 'Rubik', sans-serif;
+        font-family: 'Press Start 2P', cursive;
         font-weight: 700;
-        font-size: 1em;
+        font-size: 0.7em;
         margin: 0;
         line-height: 1.2;
     }
