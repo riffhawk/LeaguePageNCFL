@@ -1,9 +1,21 @@
 <script>
+    import { onMount } from 'svelte';
+    import { animate } from 'motion';
     import { gotoManager } from '$lib/utils/helper';
         import { getAvatarFromTeamManagers, getNestedTeamNamesFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
         export let podium, leagueTeamManagers;
 
         const { year, champion, second, third, divisions, toilet } = podium;
+
+        onMount(() => {
+                if (toilet) {
+                        animate(
+                                ".toiletWinner",
+                                { rotate: 90 },
+                                { type: "spring", repeat: Infinity, repeatDelay: 0.2 }
+                        );
+                }
+        });
 
         function toTitleCase(str) {
                 return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase()).replace(/ncfl/gi, 'NCFL');
