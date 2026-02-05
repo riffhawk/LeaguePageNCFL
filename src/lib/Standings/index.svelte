@@ -164,11 +164,13 @@
                 <Row>
                     <Cell class="center">Team</Cell>
                     {#each columnOrder as column}
-                        <Cell class="center wrappable sortableHeader" on:click={() => handleSort(column.field)}>
-                            {column.name}
-                            {#if sortField === column.field}
-                                <span class="sortIndicator">{sortDirection === 'desc' ? '▼' : '▲'}</span>
-                            {/if}
+                        <Cell class="center wrappable">
+                            <span class="sortableHeader" role="button" tabindex="0" on:click={() => handleSort(column.field)} on:keydown={(e) => e.key === 'Enter' && handleSort(column.field)}>
+                                {column.name}
+                                {#if sortField === column.field}
+                                    <span class="sortIndicator">{sortDirection === 'desc' ? '▼' : '▲'}</span>
+                                {/if}
+                            </span>
                         </Cell>
                     {/each}
                 </Row>
