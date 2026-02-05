@@ -430,7 +430,7 @@
     }
 
     h1 {
-      font-size: 0.7rem;
+      font-size: 2.0rem;
     }
 
     .subtitle {
