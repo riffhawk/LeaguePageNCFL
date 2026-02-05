@@ -101,6 +101,9 @@
     .sortableHeader {
         cursor: pointer;
         user-select: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
     }
 
     .sortableHeader:hover {
@@ -108,8 +111,7 @@
     }
 
     .sortIndicator {
-        margin-right: 4px;
-        font-size: 0.8em;
+        font-size: 0.7em;
     }
 
     .standingsTable {
@@ -130,7 +132,7 @@
             padding: 0 0.5em;
         }
         .standingsTable {
-            margin: 0.25em 8px 3em;
+            margin: 0.25em 12px 3em;
         }
     }
 
