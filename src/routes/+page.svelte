@@ -255,7 +255,7 @@
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         color: #1f2937;
-        font-family: 'Arcade Gamer', sans-serif;
+        font-family: 'Press Start 2P', cursive;
         font-weight: 700;
         font-size: 1.5em;
         margin-top: 21px;
