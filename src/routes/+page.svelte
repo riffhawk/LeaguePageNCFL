@@ -5,7 +5,6 @@
         import { getAvatarFromTeamManagers, getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
         import { fade } from 'svelte/transition';
         import { onMount } from 'svelte';
-        import PixelateImage from '$lib/PixelateImage.svelte';
 
     const nflState = getNflState();
     const podiumsData = getAwards();
@@ -339,7 +338,7 @@
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
             <!-- Twitter Feed Hero Section -->
             <div class="twitter-hero-section">
-                <PixelateImage src="/cspn-logo.webp" alt="CSPN" maxPixelSize={40} className="cspn-logo" />
+                <img src="/cspn-logo.webp" alt="CSPN" class="cspn-logo" />
                 <div class="twitter-hero-wrapper">
                     <div class="twitter-timeline-container">
                         <script src="https://elfsightcdn.com/platform.js" async></script>
