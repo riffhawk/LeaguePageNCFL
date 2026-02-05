@@ -46,7 +46,7 @@
     max-width: 616px;
     background-image: url('/twitter-bg.jpg');
     background-attachment: fixed;
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px;
