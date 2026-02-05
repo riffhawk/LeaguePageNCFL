@@ -36,6 +36,11 @@
                 position: relative;
                 width: 100%;
                 z-index: 1;
+                background-image: url('/awards-bg.jpg');
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
         }
 
         #podium {
