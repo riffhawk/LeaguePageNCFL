@@ -462,10 +462,13 @@
     }
     
     @media (max-width: 768px) {
+        .survivor-container {
+            background-image: url('/survivor-bg-mobile.png');
+        }
+        
         .team-name {
             max-width: 100px;
         }
-        
     }
     
     :global(html),
