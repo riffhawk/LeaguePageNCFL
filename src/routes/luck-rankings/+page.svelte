@@ -90,10 +90,10 @@
   }
   
   .lucky-duck-image {
-    height: 0.7em;
+    height: 7em;
     width: auto;
-    vertical-align: baseline;
-    margin-left: 0;
+    vertical-align: middle;
+    margin-left: 0.5rem;
   }
 
   h1 {
