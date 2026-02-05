@@ -29,7 +29,7 @@
     #main {
         flex-grow: 1;
         min-width: 320px;
-        margin: 0 auto;
+        margin: -38px auto;
         padding: 60px 0;
     }
 
