@@ -253,7 +253,7 @@
         font-family: 'Rubik', sans-serif;
         font-weight: 700;
         font-size: 1.5em;
-        margin-top: 55px;
+        margin-top: 21px;
     }
 
     /* champ styling */
