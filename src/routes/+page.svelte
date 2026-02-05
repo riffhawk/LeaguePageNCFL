@@ -247,8 +247,8 @@
     }
 
     .homeBanner {
-        background-color: var(--blueOne);
-        color: #fff;
+        background-color: #ffffff;
+        color: #000000;
         padding: 0.5em 0;
         font-family: 'Rubik', sans-serif;
         font-weight: 700;
