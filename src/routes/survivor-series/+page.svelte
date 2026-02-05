@@ -1,6 +1,10 @@
 <script>
+    import { onMount } from 'svelte';
+    import lottie from 'lottie-web';
+    
     export let data;
     
+    let lottieContainer;
     let teams = [];
     let weeks = [];
     let graveyard = [];
@@ -116,6 +120,18 @@
         if (isElimWeek) return 'danger';
         return '';
     }
+    
+    onMount(() => {
+        if (lottieContainer) {
+            lottie.loadAnimation({
+                container: lottieContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '/squid-game.json'
+            });
+        }
+    });
 </script>
 
 <style>
@@ -141,6 +157,13 @@
         max-width: 400px;
         width: 100%;
         height: auto;
+    }
+    
+    .lottie-header {
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
     }
     
     .content-layout {
@@ -462,7 +485,7 @@
 
 <div class="survivor-container">
     <div class="page-header">
-        <img src="/squid-games-logo.png" alt="Squid Games" class="page-logo" />
+        <div bind:this={lottieContainer} class="lottie-header"></div>
     </div>
     
     {#if data.error}
