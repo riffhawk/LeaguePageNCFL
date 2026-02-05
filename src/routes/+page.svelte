@@ -116,7 +116,7 @@
         top: 19%;
         left: 10%;
         width: 80%;
-        height: 66%;
+        height: 63%;
     }
 }
     
