@@ -309,8 +309,10 @@
         color: #333;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 4px;
         white-space: nowrap;
+        position: relative;
     }
     
     .score.danger {
@@ -339,7 +341,10 @@
         width: 20px;
         height: 20px;
         vertical-align: middle;
-        margin-left: 4px;
+        position: absolute;
+        right: -24px;
+        top: 50%;
+        transform: translateY(-50%);
     }
     
     .sidebar {
