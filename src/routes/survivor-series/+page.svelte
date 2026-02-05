@@ -405,27 +405,6 @@
         padding: 1em;
     }
     
-    .page-footer {
-        text-align: center;
-        margin-top: -60px;
-        margin-bottom: 0 !important;
-        padding: 0 !important;
-        position: relative;
-        z-index: 100;
-        pointer-events: none;
-        line-height: 0;
-        font-size: 0;
-    }
-    
-    .footer-image {
-        max-width: 450px;
-        width: 80%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        padding: 0;
-        vertical-align: bottom;
-    }
     
     .survivor-container {
         margin-bottom: 0 !important;
@@ -437,14 +416,6 @@
             max-width: 100px;
         }
         
-        .page-footer {
-            margin-top: -40px;
-        }
-        
-        .footer-image {
-            max-width: 320px;
-            width: 85%;
-        }
     }
     
     :global(html),
@@ -564,8 +535,4 @@
             </div>
         </div>
     {/if}
-    
-    <div class="page-footer">
-        <img src="/squid-games-footer.png" alt="Squid Games Guards" class="footer-image" />
-    </div>
 </div>
