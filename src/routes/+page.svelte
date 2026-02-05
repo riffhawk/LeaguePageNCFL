@@ -245,7 +245,7 @@
         font-family: 'Rubik', sans-serif;
         font-weight: 700;
         font-size: 1.5em;
-        margin-top: 10px;
+        margin-top: 20px;
     }
 
     /* champ styling */
