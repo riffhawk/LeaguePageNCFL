@@ -221,7 +221,7 @@
                 display: block;
                 width: 50%;
                 max-width: 350px;
-                margin: 20px auto 0;
+                margin: 20px auto 80px;
         }
 
         .clickable {
