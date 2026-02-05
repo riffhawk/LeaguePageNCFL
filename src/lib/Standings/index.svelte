@@ -108,7 +108,7 @@
     }
 
     .sortIndicator {
-        margin-left: 4px;
+        margin-right: 4px;
         font-size: 0.8em;
     }
 
@@ -131,6 +131,7 @@
         }
         .standingsTable {
             margin: 0.25em 0 3em;
+            padding: 0 3px;
         }
     }
 
@@ -166,10 +167,10 @@
                     {#each columnOrder as column}
                         <Cell class="center wrappable">
                             <span class="sortableHeader" role="button" tabindex="0" on:click={() => handleSort(column.field)} on:keydown={(e) => e.key === 'Enter' && handleSort(column.field)}>
-                                {column.name}
                                 {#if sortField === column.field}
                                     <span class="sortIndicator">{sortDirection === 'desc' ? '▼' : '▲'}</span>
                                 {/if}
+                                {column.name}
                             </span>
                         </Cell>
                     {/each}
