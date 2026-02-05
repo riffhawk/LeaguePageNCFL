@@ -100,7 +100,7 @@
     }
     
     .twitter-hero-section {
-        max-width: 320px;
+        max-width: 520px;
     }
     
     .twitter-hero-wrapper {
