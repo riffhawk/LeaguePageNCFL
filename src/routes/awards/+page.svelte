@@ -11,8 +11,8 @@
     .awards {
         display: block;
         margin: 0 auto;
-                width: 95%;
-                max-width: 1000px;
+                width: 100%;
+                max-width: 100%;
                 position: relative;
                 z-index: 1;
                 overflow-y: hidden;
