@@ -247,9 +247,14 @@
     }
 
     .homeBanner {
-        background-color: #ffffff;
-        color: #000000;
-        padding: 0.5em 0;
+        padding: 1.5rem 0;
+        border-radius: 1.25rem;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.5);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        color: #e5e7eb;
         font-family: 'Rubik', sans-serif;
         font-weight: 700;
         font-size: 1.5em;
