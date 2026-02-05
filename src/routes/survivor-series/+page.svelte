@@ -411,7 +411,7 @@
         margin-bottom: 0 !important;
         padding: 0 !important;
         position: relative;
-        z-index: 10;
+        z-index: 100;
         pointer-events: none;
         line-height: 0;
         font-size: 0;
