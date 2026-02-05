@@ -408,7 +408,7 @@
     
     .survivor-container {
         margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
+        padding-bottom: 60px !important;
     }
     
     @media (max-width: 768px) {
