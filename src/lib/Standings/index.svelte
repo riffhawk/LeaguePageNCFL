@@ -18,33 +18,28 @@
     let loading = true;
     let preseason = false;
     let standings, year, leagueTeamManagers;
-    let filters = {};
+    let sortField = null;
+    let sortDirection = 'desc';
 
-    columnOrder.forEach(col => {
-        filters[col.field] = 'all';
-    });
-
-    function getUniqueValues(field) {
-        if (!standings) return [];
-        const values = [...new Set(standings.map(s => s[field]))];
-        return values.sort((a, b) => b - a);
+    function handleSort(field) {
+        if (sortField === field) {
+            sortDirection = sortDirection === 'desc' ? 'asc' : 'desc';
+        } else {
+            sortField = field;
+            sortDirection = 'desc';
+        }
     }
 
-    $: filteredStandings = standings ? standings.filter(standing => {
-        return columnOrder.every(col => {
-            if (filters[col.field] === 'all') return true;
-            return String(standing[col.field]) === String(filters[col.field]);
-        });
+    $: sortedStandings = standings ? [...standings].sort((a, b) => {
+        if (!sortField) return 0;
+        const aVal = a[sortField];
+        const bVal = b[sortField];
+        if (sortDirection === 'desc') {
+            return bVal - aVal;
+        } else {
+            return aVal - bVal;
+        }
     }) : [];
-
-    function clearFilters() {
-        columnOrder.forEach(col => {
-            filters[col.field] = 'all';
-        });
-        filters = {...filters};
-    }
-
-    $: hasActiveFilters = Object.values(filters).some(v => v !== 'all');
 
     onMount(async () => {
         const asyncStandingsData = await standingsData;
@@ -103,56 +98,18 @@
         font-size: 1em;
     }
 
-    .filterControls {
-        max-width: 100%;
-        margin: 1em auto;
-        padding: 0 1em;
-    }
-
-    .filterRow {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75em;
-        justify-content: center;
-    }
-
-    .filterItem {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.25em;
-    }
-
-    .filterItem label {
-        font-size: 0.75em;
-        font-weight: 600;
-        color: var(--g555);
-    }
-
-    .filterItem select {
-        padding: 0.4em 0.6em;
-        border-radius: 4px;
-        border: 1px solid var(--bbb);
-        background: var(--fff);
-        font-family: 'Rubik', sans-serif;
-        font-size: 0.85em;
-        min-width: 70px;
-    }
-
-    .clearBtn {
-        margin-top: 0.75em;
-        padding: 0.5em 1em;
-        background: var(--g555);
-        color: white;
-        border: none;
-        border-radius: 4px;
+    .sortableHeader {
         cursor: pointer;
-        font-family: 'Rubik', sans-serif;
-        font-size: 0.85em;
+        user-select: none;
     }
 
-    .clearBtn:hover {
-        background: #444;
+    .sortableHeader:hover {
+        background: rgba(0,0,0,0.05);
+    }
+
+    .sortIndicator {
+        margin-left: 4px;
+        font-size: 0.8em;
     }
 
     .standingsTable {
@@ -201,37 +158,23 @@
     <p>Preseason, No Standings Yet</p>
 </div>
 {:else}
-    <div class="filterControls">
-        <div class="filterRow">
-            {#each columnOrder as column}
-                <div class="filterItem">
-                    <label>{column.name}</label>
-                    <select bind:value={filters[column.field]}>
-                        <option value="all">All</option>
-                        {#each getUniqueValues(column.field) as value}
-                            <option value={value}>{value}</option>
-                        {/each}
-                    </select>
-                </div>
-            {/each}
-        </div>
-        {#if hasActiveFilters}
-            <button class="clearBtn" on:click={clearFilters}>Clear Filters</button>
-        {/if}
-    </div>
     <div class="standingsTable">
         <DataTable table$aria-label="League Standings" >
-            <Head> <!-- Team name  -->
+            <Head>
                 <Row>
                     <Cell class="center">Team</Cell>
                     {#each columnOrder as column}
-                        <Cell class="center wrappable">{column.name}</Cell>
+                        <Cell class="center wrappable sortableHeader" on:click={() => handleSort(column.field)}>
+                            {column.name}
+                            {#if sortField === column.field}
+                                <span class="sortIndicator">{sortDirection === 'desc' ? '▼' : '▲'}</span>
+                            {/if}
+                        </Cell>
                     {/each}
                 </Row>
             </Head>
             <Body>
-                <!--    Standing         -->
-                {#each filteredStandings as standing}
+                {#each sortField ? sortedStandings : standings as standing}
                     <Standing {columnOrder} {standing} {leagueTeamManagers} team={getTeamFromTeamManagers(leagueTeamManagers, standing.rosterID)} />
                 {/each}
             </Body>
