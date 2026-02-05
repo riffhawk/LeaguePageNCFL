@@ -42,7 +42,7 @@
 .twitter-hero-section {
     position: relative;
     z-index: 10;
-    margin: 0 auto;
+    margin: 40px auto;
     width: 100%;
     max-width: 616px;
     background-image: url('/twitter-bg.jpg');
