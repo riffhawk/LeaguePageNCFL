@@ -34,7 +34,7 @@
         font-weight: normal;
         line-height: 1.2em;
         margin: 0.2em 0;
-        font-size: 0.65em;
+        font-size: 0.75em;
         max-width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
