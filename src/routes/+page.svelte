@@ -31,11 +31,6 @@
         min-width: 320px;
         margin: 0 auto;
         padding: 60px 0;
-        overflow-x: hidden;
-    }
-    
-    :global(body) {
-        overflow-x: hidden;
     }
 
     .text {
