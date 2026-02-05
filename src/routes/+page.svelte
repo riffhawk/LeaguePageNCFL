@@ -30,7 +30,7 @@
         flex-grow: 1;
         min-width: 320px;
         margin: 0 auto;
-        padding: 5px 0;
+        padding: 60px 0;
     }
 
     .text {
