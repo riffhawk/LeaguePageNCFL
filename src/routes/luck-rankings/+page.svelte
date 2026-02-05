@@ -98,8 +98,9 @@
 
   h1 {
     margin-bottom: 0.25rem;
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Press Start 2P', cursive;
     font-weight: 700;
+    font-size: 1.2rem;
     letter-spacing: -0.02em;
   }
   
@@ -339,7 +340,7 @@
     }
 
     h1 {
-      font-size: 1.4rem;
+      font-size: 0.9rem;
     }
 
     .subtitle {
@@ -429,7 +430,7 @@
     }
 
     h1 {
-      font-size: 1.2rem;
+      font-size: 0.7rem;
     }
 
     .subtitle {
