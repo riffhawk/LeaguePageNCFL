@@ -102,6 +102,7 @@
     font-weight: 700;
     font-size: 1.2rem;
     letter-spacing: -0.02em;
+    line-height: 1.4;
   }
   
   .subtitle {
