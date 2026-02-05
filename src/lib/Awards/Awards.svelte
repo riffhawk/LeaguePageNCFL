@@ -149,7 +149,7 @@
                 height: 65px;
                 transform: translate(-50%, 0%);
                 top: 20px;
-                left: 55%;
+                left: 50%;
                 border-radius: 100%;
                 border: 1px solid var(--bbb);
                 z-index: 3;
