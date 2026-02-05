@@ -44,6 +44,13 @@
     margin: 0 auto;
     width: 100%;
     max-width: 616px;
+    background-image: url('/twitter-bg.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 12px;
 }
 
 .twitter-hero-wrapper {
