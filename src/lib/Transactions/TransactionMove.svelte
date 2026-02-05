@@ -104,6 +104,7 @@
         line-height: 1.1em;
         flex-wrap: wrap;
         font-size: 0.8em;
+        font-family: 'Space Mono', monospace;
     }
 
     .pickNameHolder {
@@ -112,6 +113,7 @@
         flex-direction: column;
         font-size: 0.8em;
         line-height: 1em;
+        font-family: 'Space Mono', monospace;
     }
 
     .tradeSlot {
@@ -143,6 +145,7 @@
         font-size: 0.8em;
         color: var(--g555);
         padding: 0 1em;
+        font-family: 'Space Mono', monospace;
     }
 
     .indicator {
