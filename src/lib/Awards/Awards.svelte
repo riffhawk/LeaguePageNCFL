@@ -38,7 +38,7 @@
                 z-index: 1;
                 background-image: url('/awards-bg.jpg');
                 background-attachment: fixed;
-                background-position: center;
+                background-position: center 0%;
                 background-repeat: no-repeat;
                 background-size: cover;
         }
