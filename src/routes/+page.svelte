@@ -258,7 +258,7 @@
         font-family: 'Press Start 2P', cursive;
         font-weight: 700;
         font-size: 1.5em;
-        margin-top: 21px;
+        margin-top: -5%;
     }
 
     /* champ styling */
