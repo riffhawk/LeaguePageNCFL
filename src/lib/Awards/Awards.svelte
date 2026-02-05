@@ -12,7 +12,7 @@
                         animate(
                                 ".toiletWinner",
                                 { rotate: 90 },
-                                { type: "spring", repeat: Infinity, repeatDelay: 0.24, duration: 0.6 }
+                                { type: "spring", repeat: Infinity, repeatDelay: 0.44, duration: 1.0 }
                         );
                 }
         });
