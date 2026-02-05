@@ -95,8 +95,14 @@
 }
 
 @media (max-width: 768px) {
+    :global(html), :global(body) {
+        overflow-x: hidden;
+    }
+    
     #main {
         padding: 0 0;
+        overflow-x: hidden;
+        max-width: 100vw;
     }
     
     .twitter-hero-section {
