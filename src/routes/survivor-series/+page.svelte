@@ -413,7 +413,7 @@
     
     .page-footer {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 5px;
         margin-bottom: 0 !important;
         padding: 0 !important;
         position: relative;
