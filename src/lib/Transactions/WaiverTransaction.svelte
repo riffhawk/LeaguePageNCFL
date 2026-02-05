@@ -59,6 +59,7 @@
         margin: 0 0 0 22px;
         padding-right: 30px;
         padding-left: 30px;
+        font-family: 'Space Mono', monospace;
     }
 
     .playerAvatar {
@@ -99,12 +100,14 @@
         font-size: 0.8em;
         line-height: 1em;
         text-align: center;
+        font-family: 'Space Mono', monospace;
     }
 
     .playerInfo {
         font-size: 0.6em;
         color: var(--g555);
         line-height: 1em;
+        font-family: 'Space Mono', monospace;
     }
 
     .add {
