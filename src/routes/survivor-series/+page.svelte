@@ -5,6 +5,21 @@
     export let data;
     
     let lottieContainer;
+    
+    function initSkullLottie(node) {
+        const anim = lottie.loadAnimation({
+            container: node,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '/pixel-skull.json'
+        });
+        return {
+            destroy() {
+                anim.destroy();
+            }
+        };
+    }
     let teams = [];
     let weeks = [];
     let graveyard = [];
@@ -320,9 +335,11 @@
     }
     
     .eliminated-icon {
-        width: 16px;
-        height: 16px;
-        flex-shrink: 0;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        margin-left: 4px;
     }
     
     .sidebar {
@@ -531,7 +548,7 @@
                                                     <span class="score {getScoreClass(team.weeks[week].rank, isElimWeek, false)} {isWinner ? 'winner' : ''}">
                                                         {team.weeks[week].points?.toFixed(1)}
                                                         {#if isElimWeek}
-                                                            <img src="/skull-icon.png" alt="Eliminated" class="eliminated-icon" />
+                                                            <span use:initSkullLottie class="eliminated-icon"></span>
                                                         {/if}
                                                     </span>
                                                 {/if}
