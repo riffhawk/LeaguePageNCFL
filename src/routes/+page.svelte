@@ -36,13 +36,13 @@
     .text {
         padding: 0 30px;
         max-width: 620px;
-        margin: 0 auto;
+        margin: 40px auto;
     }
 
 .twitter-hero-section {
     position: relative;
     z-index: 10;
-    margin: 40px auto;
+    margin: 0 auto;
     width: 100%;
     max-width: 616px;
     background-image: url('/twitter-bg.jpg');
