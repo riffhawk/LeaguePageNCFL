@@ -130,8 +130,7 @@
             padding: 0 0.5em;
         }
         .standingsTable {
-            margin: 0.25em 0 3em;
-            padding: 0 3px;
+            margin: 0.25em 8px 3em;
         }
     }
 
