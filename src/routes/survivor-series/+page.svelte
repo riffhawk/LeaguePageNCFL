@@ -125,6 +125,11 @@
         padding: 1.5em 1em 0 1em;
         display: flex;
         flex-direction: column;
+        background-image: url('/survivor-bg.png');
+        background-attachment: fixed;
+        background-position: center 0%;
+        background-repeat: repeat;
+        background-size: auto;
     }
     
     .page-header {
