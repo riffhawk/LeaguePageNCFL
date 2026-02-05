@@ -74,10 +74,11 @@
 }
 
 .twitter-timeline-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 500px;
+    position: absolute;
+    top: 24%;
+    left: 26%;
+    width: 52%;
+    height: 57%;
     background: #ffffff;
     border-radius: 16px;
     overflow: hidden;
