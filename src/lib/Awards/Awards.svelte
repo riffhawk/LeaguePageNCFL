@@ -145,8 +145,8 @@
 
         .toiletWinner {
                 position: absolute;
-                width: 65px;
-                height: 65px;
+                width: 84px;
+                height: 84px;
                 transform: translate(-50%, 0%);
                 top: 20px;
                 left: 35%;
