@@ -18,6 +18,34 @@
     let loading = true;
     let preseason = false;
     let standings, year, leagueTeamManagers;
+    let filters = {};
+
+    columnOrder.forEach(col => {
+        filters[col.field] = 'all';
+    });
+
+    function getUniqueValues(field) {
+        if (!standings) return [];
+        const values = [...new Set(standings.map(s => s[field]))];
+        return values.sort((a, b) => b - a);
+    }
+
+    $: filteredStandings = standings ? standings.filter(standing => {
+        return columnOrder.every(col => {
+            if (filters[col.field] === 'all') return true;
+            return String(standing[col.field]) === String(filters[col.field]);
+        });
+    }) : [];
+
+    function clearFilters() {
+        columnOrder.forEach(col => {
+            filters[col.field] = 'all';
+        });
+        filters = {...filters};
+    }
+
+    $: hasActiveFilters = Object.values(filters).some(v => v !== 'all');
+
     onMount(async () => {
         const asyncStandingsData = await standingsData;
         if(!asyncStandingsData) {
@@ -75,6 +103,58 @@
         font-size: 1em;
     }
 
+    .filterControls {
+        max-width: 100%;
+        margin: 1em auto;
+        padding: 0 1em;
+    }
+
+    .filterRow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75em;
+        justify-content: center;
+    }
+
+    .filterItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25em;
+    }
+
+    .filterItem label {
+        font-size: 0.75em;
+        font-weight: 600;
+        color: var(--g555);
+    }
+
+    .filterItem select {
+        padding: 0.4em 0.6em;
+        border-radius: 4px;
+        border: 1px solid var(--bbb);
+        background: var(--fff);
+        font-family: 'Rubik', sans-serif;
+        font-size: 0.85em;
+        min-width: 70px;
+    }
+
+    .clearBtn {
+        margin-top: 0.75em;
+        padding: 0.5em 1em;
+        background: var(--g555);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: 'Rubik', sans-serif;
+        font-size: 0.85em;
+    }
+
+    .clearBtn:hover {
+        background: #444;
+    }
+
     .standingsTable {
         max-width: 100%;
         overflow-x: scroll;
@@ -121,6 +201,24 @@
     <p>Preseason, No Standings Yet</p>
 </div>
 {:else}
+    <div class="filterControls">
+        <div class="filterRow">
+            {#each columnOrder as column}
+                <div class="filterItem">
+                    <label>{column.name}</label>
+                    <select bind:value={filters[column.field]}>
+                        <option value="all">All</option>
+                        {#each getUniqueValues(column.field) as value}
+                            <option value={value}>{value}</option>
+                        {/each}
+                    </select>
+                </div>
+            {/each}
+        </div>
+        {#if hasActiveFilters}
+            <button class="clearBtn" on:click={clearFilters}>Clear Filters</button>
+        {/if}
+    </div>
     <div class="standingsTable">
         <DataTable table$aria-label="League Standings" >
             <Head> <!-- Team name  -->
@@ -133,7 +231,7 @@
             </Head>
             <Body>
                 <!--    Standing         -->
-                {#each standings as standing}
+                {#each filteredStandings as standing}
                     <Standing {columnOrder} {standing} {leagueTeamManagers} team={getTeamFromTeamManagers(leagueTeamManagers, standing.rosterID)} />
                 {/each}
             </Body>
