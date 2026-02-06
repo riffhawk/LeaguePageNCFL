@@ -188,7 +188,7 @@
     
     .legend-item {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 0.3em;
         font-size: 0.75em;
         color: #666;
@@ -200,6 +200,7 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
+        margin-top: 0.3em;
     }
     
     .legend-dot.strength-dot { background: #2ecc71; }
