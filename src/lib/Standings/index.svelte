@@ -129,7 +129,7 @@
 
     @media (max-width: 768px) {
         h1 {
-            font-size: 0.9em;
+            font-size: 2.8em;
             margin-top: 0em;
             padding: 21px 0.5em;
         }
@@ -140,7 +140,7 @@
 
     @media (max-width: 480px) {
         h1 {
-            font-size: 0.8em;
+            font-size: 2.8em;
         }
         .loading {
             width: 95%;
