@@ -27,7 +27,7 @@
         img.onload = () => {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
-            const squareSize = 20;
+            const squareSize = 40;
             const padding = 150;
 
             canvas.width = img.naturalWidth + padding * 2;
