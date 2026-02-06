@@ -56,6 +56,7 @@
                 display: inline-flex;
                 position: relative;
         justify-content: center;
+        font-family: 'Press Start 2P', cursive;
     }
 
         :global(.navBar .material-icons) {

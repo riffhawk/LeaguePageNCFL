@@ -41,6 +41,7 @@
                 z-index: 9;
                 top: 0;
                 left: 0;
+                font-family: 'Press Start 2P', cursive;
         }
 
         :global(.nav-item) {
