@@ -95,7 +95,7 @@
         font-weight: 700;
         letter-spacing: -0.02em;
         margin-top: 1.5em;
-        font-size: 1em;
+        font-size: 2.8em;
         line-height: 1;
         text-transform: uppercase;
     }
