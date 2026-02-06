@@ -316,13 +316,6 @@
             </Group>
         </div>
 
-        <p class="bio">{@html viewManager.bio}</p>
-
-        {#if viewManager.philosophy}
-            <!-- philosophy is an optional field -->
-            <h3>Team Philosophy</h3>
-            <p class="philosophy">{@html viewManager.philosophy}</p>
-        {/if}
     </div>
 
     {#if !loading}
