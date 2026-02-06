@@ -282,7 +282,7 @@
                 NCFL<br/>Conference
             </div>
             <div class="infoIcon">
-                <img class="rookiesOrVets" src="/{viewManager.rookieOrVets}.png" alt="rookie or vet preference"/>
+                <img class="rookiesOrVets" src="/{viewManager.rookieOrVets}.png" alt="NCFL {viewManager.rookieOrVets} Conference"/>
             </div>
             <div class="infoAnswer">
                 {viewManager.rookieOrVets}

@@ -40,7 +40,7 @@ export const managers = [
     },
     favoritePlayer: 6770, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "North",
     philosophy: "Commish",
     tradingScale: 10, // 1 - 10
     preferredContact: "Sleeper", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -65,7 +65,7 @@ export const managers = [
     },
     favoritePlayer: 11564, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "North",
     philosophy: "Troll",
     tradingScale: 10, // 1 - 10
     preferredContact: "Carrier Pigeon", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -90,7 +90,7 @@ export const managers = [
     },
     favoritePlayer: 188, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "RB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "North",
     philosophy: "Co Champ",
     tradingScale: 4, // 1 - 10
     preferredContact: "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -115,7 +115,7 @@ export const managers = [
     },
     favoritePlayer: 254, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "CB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "South",
     philosophy: "Fuck FardiN!",
     tradingScale: 6, // 1 - 10
     preferredContact: "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -140,7 +140,7 @@ export const managers = [
     },
     favoritePlayer: 73, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "RB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "South",
     philosophy: "The Heineking!!",
     tradingScale: 6, // 1 - 10
     preferredContact: "Phone", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -165,7 +165,7 @@ export const managers = [
     },
     favoritePlayer: 8146, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)git merge
+    rookieOrVets: "North",
     philosophy: "Fuck FardiN!",
     tradingScale: 9, // 1 - 10
     preferredContact: "WhatsApp", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -190,7 +190,7 @@ export const managers = [
     },
     favoritePlayer: 11604, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "TE", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "North",
     philosophy: "Alofoke!",
     tradingScale: 7, // 1 - 10
     preferredContact: "WhatsApp", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -215,7 +215,7 @@ export const managers = [
     },
     favoritePlayer: 6794, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "South",
     philosophy: "GGs",
     tradingScale: 2, // 1 - 10
     preferredContact: "Email", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -240,7 +240,7 @@ export const managers = [
     },
     favoritePlayer: 4046, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "South",
     philosophy: "Boricua",
     tradingScale: 7, // 1 - 10
     preferredContact: "Phone", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -265,7 +265,7 @@ export const managers = [
     },
     favoritePlayer: 4866, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "RB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "North",
     philosophy: "Salt",
     tradingScale: 9, // 1 - 10
     preferredContact: "Phone", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -290,7 +290,7 @@ export const managers = [
     },
     favoritePlayer: 4046, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "South",
     philosophy: "Back on my grind",
     tradingScale: 5, // 1 - 10
     preferredContact: "Phone", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -315,7 +315,7 @@ export const managers = [
     },
     favoritePlayer: 9221, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "RB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "South",
     philosophy: "OH YEA",
     tradingScale: 1, // 1 - 10
     preferredContact: "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -340,7 +340,7 @@ export const managers = [
     },
     favoritePlayer: 6904, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Vets", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "South",
     philosophy: "OH YEA",
     tradingScale: 2, // 1 - 10
     preferredContact: "Carrier Pigeon", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -365,7 +365,7 @@ export const managers = [
     },
     favoritePlayer: 96, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     valuePosition: "TE", // (optional) Favorite position (QB, WR, RB, TE, etc.)
-    rookieOrVets: "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+    rookieOrVets: "South",
     philosophy: "OH YEA",
     tradingScale: 1, // 1 - 10
     preferredContact: "WhatsApp", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
