@@ -317,9 +317,6 @@
                     <text x="35" y="36" text-anchor="middle" dominant-baseline="middle" class="progressText">{clampScale(viewManager.tradingScale) || 0}</text>
                 </svg>
             </div>
-            <div class="infoAnswer">
-                {viewManager.tradingScale} out of 10
-            </div>
         </div>
     {/if}
     <!-- Favorite player (optioonal) -->
