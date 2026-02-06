@@ -64,6 +64,7 @@
 
 <style>
     .fantasyInfos {
+        font-family: 'Space Mono', monospace;
         display: flex;
         justify-content: space-around;
         align-items: flex-start;
