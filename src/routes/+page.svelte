@@ -11,10 +11,131 @@
     const leagueTeamManagersData = getLeagueTeamManagers();
     
     let visible = false;
+    let cspnContainer;
     
     onMount(() => {
         visible = true;
+        initCspnAnimation();
     });
+
+    function initCspnAnimation() {
+        if (!cspnContainer) return;
+
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.src = '/cspn-logo.webp';
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const squareSize = 20;
+            const padding = 150;
+
+            canvas.width = img.naturalWidth + padding * 2;
+            canvas.height = img.naturalHeight + padding * 2;
+            canvas.style.width = '100%';
+            canvas.style.height = 'auto';
+            canvas.style.display = 'block';
+
+            const offscreen = document.createElement('canvas');
+            offscreen.width = img.naturalWidth;
+            offscreen.height = img.naturalHeight;
+            const offCtx = offscreen.getContext('2d');
+            offCtx.drawImage(img, 0, 0);
+
+            const cols = Math.ceil(img.naturalWidth / squareSize);
+            const rows = Math.ceil(img.naturalHeight / squareSize);
+            const centerX = img.naturalWidth / 2;
+            const centerY = img.naturalHeight / 2;
+
+            const squares = [];
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const sx = c * squareSize;
+                    const sy = r * squareSize;
+                    const sw = Math.min(squareSize, img.naturalWidth - sx);
+                    const sh = Math.min(squareSize, img.naturalHeight - sy);
+
+                    const tileCanvas = document.createElement('canvas');
+                    tileCanvas.width = sw;
+                    tileCanvas.height = sh;
+                    const tileCtx = tileCanvas.getContext('2d');
+                    tileCtx.drawImage(offscreen, sx, sy, sw, sh, 0, 0, sw, sh);
+
+                    const imageData = tileCtx.getImageData(0, 0, sw, sh);
+                    let hasContent = false;
+                    for (let i = 3; i < imageData.data.length; i += 4) {
+                        if (imageData.data[i] > 10) { hasContent = true; break; }
+                    }
+
+                    const dx = (sx + sw / 2) - centerX;
+                    const dy = (sy + sh / 2) - centerY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const maxDist = Math.sqrt(centerX * centerX + centerY * centerY);
+                    const angle = Math.atan2(dy, dx);
+
+                    squares.push({
+                        sx, sy, sw, sh, tileCanvas, hasContent,
+                        dist, maxDist, angle,
+                        scatterX: Math.cos(angle) * (80 + Math.random() * 120),
+                        scatterY: Math.sin(angle) * (80 + Math.random() * 120),
+                        scatterRot: (Math.random() - 0.5) * Math.PI * 2,
+                        delay: dist / maxDist
+                    });
+                }
+            }
+
+            cspnContainer.innerHTML = '';
+            cspnContainer.appendChild(canvas);
+
+            const duration = 3000;
+            let startTime = null;
+
+            function easeInOutCubic(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function animate(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = (timestamp - startTime) % duration;
+                const halfDuration = duration / 2;
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (const sq of squares) {
+                    if (!sq.hasContent) continue;
+
+                    const delayOffset = sq.delay * 0.3;
+                    let progress;
+
+                    if (elapsed < halfDuration) {
+                        const t = Math.max(0, Math.min(1, (elapsed / halfDuration - delayOffset) / (1 - delayOffset)));
+                        progress = easeInOutCubic(t);
+                    } else {
+                        const t = Math.max(0, Math.min(1, ((elapsed - halfDuration) / halfDuration - delayOffset) / (1 - delayOffset)));
+                        progress = 1 - easeInOutCubic(t);
+                    }
+
+                    const offsetX = sq.scatterX * progress;
+                    const offsetY = sq.scatterY * progress;
+                    const scale = 1 - progress * 0.6;
+                    const opacity = 1 - progress * 0.8;
+                    const rotation = sq.scatterRot * progress;
+
+                    ctx.save();
+                    ctx.globalAlpha = opacity;
+                    ctx.translate(padding + sq.sx + sq.sw / 2 + offsetX, padding + sq.sy + sq.sh / 2 + offsetY);
+                    ctx.rotate(rotation);
+                    ctx.scale(scale, scale);
+                    ctx.drawImage(sq.tileCanvas, -sq.sw / 2, -sq.sh / 2);
+                    ctx.restore();
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            requestAnimationFrame(animate);
+        };
+    }
 </script>
 
 <style>
@@ -91,8 +212,8 @@
     display: block;
     width: 60%;
     max-width: 280px;
-    height: auto;
     margin: 0px auto 24px;
+    overflow: visible;
 }
 
 @media (max-width: 768px) {
@@ -340,7 +461,7 @@
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
             <!-- Twitter Feed Hero Section -->
             <div class="twitter-hero-section">
-                <img src="/cspn-logo.webp" alt="CSPN" class="cspn-logo" />
+                <div bind:this={cspnContainer} class="cspn-logo"><img src="/cspn-logo.webp" alt="CSPN" style="width:100%;height:auto;display:block;" /></div>
                 <div class="twitter-hero-wrapper">
                     <div class="twitter-timeline-container">
                         <script src="https://elfsightcdn.com/platform.js" async></script>
