@@ -155,7 +155,7 @@
     }
 
     .text {
-        padding: 0 10px;
+        padding: 0 30px;
         max-width: 620px;
         margin: 40px auto;
     }
