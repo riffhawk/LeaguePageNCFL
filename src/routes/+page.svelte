@@ -23,7 +23,7 @@
 
         const img = new Image();
         img.crossOrigin = 'anonymous';
-        img.src = '/cspn-logo.webp';
+        img.src = '/cspn-logo.png';
         img.onload = () => {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
@@ -461,7 +461,7 @@
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
             <!-- Twitter Feed Hero Section -->
             <div class="twitter-hero-section">
-                <div bind:this={cspnContainer} class="cspn-logo"><img src="/cspn-logo.webp" alt="CSPN" style="width:100%;height:auto;display:block;" /></div>
+                <div bind:this={cspnContainer} class="cspn-logo"><img src="/cspn-logo.png" alt="CSPN" style="width:100%;height:auto;display:block;" /></div>
                 <div class="twitter-hero-wrapper">
                     <div class="twitter-timeline-container">
                         <script src="https://elfsightcdn.com/platform.js" async></script>
