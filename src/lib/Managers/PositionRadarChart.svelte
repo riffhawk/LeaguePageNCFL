@@ -124,7 +124,7 @@
     }
     
     .radar-title {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Space Mono', monospace;
         font-weight: 700;
         font-size: 1.1em;
         color: #333;
@@ -154,14 +154,14 @@
     }
     
     .position-label {
-        font-family: 'Rubik', sans-serif;
+        font-family: 'Space Mono', monospace;
         font-size: 12px;
         font-weight: 600;
         fill: #333;
     }
     
     .rank-badge {
-        font-family: 'Rubik', sans-serif;
+        font-family: 'Space Mono', monospace;
         font-size: 10px;
         font-weight: 500;
     }
@@ -192,7 +192,7 @@
         gap: 0.3em;
         font-size: 0.75em;
         color: #666;
-        font-family: 'Rubik', sans-serif;
+        font-family: 'Space Mono', monospace;
     }
     
     .legend-dot {
@@ -243,7 +243,7 @@
         border-radius: 5px;
         text-align: center;
         color: white;
-        font-family: 'Rubik', sans-serif;
+        font-family: 'Space Mono', monospace;
     }
     
     .position-stat-card .pos-name {

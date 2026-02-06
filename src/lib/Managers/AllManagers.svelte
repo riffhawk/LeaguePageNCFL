@@ -26,7 +26,7 @@
         font-size: 2.8em;
         margin: 2em 0 1.5em;
         line-height: 1em;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Space Mono', monospace;
         font-weight: 700;
     }
 

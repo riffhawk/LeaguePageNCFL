@@ -112,7 +112,7 @@
         font-size: 2.8em;
         margin: 1em 0 0em;
         line-height: 1em;
-        font-family: 'Rubik', sans-serif;
+        font-family: 'Space Mono', monospace;
         font-weight: 700;
     }
 
@@ -171,7 +171,7 @@
         font-size: 0.4em;
         line-height: 1em;
         color: #666;
-        font-family: 'Rubik', sans-serif;
+        font-family: 'Space Mono', monospace;
         font-weight: 700;
     }
 

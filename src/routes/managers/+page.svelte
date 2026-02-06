@@ -18,7 +18,7 @@
         .main {
                 position: relative;
                 z-index: 1;
-                font-family: 'Rubik', sans-serif;
+                font-family: 'Space Mono', monospace;
                 padding: 0 1.5em;
         }
     .loading {
