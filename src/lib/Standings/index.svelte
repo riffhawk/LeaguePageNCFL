@@ -96,6 +96,7 @@
         letter-spacing: -0.02em;
         margin-top: 1.5em;
         font-size: 1em;
+        line-height: 1;
         text-transform: uppercase;
     }
 
@@ -129,8 +130,8 @@
     @media (max-width: 768px) {
         h1 {
             font-size: 0.9em;
-            margin-top: 1em;
-            padding: 0 0.5em;
+            margin-top: 0em;
+            padding: 21px 0.5em;
         }
         .standingsTable {
             margin: 0.25em 12px 3em;
