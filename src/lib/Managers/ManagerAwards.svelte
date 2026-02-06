@@ -248,7 +248,7 @@
 
     .awardHeader, .awardLabel, .subText {
         text-align: center;
-        line-height: 1.0em;
+        line-height: 1.2em;
     }
 
     .awardHeader {
