@@ -248,14 +248,14 @@
 
     .awardHeader, .awardLabel, .subText {
         text-align: center;
-        line-height: 1.2em;
+        line-height: 1.0em;
     }
 
     .awardHeader {
         height: 2.4em;
         font-size: 0.85em;
         width: 110px;
-        margin-bottom: 0.5em;
+        margin-bottom: 1.5em;
     }
 
     .awardLabel {
