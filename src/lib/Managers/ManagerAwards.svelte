@@ -235,6 +235,7 @@
         font-size: 1.5em;
         margin: 1.5em 0 0.5em;
         font-weight: 200;
+        font-family: 'Press Start 2P', cursive;
     }
 
     .award {
