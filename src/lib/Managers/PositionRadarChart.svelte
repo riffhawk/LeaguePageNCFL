@@ -200,7 +200,7 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        margin-top: 0.3em;
+        margin-top: 0.6em;
     }
     
     .legend-dot.strength-dot { background: #2ecc71; }
