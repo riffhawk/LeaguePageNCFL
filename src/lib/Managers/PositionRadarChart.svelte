@@ -193,6 +193,7 @@
         font-size: 0.75em;
         color: #666;
         font-family: 'Space Mono', monospace;
+        text-align: center;
     }
     
     .legend-dot {
@@ -356,11 +357,11 @@
         <div class="legend">
             <div class="legend-item">
                 <span class="legend-dot strength-dot"></span>
-                <span>Strength</span>
+                <span>Strength<br/>(Top 3)</span>
             </div>
             <div class="legend-item">
                 <span class="legend-dot weakness-dot"></span>
-                <span>Weakness</span>
+                <span>Weakness<br/>(Bottom 3)</span>
             </div>
         </div>
         
