@@ -290,14 +290,17 @@
             </div>
         </div>
     {/if}
-    <!-- Favorite fantasy position (optional) -->
-    {#if viewManager.valuePosition}
+    <!-- Franchise Tag / Keeper player (optional) -->
+    {#if viewManager.franchiseTag}
         <div class="infoSlot">
             <div class="infoLabel">
                 Current Keeper
             </div>
-            <div class="infoIcon {viewManager.valuePosition}">
-                <span class="valuePosition">{viewManager.valuePosition}</span>
+            <div class="infoIcon playerIcon">
+                <img class="favoritePlayer" src="https://sleepercdn.com/content/nfl/players/{viewManager.franchiseTag}.jpg" alt="keeper player"/>
+            </div>
+            <div class="infoAnswer">
+                {players[viewManager.franchiseTag].fn} {players[viewManager.franchiseTag].ln}
             </div>
         </div>
     {/if}

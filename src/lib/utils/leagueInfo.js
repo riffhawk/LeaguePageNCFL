@@ -39,7 +39,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/7e672a816e7c215f9addf63f21b41225.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 6770, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 6770, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "North",
     philosophy: "Commish",
     tradingScale: 10, // 1 - 10
@@ -64,7 +64,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/c1884db783594353d451213f9d4b1b8c.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 11564, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 11564, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "North",
     philosophy: "Troll",
     tradingScale: 10, // 1 - 10
@@ -89,7 +89,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/0e9783f2443b591fe7b10f2ee9e47aa9.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 188, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "RB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 188, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "North",
     philosophy: "Co Champ",
     tradingScale: 4, // 1 - 10
@@ -114,7 +114,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/c13b23131a8e47d65982499376f6c620.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 254, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "CB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 254, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "South",
     philosophy: "Fuck FardiN!",
     tradingScale: 6, // 1 - 10
@@ -139,7 +139,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/2e7f8ae2d5e629a2a7c76922a2fd9e3d.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 73, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "RB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 73, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "South",
     philosophy: "The Heineking!!",
     tradingScale: 6, // 1 - 10
@@ -164,7 +164,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/624b3646dc54502a931fe53902f11abd.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 8146, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 8146, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "North",
     philosophy: "Fuck FardiN!",
     tradingScale: 9, // 1 - 10
@@ -189,7 +189,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/0d7b9fdc5cb9ccd068317b068cef9edf.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 11604, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "TE", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 11604, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "North",
     philosophy: "Alofoke!",
     tradingScale: 7, // 1 - 10
@@ -214,7 +214,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/c1884db783594353d451213f9d4b1b8c.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 6794, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 6794, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "South",
     philosophy: "GGs",
     tradingScale: 2, // 1 - 10
@@ -239,7 +239,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/4e3475c86e279d7843526d92e286129c.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 4046, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "QB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 4046, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "South",
     philosophy: "Boricua",
     tradingScale: 7, // 1 - 10
@@ -264,7 +264,7 @@ export const managers = [
         "https://sleepercdn.com/avatars/thumbs/8553f7fb95334a6a2de471358d8b1d16", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 4866, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "RB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 4866, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "North",
     philosophy: "Salt",
     tradingScale: 9, // 1 - 10
@@ -289,7 +289,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/c13b23131a8e47d65982499376f6c620.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 4046, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 4046, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "South",
     philosophy: "Back on my grind",
     tradingScale: 5, // 1 - 10
@@ -314,7 +314,7 @@ export const managers = [
         "https://sleepercdn.com/avatars/thumbs/498db24cece1c50961d53d1692cbf934", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 9221, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "RB", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 9221, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "South",
     philosophy: "OH YEA",
     tradingScale: 1, // 1 - 10
@@ -339,7 +339,7 @@ export const managers = [
         "https://sleepercdn.com/avatars/thumbs/8553f7fb95334a6a2de471358d8b1d16", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 6904, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 6904, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "South",
     philosophy: "OH YEA",
     tradingScale: 2, // 1 - 10
@@ -364,7 +364,7 @@ export const managers = [
         "https://sleepercdn.com/avatars/thumbs/498db24cece1c50961d53d1692cbf934", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 96, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    valuePosition: "TE", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+    franchiseTag: 96, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "South",
     philosophy: "OH YEA",
     tradingScale: 1, // 1 - 10
@@ -396,7 +396,7 @@ export const managers = [
 //     image: "/managers/rival.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
 //   },
 //   "favoritePlayer": 1426, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-//   "valuePosition": "WR", // (optional) Favorite position (QB, WR, RB, TE, etc.)
+//   "franchiseTag": 1426, // (optional) Sleeper player ID for franchise/keeper player
 //   "rookieOrVets": "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
 //   "philosophy": "Your fantasy team's philosophy", // (optional)
 //   "tradingScale": 10, // 1 - 10 (optional)
