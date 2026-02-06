@@ -91,11 +91,12 @@
 
     h1 {
         margin-bottom: 0.25rem;
-        font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        font-family: 'Space Mono', monospace;
         font-weight: 700;
         letter-spacing: -0.02em;
         margin-top: 1.5em;
         font-size: 1em;
+        text-transform: uppercase;
     }
 
     .sortableHeader {
@@ -147,7 +148,7 @@
     }
 </style>
 
-<h1>{year ?? ''} {leagueName} Standings</h1>
+<h1>{year ?? ''} NCFL<br/>STANDINGS</h1>
 
 {#if loading}
     <!-- promise is pending -->
