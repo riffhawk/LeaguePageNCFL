@@ -87,7 +87,7 @@
             cspnContainer.innerHTML = '';
             cspnContainer.appendChild(canvas);
 
-            const duration = 3000;
+            const duration = 6000;
             let startTime = null;
 
             function easeInOutCubic(t) {
