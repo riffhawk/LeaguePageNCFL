@@ -158,6 +158,10 @@
         padding: 0 30px;
         max-width: 620px;
         margin: 40px auto;
+        background-image: url('/twitter-bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
 .twitter-hero-section {
