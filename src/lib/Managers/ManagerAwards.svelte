@@ -1,6 +1,6 @@
 <script>
     import { round } from "$lib/utils/helper";
-	import { checkIfManagerReceivedAward, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
+        import { checkIfManagerReceivedAward, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
 
     export let awards, records, rosterID, tookOver, leagueTeamManagers, managerID;
 
@@ -215,6 +215,7 @@
 
 <style>
     .awardsCase {
+        font-family: 'Space Mono', monospace;
         background-color: var(--fff);
         padding: 0 0 2em;
         margin: 3em 0 4em;
