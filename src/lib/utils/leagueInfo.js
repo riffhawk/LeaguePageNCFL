@@ -39,7 +39,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/7e672a816e7c215f9addf63f21b41225.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 6770, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    franchiseTag: 6770, // (optional) Sleeper player ID for franchise/keeper player
+    franchiseTag: 9509, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "North",
     philosophy: "Commish",
     tradingScale: 10, // 1 - 10
@@ -164,7 +164,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/624b3646dc54502a931fe53902f11abd.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 8146, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    franchiseTag: 8146, // (optional) Sleeper player ID for franchise/keeper player
+    franchiseTag: 11632, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "North",
     philosophy: "Fuck FardiN!",
     tradingScale: 9, // 1 - 10
@@ -214,7 +214,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/c1884db783594353d451213f9d4b1b8c.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 6794, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    franchiseTag: 6794, // (optional) Sleeper player ID for franchise/keeper player
+    franchiseTag: 9488, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "South",
     philosophy: "GGs",
     tradingScale: 2, // 1 - 10
@@ -314,7 +314,7 @@ export const managers = [
         "https://sleepercdn.com/avatars/thumbs/498db24cece1c50961d53d1692cbf934", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 9221, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    franchiseTag: 9221, // (optional) Sleeper player ID for franchise/keeper player
+    franchiseTag: 9493, // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "South",
     philosophy: "OH YEA",
     tradingScale: 1, // 1 - 10
