@@ -331,7 +331,9 @@
             <div class="infoLabel">
                 Current Keeper
             </div>
-            <div class="lottieContainer" bind:this={priceTagContainer}></div>
+            <div class="infoIcon">
+                <div class="lottieContainer" bind:this={priceTagContainer}></div>
+            </div>
             <div class="infoAnswer">
                 N/A
             </div>
