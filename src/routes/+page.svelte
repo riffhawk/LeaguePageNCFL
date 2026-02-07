@@ -160,8 +160,8 @@
         margin: 40px auto;
         background-image: url('/twitter-bg.jpg');
         background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        background-repeat: repeat;
+        background-size: 800px auto;
     }
 
 .twitter-hero-section {
@@ -173,8 +173,8 @@
     background-image: url('/twitter-bg.jpg');
     background-attachment: fixed;
     background-position: left;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: repeat;
+    background-size: 800px auto;
     padding: 20px;
     border-radius: 12px;
 }
