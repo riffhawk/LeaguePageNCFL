@@ -64,7 +64,7 @@ export const managers = [
         "https://sleepercdn.com/uploads/c1884db783594353d451213f9d4b1b8c.jpg", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
     },
     favoritePlayer: 11564, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
-    franchiseTag: 11564, // (optional) Sleeper player ID for franchise/keeper player
+    franchiseTag: "N/A", // (optional) Sleeper player ID for franchise/keeper player
     rookieOrVets: "North",
     philosophy: "Troll",
     tradingScale: 10, // 1 - 10

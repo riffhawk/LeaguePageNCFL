@@ -1,7 +1,27 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
+    import lottie from 'lottie-web';
 
     export let viewManager, players, changeManager;
+
+    let priceTagContainer;
+
+    function initPriceTagLottie() {
+        if (priceTagContainer) {
+            priceTagContainer.innerHTML = '';
+            lottie.loadAnimation({
+                container: priceTagContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: '/PriceTag.json'
+            });
+        }
+    }
+
+    $: if (viewManager?.franchiseTag === 'N/A' && priceTagContainer) {
+        initPriceTagLottie();
+    }
 
     // SVG circular progress state
     let animFrame = null;
@@ -45,6 +65,9 @@
     };
 
     onMount(() => {
+        if (viewManager?.franchiseTag === 'N/A') {
+            initPriceTagLottie();
+        }
         // animate progress from 0 to target on mount
         const s = clampScale(viewManager && viewManager.tradingScale);
         const target = s == null ? 0 : (s / 10);
@@ -291,7 +314,7 @@
         </div>
     {/if}
     <!-- Franchise Tag / Keeper player (optional) -->
-    {#if viewManager.franchiseTag}
+    {#if viewManager.franchiseTag && viewManager.franchiseTag !== 'N/A'}
         <div class="infoSlot">
             <div class="infoLabel">
                 Current Keeper
@@ -301,6 +324,16 @@
             </div>
             <div class="infoAnswer">
                 {players[viewManager.franchiseTag].fn} {players[viewManager.franchiseTag].ln}
+            </div>
+        </div>
+    {:else if viewManager.franchiseTag === 'N/A'}
+        <div class="infoSlot">
+            <div class="infoLabel">
+                Current Keeper
+            </div>
+            <div class="lottieContainer" bind:this={priceTagContainer}></div>
+            <div class="infoAnswer">
+                N/A
             </div>
         </div>
     {/if}
