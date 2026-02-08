@@ -93,7 +93,7 @@
     }
 
     .managerConstrained {
-        width: 97%;
+        width: 88%;
         max-width: 800px;
         margin: -50px auto 4em;
         background-image: url('/manager-bg.jpg');
@@ -101,7 +101,9 @@
         background-position: center;
         background-repeat: no-repeat;
         border-radius: 12px;
-        padding: 20px;
+        padding: 26px;
+        position: relative;
+        left: 10px;
     }
 
     .managerPhoto {
