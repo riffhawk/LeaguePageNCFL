@@ -94,7 +94,7 @@
     .managerConstrained {
         width: 97%;
         max-width: 800px;
-        margin: 0 auto 4em;
+        margin: -50px auto 4em;
     }
 
     .managerPhoto {
