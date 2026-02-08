@@ -88,7 +88,7 @@
 <style>
     .managerContainer {
         width: 100%;
-        margin: 2em 0 5em;
+        margin: 0 0 5em;
     }
 
     .managerConstrained {
