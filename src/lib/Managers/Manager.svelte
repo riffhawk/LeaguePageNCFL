@@ -95,6 +95,12 @@
         width: 97%;
         max-width: 800px;
         margin: -50px auto 4em;
+        background-image: url('/manager-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 12px;
+        padding: 20px;
     }
 
     .managerPhoto {
