@@ -23,16 +23,27 @@
     
     .name {
         position: relative;
+        padding-left: 12px;
+        z-index: 2;
     }
 
     .core {
         display: flex;
         flex-direction: column;
+        position: relative;
+        z-index: 1;
         border-radius: 0 0 0 40px;
-        border: 1px solid var(--ddd);
-        border-left: 2px solid var(--blueTwo);
+        border: 1px solid rgba(255, 255, 255, 0.58);
+        border-left: 2px solid rgba(82, 163, 255, 0.65);
         border-bottom: none;
-        background-color: var(--fff);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.22)),
+            rgba(255, 255, 255, 0.2);
+        box-shadow:
+            0 12px 26px rgba(72, 44, 119, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.62);
+        backdrop-filter: blur(16px) saturate(150%);
+        -webkit-backdrop-filter: blur(16px) saturate(150%);
     }
 
     .avatarAndDetails {
@@ -44,22 +55,24 @@
 
     .avatar {
         position: absolute;
-        left: 0px;
+        left: 8px;
         top: 6px;
         border-radius: 50%;
         height: 40px;
         width: 40px;
-        border: 2px solid var(--blueTwo);
-        background-color: var(--fff);
+        border: 2px solid rgba(82, 163, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 6px 14px rgba(72, 44, 119, 0.14);
     }
 
     .ownerName {
         display: inline-block;
-        border-bottom: 2px solid var(--blueTwo);
+        border-bottom: 2px solid rgba(82, 163, 255, 0.65);
         margin: 0 0 0 22px;
         padding-right: 30px;
         padding-left: 30px;
         font-family: 'Space Mono', monospace;
+        color: #1f2937;
     }
 
     .playerAvatar {
@@ -138,7 +151,7 @@
     }
 
     .date {
-        color: var(--g999);
+        color: #667085;
         font-family: 'Press Start 2P', cursive;
         font-size: 0.5em;
         text-align: center;

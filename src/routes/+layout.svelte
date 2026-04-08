@@ -8,6 +8,19 @@
 </script>
 
 <style>
+    :global(html),
+    :global(body) {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    main {
+        min-height: 100vh;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
     :global(:root) {
         --fff: #fff;
         --fffTransparent: rgba(255,255,255,0);
@@ -49,6 +62,12 @@
         --headerPrimary: #e8eef3;
         --borderOverride: rgba(0,0,0,.12);
         --rivalryBack: #f8f8f8;
+    }
+
+    @media (max-width: 950px) {
+        main {
+            padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 108px);
+        }
     }
 </style>
 

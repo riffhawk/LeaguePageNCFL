@@ -1,6 +1,7 @@
 /*   STEP 1   */
-export const leagueID = "1201635512016699392"; // your league ID
+export const leagueID = "1347352070717444096"; // your league ID
 export const seasonLeagueIDs = {
+  2026: "1347352070717444096",
   2025: "1201635512016699392",
   2024: "1082055802648637440",
 };
@@ -45,10 +46,10 @@ export const managers = [
     },
     favoritePlayer: 6770, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 9509, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "North",
+    Conf: "North",
     philosophy: "Commish",
     tradingScale: 10, // 1 - 10
-    preferredContact: "Sleeper", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
+    preferredContact: "WhatsApp", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
 
   // Fardin 1
@@ -70,7 +71,7 @@ export const managers = [
     },
     favoritePlayer: 11564, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: "N/A", // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "North",
+    Conf: "North",
     philosophy: "Troll",
     tradingScale: 10, // 1 - 10
     preferredContact: "Carrier Pigeon", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -95,7 +96,7 @@ export const managers = [
     },
     favoritePlayer: 188, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 188, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "North",
+    Conf: "North",
     philosophy: "Co Champ",
     tradingScale: 4, // 1 - 10
     preferredContact: "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -120,7 +121,7 @@ export const managers = [
     },
     favoritePlayer: 254, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 254, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "South",
+    Conf: "South",
     philosophy: "Fuck FardiN!",
     tradingScale: 6, // 1 - 10
     preferredContact: "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -145,7 +146,7 @@ export const managers = [
     },
     favoritePlayer: 73, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 73, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "South",
+    Conf: "South",
     philosophy: "The Heineking!!",
     tradingScale: 6, // 1 - 10
     preferredContact: "Phone", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -170,7 +171,7 @@ export const managers = [
     },
     favoritePlayer: 8146, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 11632, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "North",
+    Conf: "North",
     philosophy: "Fuck FardiN!",
     tradingScale: 9, // 1 - 10
     preferredContact: "WhatsApp", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -195,7 +196,7 @@ export const managers = [
     },
     favoritePlayer: 11604, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 11604, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "North",
+    Conf: "North",
     philosophy: "Alofoke!",
     tradingScale: 7, // 1 - 10
     preferredContact: "WhatsApp", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
@@ -220,10 +221,10 @@ export const managers = [
     },
     favoritePlayer: 6794, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 9488, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "South",
+    Conf: "South",
     philosophy: "GGs",
     tradingScale: 2, // 1 - 10
-    preferredContact: "Email", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
+    preferredContact: "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
 
   // Eric 8
@@ -245,13 +246,37 @@ export const managers = [
     },
     favoritePlayer: 4046, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 4046, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "South",
+    Conf: "South",
     philosophy: "Boricua",
     tradingScale: 7, // 1 - 10
     preferredContact: "Phone", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
 
-  // Brayan 9
+  // Angel 9
+  {
+    managerID: "998663320657985536", // ID of the roster that the manager manages (look at the order of the power rankings graph)
+    name: "Angel",
+    location: "Seattle", // (optional)
+    bio: "US NAVY",
+    photo:
+      "https://sleepercdn.com/avatars/thumbs/b3338675f635c2c1f42b469621d38ec6", // square ratio recommended (no larger than 500x500)
+    fantasyStart: 2026, // (optional) when did the manager start playing fantasy football
+    favoriteTeam: "ne", // (optional) favorite NFL team, (follows convention: nyj, sea, mia, etc.) MUST BE LOWERCASE
+    mode: null, // (optional) 'Win Now', 'Dynasty', or 'Rebuild' (anything else and you will need to add a new png to /static/ similar to the 'Rebuild.png' and 'Win Now.png' currently in there)
+    rival: {
+      name: "Everyone", // Can be anything (usually your rival's name)
+      link: null, // manager array number within this array, or null to link back to all managers page
+      image: "/managers/everyone.png", // either a specific manager photo or '/managers/everyone.png' or '/managers/question.png'
+    },
+    favoritePlayer: 167, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
+    franchiseTag: "N/A", // (optional) Sleeper player ID for franchise/keeper player
+    Conf: "South",
+    philosophy: "ElMoreno",
+    tradingScale: 4, // 1 - 10
+    preferredContact: "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
+  },
+
+  // Brayan 10
   {
     managerID: "1126239942197223424", // ID of the roster that the manager manages (look at the order of the power rankings graph)
     name: "Brayan",
@@ -270,13 +295,13 @@ export const managers = [
     },
     favoritePlayer: 4866, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 4866, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "North",
+    Conf: "North",
     philosophy: "Salt",
     tradingScale: 9, // 1 - 10
     preferredContact: "Phone", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
 
-  // Waldys 10
+  // Waldys 11
   {
     managerID: "1133835872325554176", // ID of the roster that the manager manages (look at the order of the power rankings graph)
     name: "Waldys",
@@ -295,13 +320,13 @@ export const managers = [
     },
     favoritePlayer: 4046, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 4046, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "South",
+    Conf: "South",
     philosophy: "Back on my grind",
     tradingScale: 5, // 1 - 10
     preferredContact: "Phone", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
 
-  // Jon 11
+  // Jon 12
   {
     managerID: "1247690754596290560", // ID of the roster that the manager manages (look at the order of the power rankings graph)
     name: "Jon",
@@ -320,13 +345,13 @@ export const managers = [
     },
     favoritePlayer: 9221, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 9493, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "South",
+    Conf: "South",
     philosophy: "OH YEA",
     tradingScale: 1, // 1 - 10
     preferredContact: "Text", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
 
-  // Rafa 12
+  // Rafa 13
   {
     managerID: "1119400729959108608", // ID of the roster that the manager manages (look at the order of the power rankings graph)
     name: "Rafa",
@@ -345,13 +370,13 @@ export const managers = [
     },
     favoritePlayer: 6904, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 6904, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "South",
+    Conf: "South",
     philosophy: "OH YEA",
     tradingScale: 2, // 1 - 10
     preferredContact: "Carrier Pigeon", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
 
-  // Aris 13
+  // Aris 14
   {
     managerID: "1126604697621643264", // ID of the roster that the manager manages (look at the order of the power rankings graph)
     name: "Aris",
@@ -370,12 +395,48 @@ export const managers = [
     },
     favoritePlayer: 96, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
     franchiseTag: 96, // (optional) Sleeper player ID for franchise/keeper player
-    rookieOrVets: "South",
+    Conf: "South",
     philosophy: "OH YEA",
     tradingScale: 1, // 1 - 10
     preferredContact: "WhatsApp", // 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template
   },
 ];
+
+const rivalryMap = {
+  0: [10, 7],
+  1: [4, 12],
+  2: [12, 11],
+  3: [5, 9],
+  4: [1, 6],
+  5: [3, 7],
+  6: [4, 11],
+  7: [0, 5],
+  8: [10],
+  9: [3, 10],
+  10: [0, 9],
+  11: [6, 2],
+  12: [1, 2],
+  13: [8],
+  14: [5]
+};
+
+const buildRivalRef = (index) => {
+  if (index == null || !managers[index]) return null;
+  return {
+    name: managers[index].name,
+    link: index,
+    image: managers[index].photo
+  };
+};
+
+managers.forEach((manager, index) => {
+  const mappedRivals = rivalryMap[index] || [];
+  const primary = buildRivalRef(mappedRivals[0]);
+  const secondary = buildRivalRef(mappedRivals[1]);
+
+  manager.primaryRival = primary || manager.rival || null;
+  manager.secondaryRival = secondary || null;
+});
 
 /*   !!  !!  IMPORTANT  !!  !! */
 /*
@@ -402,7 +463,7 @@ export const managers = [
 //   },
 //   "favoritePlayer": 1426, // (optional) this corresponds to the Sleeper player ID (https://api.sleeper.app/v1/players/nfl)
 //   "franchiseTag": 1426, // (optional) Sleeper player ID for franchise/keeper player
-//   "rookieOrVets": "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
+//   "Conf": "Rookies", // (optional) 'Rookies' or 'Vets' (anything else and you will need to add a new png to /static/ similar to the 'Rookies.png' and 'Vets.png' currently in there)
 //   "philosophy": "Your fantasy team's philosophy", // (optional)
 //   "tradingScale": 10, // 1 - 10 (optional)
 //   "preferredContact": "Text",  // (optional) 'Text', 'WhatsApp', 'Sleeper', 'Email', 'Phone', 'Discord', and 'Carrier Pigeon' are currently supplied in the template

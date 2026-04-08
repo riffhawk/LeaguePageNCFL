@@ -25,8 +25,9 @@
         border-radius: 50%;
         height: 40px;
         width: 40px;
-        border: 2px solid var(--blueOne);
-        background-color: var(--fff);
+        border: 2px solid rgba(82, 163, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 6px 14px rgba(72, 44, 119, 0.14);
     }
 
     .ownerName {
@@ -40,6 +41,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         font-family: 'Space Mono', monospace;
+        color: #1f2937;
     }
 
     .currentOwner {
@@ -53,16 +55,23 @@
     }
 
     .date {
-        color: var(--g999);
+        color: #667085;
         font-family: 'Press Start 2P', cursive;
         font-size: 0.5em;
         text-align: center;
         padding: 0.7em 0 1em;
-        background-color: var(--fff);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.22)),
+            rgba(255, 255, 255, 0.2);
         border-radius: 0 0 0 40px;
-        border-left: 2px solid var(--blueOne);
-        border-right: 1px solid var(--ddd);
+        border-left: 2px solid rgba(82, 163, 255, 0.65);
+        border-right: 1px solid rgba(255, 255, 255, 0.58);
         margin-bottom: 3em;
+        box-shadow:
+            0 12px 26px rgba(72, 44, 119, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.62);
+        backdrop-filter: blur(16px) saturate(150%);
+        -webkit-backdrop-filter: blur(16px) saturate(150%);
     }
 
     table {
@@ -78,10 +87,17 @@
     }
 
     tbody {
-        background-color: var(--fff);
-        border-top: 2px solid var(--blueOne);
-        border-left: 2px solid var(--blueOne);
-        border-right: 1px solid var(--ddd);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.22)),
+            rgba(255, 255, 255, 0.2);
+        border-top: 2px solid rgba(82, 163, 255, 0.65);
+        border-left: 2px solid rgba(82, 163, 255, 0.65);
+        border-right: 1px solid rgba(255, 255, 255, 0.58);
+        box-shadow:
+            0 12px 26px rgba(72, 44, 119, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.62);
+        backdrop-filter: blur(16px) saturate(150%);
+        -webkit-backdrop-filter: blur(16px) saturate(150%);
     }
 
     .holder {

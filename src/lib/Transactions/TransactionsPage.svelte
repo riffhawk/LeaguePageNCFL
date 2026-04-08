@@ -150,7 +150,7 @@
 		position: relative;
 		width: 100%;
 		z-index: 1;
-		overflow-y: hidden;
+		overflow-y: visible;
 	}
 
     @media (max-width: 1000px) {

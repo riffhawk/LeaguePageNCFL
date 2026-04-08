@@ -4,7 +4,7 @@
 	import { Icon } from '@smui/icon-button';
 	import RosterRow from "./RosterRow.svelte"
 	
-	export let roster, leagueTeamManagers, startersAndReserve, players, rosterPositions, division, expanded;
+	export let roster, leagueTeamManagers, startersAndReserve, players, rosterPositions, division, expanded, glass = false;
 
 	$: team = leagueTeamManagers.teamManagersMap[leagueTeamManagers.currentSeason][roster.roster_id].team;
 
@@ -160,6 +160,30 @@
 	    margin: 0 auto;
 	}
 
+	:global(.teamInner.glassCard) {
+		border-radius: 1.6rem;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.6);
+		background:
+			linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.16)),
+			rgba(255, 255, 255, 0.18);
+		box-shadow:
+			0 18px 34px rgba(92, 108, 124, 0.18),
+			inset 0 1px 0 rgba(255, 255, 255, 0.72),
+			inset 0 -1px 0 rgba(255, 255, 255, 0.24);
+		backdrop-filter: blur(18px) saturate(150%);
+		-webkit-backdrop-filter: blur(18px) saturate(150%);
+	}
+
+	:global(.teamInner.glassCard .mdc-data-table__table) {
+		background: transparent;
+	}
+
+	:global(.teamInner.glassCard .mdc-data-table__cell),
+	:global(.teamInner.glassCard .mdc-data-table__header-cell) {
+		background: transparent;
+	}
+
 	.rosterBench{
 		overflow: hidden;
 		width: 100%;
@@ -197,6 +221,14 @@
 		font-size: 1.5em;
 		font-weight: 500;
 		margin: 12px 0;
+		font-family: 'Press Start 2P', cursive;
+	}
+
+	.teamTitle {
+		font-size: 0.7em;
+		font-weight: 500;
+		margin: 12px 0;
+		font-family: 'Press Start 2P', cursive;
 	}
 
 	h5 {
@@ -259,11 +291,11 @@
 </style>
 
 <div class="team">
-	<DataTable class="teamInner" table$aria-label="Team Name" style="width: {innerWidth * 0.95 > 380 ? 380 : innerWidth * 0.95}px;" >
+	<DataTable class={`teamInner ${glass ? 'glassCard' : ''}`} table$aria-label="Team Name" style="width: {innerWidth * 0.95 > 380 ? 380 : innerWidth * 0.95}px;" >
 		<Head> <!-- Team name  -->
 			<Row>
 				<Cell colspan=4 class="r_{division} clickable">
-					<h3 onclick={() => gotoManager({leagueTeamManagers, rosterID: roster.roster_id})}>
+					<h3 class="teamTitle" onclick={() => gotoManager({leagueTeamManagers, rosterID: roster.roster_id})}>
 						<img alt="team avatar" class="teamAvatar" src="{team ? team.avatar : 'https://sleepercdn.com/images/v2/icons/player_default.webp'}" />
 						{team?.name ? team.name : 'No Manager'}
 					</h3>
@@ -279,7 +311,7 @@
 		<Body>
 			<!-- 	Starters	 -->
 			{#each finalStarters as starter}
-				<RosterRow player={starter} />
+				<RosterRow player={starter} {glass} />
 			{/each}
 			<Row class="interactive" onclick={toggleSelected}>
 				<Cell colspan=4 class="{division}"><h5><Icon class="material-icons icon">king_bed</Icon> Bench <span class="italic">({status})</span></h5></Cell>
@@ -287,11 +319,11 @@
 		</Body>
 	</DataTable>
 	<div class="rosterBench" style="max-height: {selected}">
-		<DataTable class="teamInner" style="width: 380px" >
+		<DataTable class={`teamInner ${glass ? 'glassCard' : ''}`} style="width: 380px" >
 			<Body class="bench">
 				<!-- 	Bench	 -->
 				{#each finalBench as bench}
-					<RosterRow player={bench} />
+					<RosterRow player={bench} {glass} />
 				{/each}
 				
 				<!-- 	IR	 -->
@@ -300,7 +332,7 @@
 					<Cell colspan=4 ><h5><Icon class="material-icons icon">healing</Icon> Injured Reserve</h5></Cell>
 					</Row>
 					{#each finalIR as ir}
-						<RosterRow player={ir} />
+						<RosterRow player={ir} {glass} />
 					{/each}
 				{/if}
 				<Row class="interactive" onclick={toggleSelected}>

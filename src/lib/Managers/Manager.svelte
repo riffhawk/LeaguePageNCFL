@@ -76,19 +76,27 @@
         }
     })
 
-    const changeManager = (newManager, noscroll = false) => {
-        if(!newManager) {
-            goto(`/managers`);
+	    const changeManager = (newManager, noscroll = false) => {
+	        if(!newManager) {
+	            goto(`/managers`);
+	        }
+	        manager = newManager;
+	        goto(`/manager?manager=${newManager}`, {noscroll});
+	    }
+
+        const getPreferredContactIcon = (preferredContact) => {
+            if (preferredContact === 'Phone') return '/PhoneCallIcon.gif';
+            if (preferredContact === 'WhatsApp') return '/WhatsAppIcon.gif';
+            if (preferredContact === 'Text') return '/TextMessageIcon.gif';
+            if (preferredContact === 'Carrier Pigeon') return '/CarrierPigeonIcon.gif';
+            return `/${preferredContact}.png`;
         }
-        manager = newManager;
-        goto(`/manager?manager=${newManager}`, {noscroll});
-    }
 </script>
 
 <style>
     .managerContainer {
         width: 100%;
-        margin: 0 0 5em;
+        margin: 0 0 1.25em;
         overflow-x: hidden;
     }
 
@@ -185,7 +193,7 @@
     }
 
     .managerNav {
-        margin: 4em 0 2em;
+        margin: 2.25em 0 1em;
         text-align: center;
     }
 
@@ -215,6 +223,14 @@
     @media (max-width: 505px) {
         :global(.selectionButtons span) {
             font-size: 0.8em;
+        }
+
+        .managerContainer {
+            margin-bottom: 0.5em;
+        }
+
+        .managerNav {
+            margin: 1.5em 0 0.35em;
         }
     }
 
@@ -259,45 +275,12 @@
 <div class="managerContainer">
     <div class="managerConstrained">
         <img class="managerPhoto" src="{viewManager.photo}" alt="manager"/>
-        <h2>
-            {viewManager.name}
-            <div class="teamSub">{coOwners ? 'Co-' : ''}Manager of <i>{getTeamNameFromTeamManagers(leagueTeamManagers, rosterID, year)}</i></div>
-        </h2>
-        
-        <div class="basicInfo">
-            <span class="infoChild">{viewManager.location || 'Undisclosed Location'}</span>
-            {#if viewManager.managerID && datesActive.start}
-                <span class="seperator">|</span>
-                {#if datesActive.end}
-                    <span class="infoChild">In the league from '{startYearShort} to '{datesActive.end.toString().substr(2)}</span>
-                {:else}
-                    <span class="infoChild">In the league since '{startYearShort}</span>
-                {/if}
-            {:else if viewManager.fantasyStart}
-                <!-- fantasyStart is an optional field -->
-                <span class="seperator">|</span>
-                <span class="infoChild">Playing ff since '{viewManager.fantasyStart.toString().substr(2)}</span>
-            {/if}
-            {#if viewManager.preferredContact}
-                <!-- preferredContact is an optional field -->
-                <span class="seperator">|</span>
-                <span class="infoChild">{viewManager.preferredContact}<img class="infoChild infoContact" src="/{viewManager.preferredContact}.png" alt="favorite team"/></span>
-            {/if}
-            <!-- <span class="infoChild">{viewManager.preferredContact}</span> -->
-            {#if viewManager.favoriteTeam}
-                <!-- favoriteTeam is an optional field -->
-                <span class="seperator">|</span>
-                <img class="infoChild infoTeam" src="https://sleepercdn.com/images/team_logos/nfl/{viewManager.favoriteTeam}.png" alt="favorite team"/>
-            {/if}
-            {#if commissioner}
-                <span class="seperator">|</span>
-                <div class="infoChild commissionerBadge">
-                    <span>C</span>
-                </div>
-            {/if}
-        </div>
+	        <h2>
+	            {viewManager.name}
+	            <div class="teamSub">{coOwners ? 'Co-' : ''}Manager of <i>{getTeamNameFromTeamManagers(leagueTeamManagers, rosterID, year)}</i></div>
+	        </h2>
 
-        <PositionRadarChart teamId={parseInt(rosterID)} year={year} />
+	        <PositionRadarChart teamId={parseInt(rosterID)} year={year} />
 
         <div class="managerNav upper">
             <Group variant="outlined">
@@ -341,7 +324,7 @@
             <LinearProgress indeterminate />
         </div>
     {:else}
-        <Roster division="1" expanded={false} {rosterPositions} {roster} {leagueTeamManagers} {players} {startersAndReserve} />
+        <Roster division="1" expanded={false} glass={true} {rosterPositions} {roster} {leagueTeamManagers} {players} {startersAndReserve} />
     {/if}
 
     <h3>Team Transactions</h3>
@@ -356,31 +339,4 @@
             <TransactionsPage {playersInfo} transactions={teamTransactions} {leagueTeamManagers} show='both' query='' page={0} perPage={5} />
         {/if}
     </div>
-
-    <div class="managerNav">
-        <Group variant="outlined">
-            {#if manager == 0}
-                <Button disabled class="selectionButtons" onclick={() => changeManager(parseInt(manager) - 1)} variant="outlined">
-                    <Label>Previous Manager</Label>
-                </Button>
-            {:else}
-                <Button class="selectionButtons" onclick={() => changeManager(parseInt(manager) - 1)} variant="outlined">
-                    <Label>Previous Manager</Label>
-                </Button>
-            {/if}
-            <Button class="selectionButtons" onclick={() => goto('/managers')} variant="outlined">
-                <Label>All Managers</Label>
-            </Button>
-            {#if manager == managers.length - 1}
-                <Button disabled class="selectionButtons" onclick={() => changeManager(parseInt(manager) + 1)} variant="outlined">
-                    <Label>Next Manager</Label>
-                </Button>
-            {:else}
-                <Button class="selectionButtons" onclick={() => changeManager(parseInt(manager) + 1)} variant="outlined">
-                    <Label>Next Manager</Label>
-                </Button>
-            {/if}
-        </Group>
-    </div>
-
 </div>

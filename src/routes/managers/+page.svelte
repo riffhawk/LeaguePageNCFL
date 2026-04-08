@@ -19,7 +19,11 @@
                 position: relative;
                 z-index: 1;
                 font-family: 'Space Mono', monospace;
-                padding: 0 1.5em;
+                padding: 0;
+                background:
+                    radial-gradient(circle at top, rgba(162, 221, 255, 0.72) 0%, rgba(208, 238, 255, 0.52) 22%, rgba(246, 251, 255, 0.9) 48%, #ffffff 72%),
+                    linear-gradient(180deg, #fafdff 0%, #d9f1ff 24%, #f9fcff 58%, #ffffff 100%);
+                min-height: 100vh;
         }
     .loading {
         display: block;

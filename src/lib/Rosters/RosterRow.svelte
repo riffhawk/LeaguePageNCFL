@@ -2,6 +2,7 @@
 	import { Row, Cell } from '@smui/data-table';
 	
 	export let player;
+	export let glass = false;
 
 	const playerSLotClass = player.slot.replace('/', '').replace('SUPER_', 'S-').replace('REC_', 'R-');
 	const playerSlot = player.slot.replace('SUPER_', 'S ').replace('REC_', 'R ');
@@ -110,6 +111,14 @@
     	padding: 0 5px;
 	}
 
+	:global(.nameCell.glassTypography) {
+		font-family: 'Space Mono', monospace;
+	}
+
+	.playerName {
+		font-weight: 700;
+	}
+
 	span.nickname {
 		color: #888;
 		font-style: italic;
@@ -144,6 +153,12 @@
         display: inline-block;
         font-size: 0.7em;
     }
+
+	.glassTypography .additionalInfo,
+	.glassTypography .additionalInfo span,
+	.glassTypography .additionalInfo :global(*) {
+		font-weight: 700;
+	}
 
     /* position text colors */
 	.text-QB {
@@ -223,10 +238,10 @@
             </div>
         </Cell>
 	{/if}
-	<Cell class="playerCell nameCell" colspan={player.name != "Empty" ? 1 : 3}>
+	<Cell class={`playerCell nameCell ${glass ? 'glassTypography' : ''}`} colspan={player.name != "Empty" ? 1 : 3}>
         <div class="info">
             <!-- name -->
-            {@html player.name}
+            <span class="playerName">{@html player.name}</span>
             <!-- name -->
             {#if player.poss !== "DEF"}
                 <div class="additionalInfo">

@@ -83,6 +83,12 @@
         const target = clampScale(viewManager.tradingScale) / 10;
         animateProgress(progress, target);
     }
+
+    const handleRivalClick = (rival) => {
+        if (rival && rival.link != null) {
+            changeManager(rival.link);
+        }
+    };
 </script>
 
 <style>
@@ -92,11 +98,19 @@
         justify-content: space-around;
         align-items: flex-start;
         flex-wrap: wrap;
-        padding: 0 0 2em;
-        margin: 3em 0 4em;
-        border-bottom: 1px solid var(--aaa);
-        border-top: 1px solid var(--aaa);
-        box-shadow: 0 0 8px 4px var(--ccc);
+        padding: 1.25em 0 2em;
+        margin: -75px 0 -2em;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 2rem;
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.14)),
+            rgba(255, 255, 255, 0.12);
+        box-shadow:
+            0 18px 36px rgba(91, 117, 140, 0.16),
+            inset 0 1px 0 rgba(255, 255, 255, 0.6),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
     }
 
     .infoSlot {
@@ -201,12 +215,17 @@
         border: 1px solid var(--aaa);
     }
 
-    .rival {
-        height: 100%;
+    .infoRival.isStatic {
+        cursor: default;
     }
 
-    .rebuildOrWin {
-        height: 70px;
+    .infoRival.isStatic:hover .infoIcon {
+        box-shadow: none;
+        border: 1px solid var(--ccc);
+    }
+
+    .rival {
+        height: 100%;
     }
 
     .valuePosition {
@@ -300,16 +319,16 @@
 
 <div class="fantasyInfos">
     <!-- Rookies or Vets (optional) -->
-    {#if viewManager.rookieOrVets}
+    {#if viewManager.Conf}
         <div class="infoSlot">
             <div class="infoLabel" style="text-align: center;">
                 NCFL<br/>Conference
             </div>
             <div class="infoIcon">
-                <img class="rookiesOrVets" src="/{viewManager.rookieOrVets}.png" alt="NCFL {viewManager.rookieOrVets} Conference"/>
+                <img class="rookiesOrVets" src="/{viewManager.Conf}.png" alt="NCFL {viewManager.Conf} Conference"/>
             </div>
             <div class="infoAnswer">
-                {viewManager.rookieOrVets}
+                {viewManager.Conf}
             </div>
         </div>
     {/if}
@@ -371,30 +390,30 @@
             </div>
         </div>
     {/if}
-    <!-- Rebuild Mod (optional) -->
-    {#if viewManager.mode}
-        <div class="infoSlot">
+    {#if viewManager.primaryRival}
+        <div class="infoSlot infoRival" class:isStatic={viewManager.primaryRival.link == null} onclick={() => handleRivalClick(viewManager.primaryRival)}>
             <div class="infoLabel">
-                Win Now or Rebuild?
+                Primary Rival
             </div>
             <div class="infoIcon">
-                <img class="rebuildOrWin" src="/{viewManager.mode.replace(' ', '%20')}.png" alt="win now or rebuild"/>
+                <img class="rival" src="{viewManager.primaryRival.image}" alt="primary rival"/>
             </div>
             <div class="infoAnswer">
-                {viewManager.mode}
+                {viewManager.primaryRival.name}
             </div>
         </div>
     {/if}
-    <!-- Rival -->
-    <div class="infoSlot infoRival" onclick={() => changeManager(viewManager.rival.link)}>
-        <div class="infoLabel">
-            Rival
+    {#if viewManager.secondaryRival}
+        <div class="infoSlot infoRival" class:isStatic={viewManager.secondaryRival.link == null} onclick={() => handleRivalClick(viewManager.secondaryRival)}>
+            <div class="infoLabel">
+                Secondary Rival
+            </div>
+            <div class="infoIcon">
+                <img class="rival" src="{viewManager.secondaryRival.image}" alt="secondary rival"/>
+            </div>
+            <div class="infoAnswer">
+                {viewManager.secondaryRival.name}
+            </div>
         </div>
-        <div class="infoIcon">
-            <img class="rival" src="{viewManager.rival.image}" alt="rival"/>
-        </div>
-        <div class="infoAnswer">
-            {viewManager.rival.name}
-        </div>
-    </div>
+    {/if}
 </div>

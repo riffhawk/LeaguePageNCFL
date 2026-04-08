@@ -1,6 +1,6 @@
 <script>
     import { goto } from "$app/navigation";
-        import { getDatesActive, getRosterIDFromManagerID, getTeamNameFromTeamManagers } from "$lib/utils/helperFunctions/universalFunctions";
+        import { getDatesActive, getRosterIDFromManagerID } from "$lib/utils/helperFunctions/universalFunctions";
     import {dynasty} from "$lib/utils/leagueInfo"
 
     export let manager, leagueTeamManagers, key;
@@ -19,6 +19,32 @@
     }
 
     const commissioner = manager.managerID ? leagueTeamManagers.users[manager.managerID].is_owner : false;
+
+    function getPreferredContactIcon(preferredContact) {
+        if (preferredContact === 'Phone') {
+            return '/PhoneCallIcon.gif';
+        }
+        if (preferredContact === 'WhatsApp') {
+            return '/WhatsAppIcon.gif';
+        }
+        if (preferredContact === 'Text') {
+            return '/TextMessageIcon.gif';
+        }
+        if (preferredContact === 'Carrier Pigeon') {
+            return '/CarrierPigeonIcon.gif';
+        }
+        return `/${preferredContact}.png`;
+    }
+
+    function getConfIcon(conf) {
+        if (conf === 'North') {
+            return '/NorthConfIcon.gif';
+        }
+        if (conf === 'South') {
+            return '/SouthConfIcon.gif';
+        }
+        return `/managers/question.jpg`;
+    }
 </script>
 
 <style>
@@ -26,25 +52,36 @@
         display: flex;
         justify-content: left;
         align-items: center;
-        padding: 1em 0;
-        background-color: var(--fff);
+        padding: 1.35em 0;
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14)),
+            rgba(255, 255, 255, 0.12);
         background-repeat: no-repeat;
         background-position: 15% 50%;
-        margin: 0.5em 0;
+        margin: 0.7em 0;
         border-radius: 2em;
-        border: 1px solid var(--ccc);
-        box-shadow: 0 0 6px 0 var(--bbb);
+        border: 1px solid rgba(255, 255, 255, 0.58);
+        box-shadow:
+            0 10px 24px rgba(72, 44, 119, 0.18),
+            inset 0 1px 0 rgba(255, 255, 255, 0.55),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
         cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
     .manager:hover {
-        box-shadow: 0 0 10px 0 bar(--g999);
-        background-color: bar(--eee);
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.78);
+        box-shadow:
+            0 16px 32px rgba(72, 44, 119, 0.22),
+            inset 0 1px 0 rgba(255, 255, 255, 0.62);
     }
 
     .photo {
-        height: 40px;
-        width: 40px;
+        height: 48px;
+        width: 48px;
         border-radius: 100%;
         vertical-align: middle;
         margin-left: 1em;
@@ -54,27 +91,20 @@
     .nameTeamWrapper {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        margin-left: 1em;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 5em;
         min-width: 0;
         flex: 1;
         max-width: 200px;
+        text-align: left;
     }
 
     .name {
-        color: var(--g555);
+        color: #1f2937;
         line-height: 1.2em;
         font-weight: 700;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .team {
-        font-style: italic;
-        line-height: 1.2em;
-        color: var(--g555);
-        font-weight: 300;
+        text-align: left;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -96,18 +126,29 @@
 
     .infoIcon {
         display: inline-flex;
-        height: 40px;
-        width: 40px;
+        height: 46px;
+        width: 46px;
         justify-content: center;
         align-items: center;
         border-radius: 100%;
-        border: 1px solid #ccc;
+        border: 1px solid rgba(255, 255, 255, 0.52);
         overflow: hidden;
-        background-color: var(--fff);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.22)),
+            rgba(255, 255, 255, 0.24);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.6),
+            0 4px 12px rgba(82, 96, 107, 0.12);
     }
 
     .infoImg {
-        height: 30px;
+        height: 34px;
+    }
+
+    .infoImg.whatsappIcon {
+        height: 40px;
+        width: 40px;
+        object-fit: contain;
     }
 
     .infoAnswer {
@@ -141,7 +182,7 @@
 
         @media (max-width: 665px) {
         .nameTeamWrapper {
-            margin-left: 0.5em;
+            margin-left: 1.5em;
             max-width: 160px;
         }
 
@@ -149,9 +190,6 @@
             font-size: 0.9em;
         }
 
-        .team {
-            font-size: 0.8em;
-        }
     }
 
         @media (max-width: 595px) {
@@ -160,14 +198,14 @@
         }
 
         .manager {
-            padding: 0.5em 0;
-            margin: 0.3em 0;
+            padding: 0.9em 0;
+            margin: 0.45em 0;
             border-radius: 1.5em;
         }
 
         .photo {
-            height: 30px;
-            width: 30px;
+            height: 38px;
+            width: 38px;
             margin-left: 0.5em;
         }
 
@@ -184,12 +222,17 @@
         }
 
         .infoIcon {
-            height: 30px;
-            width: 30px;
+            height: 38px;
+            width: 38px;
         }
 
         .infoImg {
-            height: 25px;
+            height: 30px;
+        }
+
+        .infoImg.whatsappIcon {
+            height: 34px;
+            width: 34px;
         }
 
         .infoAnswer {
@@ -200,7 +243,7 @@
 
     @media (max-width: 475px) {
         .nameTeamWrapper {
-            margin-left: 0.4em;
+            margin-left: 1.5em;
             max-width: 120px;
         }
 
@@ -208,13 +251,9 @@
             font-size: 0.8em;
         }
 
-        .team {
-            font-size: 0.7em;
-        }
-
         .photo {
-            height: 25px;
-            width: 25px;
+            height: 34px;
+            width: 34px;
         }
 
         .infoSlot {
@@ -224,12 +263,17 @@
         }
 
         .infoIcon {
-            height: 25px;
-            width: 25px;
+            height: 34px;
+            width: 34px;
         }
 
         .infoImg {
-            height: 22px;
+            height: 27px;
+        }
+
+        .infoImg.whatsappIcon {
+            height: 30px;
+            width: 30px;
         }
 
         .infoAnswer {
@@ -249,7 +293,7 @@
     }
 </style>
 
-<div class="manager" style="{retired ? "background-image: url(/retired.png); background-color: var(--ddd)": ""}" onclick={() => goto(`/manager?manager=${key}`)}>
+<div class="manager" style="{retired ? "background-image: url(/retired.png)": ""}" onclick={() => goto(`/manager?manager=${key}`)}>
     <div class="avatarHolder">
         <img class="photo" src="{manager.photo}" alt="{manager.name}" />
         {#if commissioner}
@@ -260,7 +304,6 @@
     </div>
     <div class="nameTeamWrapper">
         <div class="name">{manager.name}</div>
-        <div class="team">{getTeamNameFromTeamManagers(leagueTeamManagers, rosterID, year)}</div>
     </div>
     <div class="spacer" />
     <div class="info">
@@ -280,7 +323,7 @@
         <div class="infoSlot">
             {#if manager.preferredContact}
                 <div class="infoIcon">
-                    <img class="infoImg" src="/{manager.preferredContact}.png" alt="{manager.preferredContact}"/>
+                    <img class="infoImg {manager.preferredContact === 'WhatsApp' ? 'whatsappIcon' : ''}" src={getPreferredContactIcon(manager.preferredContact)} alt={manager.preferredContact}/>
                 </div>
                 <div class="infoAnswer">
                     {manager.preferredContact}
@@ -291,15 +334,15 @@
                 </div>
             {/if}
         </div>
-        <!-- Rebuild mode (optional and only displayed for dynasty leagues) -->
+        <!-- Conference -->
         {#if dynasty}
             <div class="infoSlot infoRebuild">
-                {#if manager.mode}
+                {#if manager.Conf}
                     <div class="infoIcon">
-                        <img class="infoImg" src="/{manager.mode.replace(' ', '%20')}.png" alt="win now or rebuild"/>
+                        <img class="infoImg" src={getConfIcon(manager.Conf)} alt="{manager.Conf} conference"/>
                     </div>
                     <div class="infoAnswer">
-                        {manager.mode}
+                        {manager.Conf}
                     </div>
                 {:else}
                     <div class="infoIcon question">

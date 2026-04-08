@@ -18,6 +18,13 @@
 		position: relative;
 		z-index: 1;
 	}
+
+    @media (max-width: 950px) {
+        :global(main) {
+            padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 28px) !important;
+        }
+    }
+
     .loading {
         display: block;
         width: 85%;
