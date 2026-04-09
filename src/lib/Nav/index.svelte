@@ -26,6 +26,8 @@
                 display: block;
                 margin: 0 auto;
                 padding: 10px;
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
         }
 
     .large {
@@ -38,6 +40,10 @@
 
 
         @media (max-width: 950px) { /* width of the large navBar */
+                nav {
+                        padding-top: env(safe-area-inset-top, 0px);
+                }
+
                 .large {
                         display: none;
                 }
@@ -49,7 +55,7 @@
 </style>
 
 <nav>
-        <a href="/"><img id="logo" alt="league logo" src="/badge.png" /></a>
+        <a href="/"><img id="logo" alt="league logo" src="/favicons/apple-touch-icon.png" /></a>
 
         <div class="large">
                 <NavLarge />

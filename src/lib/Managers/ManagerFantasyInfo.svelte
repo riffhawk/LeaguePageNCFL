@@ -25,7 +25,10 @@
 
     // SVG circular progress state
     let animFrame = null;
+    let progressDelay = null;
     let progress = 0; // 0..1
+    let lastTradeTarget = null;
+    let lastManagerKey = null;
 
     const clampScale = (s) => {
         const n = Number(s);
@@ -59,29 +62,58 @@
             const t = Math.min(1, elapsed / duration);
             const eased = easeOutCubic(t);
             progress = from + (to - from) * eased;
-            if (t < 1) animFrame = requestAnimationFrame(step); else animFrame = null;
+            if (t < 1) {
+                animFrame = requestAnimationFrame(step);
+            } else {
+                progress = to;
+                animFrame = null;
+            }
         };
         animFrame = requestAnimationFrame(step);
+    };
+
+    const queueProgressAnimation = (target, delay = 0, duration = 500) => {
+        if (progressDelay) clearTimeout(progressDelay);
+        if (animFrame) cancelAnimationFrame(animFrame);
+
+        if (!delay) {
+            animateProgress(progress, target, duration);
+            return;
+        }
+
+        progressDelay = setTimeout(() => {
+            progressDelay = null;
+            animateProgress(progress, target, duration);
+        }, delay);
     };
 
     onMount(() => {
         if (viewManager?.franchiseTag === 'N/A') {
             initPriceTagLottie();
         }
-        // animate progress from 0 to target on mount
-        const s = clampScale(viewManager && viewManager.tradingScale);
-        const target = s == null ? 0 : (s / 10);
-        progress = 0;
-        setTimeout(() => animateProgress(0, target, 5000), 800);
     });
 
     onDestroy(() => {
         if (animFrame) cancelAnimationFrame(animFrame);
+        if (progressDelay) clearTimeout(progressDelay);
     });
 
     $: if (viewManager && clampScale(viewManager.tradingScale) != null) {
         const target = clampScale(viewManager.tradingScale) / 10;
-        animateProgress(progress, target);
+        const managerKey = viewManager?.managerID || viewManager?.display_name || viewManager?.name || null;
+
+        if (managerKey !== lastManagerKey) {
+            lastManagerKey = managerKey;
+            lastTradeTarget = target;
+            progress = 0;
+            queueProgressAnimation(target, 800, 1200);
+        } else if (target !== lastTradeTarget) {
+            lastTradeTarget = target;
+            queueProgressAnimation(target, 0, 500);
+        }
+    } else if (!viewManager?.tradingScale) {
+        lastTradeTarget = null;
+        progress = 0;
     }
 
     const handleRivalClick = (rival) => {

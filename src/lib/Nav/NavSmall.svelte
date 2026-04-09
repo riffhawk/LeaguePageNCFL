@@ -88,7 +88,7 @@
 <style>
         :global(.menuIcon) {
                 position: absolute;
-                top: 15px;
+                top: calc(env(safe-area-inset-top, 0px) + 15px);
                 left: 15px;
                 font-size: 2em;
                 color: #888;
@@ -105,6 +105,14 @@
                 top: 0;
                 left: 0;
                 font-family: 'Press Start 2P', cursive;
+        }
+
+        :global(.nav-drawer .mdc-drawer__header) {
+                padding-top: calc(env(safe-area-inset-top, 0px) + 28px);
+        }
+
+        :global(.nav-drawer .mdc-drawer__title) {
+                line-height: 1.2;
         }
 
         :global(.nav-item) {
@@ -127,7 +135,7 @@
         .mobileTabShell {
                 position: fixed;
                 left: 50%;
-                bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+                bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
                 transform: translateX(-50%);
                 width: min(360px, calc(100vw - 24px));
                 height: 86px;
@@ -274,7 +282,7 @@
         @media (max-width: 420px) {
                 .mobileTabShell {
                         width: calc(100vw - 18px);
-                        bottom: calc(env(safe-area-inset-bottom, 0px) + 10px);
+                        bottom: calc(env(safe-area-inset-bottom, 0px) + 6px);
                 }
 
                 .mobileTabBar {

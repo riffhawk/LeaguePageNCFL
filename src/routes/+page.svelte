@@ -23,7 +23,7 @@
 
         const img = new Image();
         img.crossOrigin = 'anonymous';
-        img.src = '/cspn-logo.png';
+        img.src = '/cspn-logo.webp';
         img.onload = () => {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
@@ -218,6 +218,14 @@
     max-width: 280px;
     margin: 0px auto 24px;
     overflow: visible;
+}
+
+.cspn-logo :global(canvas),
+.cspn-logo :global(img) {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 @media (max-width: 768px) {
@@ -460,7 +468,7 @@
             <img class="text-watermark" src="/ncfl-watermark.png" alt="" />
             <!-- Twitter Feed Hero Section -->
             <div class="twitter-hero-section">
-                <div bind:this={cspnContainer} class="cspn-logo"><img src="/cspn-logo.png" alt="CSPN" style="width:100%;height:auto;display:block;" /></div>
+                <div bind:this={cspnContainer} class="cspn-logo"><img src="/cspn-logo.webp" alt="CSPN" style="width:100%;height:auto;display:block;" /></div>
                 <div class="twitter-hero-wrapper">
                     <div class="twitter-timeline-container">
                         <script src="https://elfsightcdn.com/platform.js" async></script>

@@ -40,6 +40,7 @@ const getPodiums = async (previousSeasonID) => {
 		previousSeasonID = previousSeasonData.previousSeasonID;
 
 		const divisions = buildDivisionsAndManagers({previousRosters, leagueMetadata, numDivisions});
+		const bestRecord = buildBestRecord({previousRosters});
 
 		// add manager to division obj and convert to array
 		const divisionArr = []
@@ -66,6 +67,7 @@ const getPodiums = async (previousSeasonID) => {
 			champion,
 			second,
 			third,
+			bestRecord,
 			divisions: divisionArr,
 			toilet
 		}
@@ -147,4 +149,29 @@ const buildDivisionsAndManagers = ({previousRosters, leagueMetadata, numDivision
 	}
 
 	return divisions;
+}
+
+const buildBestRecord = ({previousRosters}) => {
+	let bestRecord = {
+		wins: -1,
+		points: -1,
+		rosterID: null,
+	};
+
+	for(const rosterID in previousRosters) {
+		const rSettings = previousRosters[rosterID].settings;
+		const points = rSettings.fpts + rSettings.fpts_decimal / 100;
+		if (
+			rSettings.wins > bestRecord.wins ||
+			(rSettings.wins == bestRecord.wins && points > bestRecord.points)
+		) {
+			bestRecord = {
+				wins: rSettings.wins,
+				points,
+				rosterID,
+			};
+		}
+	}
+
+	return bestRecord.rosterID;
 }

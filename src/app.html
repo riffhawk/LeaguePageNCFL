@@ -2,7 +2,7 @@
 <html lang="en">
         <head>
                 <meta charset="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
                 <meta name="apple-mobile-web-app-capable" content="yes">
 
                 <!-- favicons -->
@@ -63,7 +63,7 @@
                 <link rel="stylesheet" href="/smui.css" />
                 %sveltekit.head%
         </head>
-        <body style="overflow-x: hidden;">
-                <div id="svelte" style="overflow-x: hidden;">%sveltekit.body%</div>
+        <body style="margin: 0; overflow-x: hidden;">
+                <div id="svelte" style="min-height: 100vh; overflow-x: hidden;">%sveltekit.body%</div>
         </body>
 </html>

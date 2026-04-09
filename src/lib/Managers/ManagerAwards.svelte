@@ -56,7 +56,7 @@
                             if(former) {
                                 formerGlobal = true;
                             }
-                            let awardTitle = 'Regular Season Champion';
+                            let awardTitle = 'Best Record';
                             if(division.name) {
                                 awardTitle = `${division.name} Division Champion`;
                             }
@@ -94,13 +94,21 @@
             record.rosterID = key;
             leagueManagerRecords.push(record);
         }
+        const yearlyScoringRecords = Object.values(records.regularSeasonData.leagueRosterRecords || {})
+            .flatMap((rosterRecord) => rosterRecord.years || [])
+            .reduce((acc, seasonRecord) => {
+                const existing = acc[seasonRecord.year];
+                if(!existing || seasonRecord.fpts > existing.fpts) {
+                    acc[seasonRecord.year] = seasonRecord;
+                }
+                return acc;
+            }, {});
         const winRecords = [...leagueManagerRecords].sort((a, b) => b.wins - a.wins);
         const pointsRecords = [...leagueManagerRecords].sort((a, b) => b.fptsFor - a.fptsFor);
         const iqRecords = [...leagueManagerRecords].sort((a, b) => (b.fptsFor/b.potentialPoints) - (a.fptsFor/a.potentialPoints));
 
         for(let i = 0; i < records.regularSeasonData.leagueWeekHighs.length; i++) {
             const leagueWeekRecord = records.regularSeasonData.leagueWeekHighs[i];
-            const seasonLongRecord = records.regularSeasonData.mostSeasonLongPoints[i];
             const winRecord = winRecords[i];
             const pointsRecord = pointsRecords[i];
             const iqRecord = iqRecords[i];
@@ -109,7 +117,7 @@
                 displayAwards.push({
                     award: i + 1,
                     icon: '/awards/record-' + (i+1) + '.png',
-                    type: 'All-Time Wins Record',
+                    type: 'All-Time Total Wins',
                     extraInfo: winRecord.wins,
                     wins: true
                 })
@@ -119,7 +127,7 @@
                 displayAwards.push({
                     award: i + 1,
                     icon: '/awards/record-' + (i+1) + '.png',
-                    type: 'All-Time Fantasy Points Record',
+                    type: 'All Time Total Points',
                     extraInfo: round(pointsRecord.fptsFor)
                 })
             }
@@ -128,13 +136,13 @@
                 displayAwards.push({
                     award: i + 1,
                     icon: '/awards/record-' + (i+1) + '.png',
-                    type: 'All-Time Lineup IQ Record',
+                    type: 'All-Time Lineup IQ',
                     extraInfo: round(iqRecord.fptsFor * 100 / iqRecord.potentialPoints),
                     iq: true
                 })
             }
 
-            if(checkIfDeserves(leagueWeekRecord.rosterID, cRosterID, leagueWeekRecord.year)) {
+            if(i < 3 && checkIfDeserves(leagueWeekRecord.rosterID, cRosterID, leagueWeekRecord.year)) {
                 const former = tookOver && tookOver > leagueWeekRecord.year;
                 if(former) {
                     formerGlobal = true;
@@ -142,7 +150,7 @@
                 displayAwards.push({
                     award: i + 1,
                     icon: '/awards/' + (i < 3 ? `record-${i+1}` : 'generic') + '.png',
-                    type: 'All-Time Single Week Record',
+                    type: 'All-Time Highest Scoring Week',
                     originalName: getTeamNameFromTeamManagers(leagueTeamManagers, cRosterID, leagueWeekRecord.year),
                     year: leagueWeekRecord.year,
                     week: leagueWeekRecord.week,
@@ -150,42 +158,22 @@
                     former
                 })
             }
-
-            if(checkIfDeserves(seasonLongRecord.rosterID, cRosterID, seasonLongRecord.year)) {
-                const former = tookOver && tookOver > seasonLongRecord.year;
+        }
+        for(const [year, scoringRecord] of Object.entries(yearlyScoringRecords)) {
+            if(checkIfDeserves(scoringRecord.rosterID, cRosterID, year)) {
+                const former = tookOver && tookOver > Number(year);
                 if(former) {
                     formerGlobal = true;
                 }
                 displayAwards.push({
-                    award: i + 1,
-                    icon: '/awards/' + (i < 3 ? `record-${i+1}` : 'generic') + '.png',
-                    type: 'All-Time Season Long Points',
-                    originalName: getTeamNameFromTeamManagers(leagueTeamManagers, cRosterID, seasonLongRecord.year),
-                    year: seasonLongRecord.year,
-                    extraInfo: seasonLongRecord.fpts,
+                    award: 'Scoring Title',
+                    icon: '/awards/record-1.png',
+                    type: `${year} Scoring Title`,
+                    originalName: getTeamNameFromTeamManagers(leagueTeamManagers, cRosterID, Number(year)),
+                    year: null,
+                    extraInfo: scoringRecord.fpts,
                     former
                 })
-            }
-        }
-        for(const yearRecords of records.regularSeasonData.seasonWeekRecords) {
-            for(let i = 0; i < 3; i++) {
-                const seasonPointsRecord = yearRecords.seasonPointsHighs[i];
-                if(checkIfDeserves(seasonPointsRecord.rosterID, cRosterID, yearRecords.year)) {
-                    const former = tookOver && tookOver > yearRecords.year;
-                    if(former) {
-                        formerGlobal = true;
-                    }
-                    displayAwards.push({
-                        award: i + 1,
-                        icon: '/awards/' + (i < 3 ? `record-${i+1}` : 'generic') + '.png',
-                        type: `${yearRecords.year} Single Week Record`,
-                        originalName: getTeamNameFromTeamManagers(leagueTeamManagers, cRosterID, seasonPointsRecord.year),
-                        year: null,
-                        week: seasonPointsRecord.week,
-                        extraInfo: seasonPointsRecord.fpts,
-                        former
-                    })
-                }
             }
         }
     }
@@ -222,11 +210,34 @@
             case 'Second':
             case 'Third':
                 return award + ' Place'
+            case 'BestRecord':
+                return 'Best Record'
             case 'Toilet':
-                return award + ' Bowl'
+                return 'Toilet Bowl Champion'
             default:
                 return award;
         }
+    }
+
+    const computeAwardLabel = (award) => {
+        if(String(award.type).includes('Scoring Title')) {
+            return `${award.type.replace(' Scoring Title', '')}\nScoring Title`;
+        }
+
+        if(award.type === 'All-Time Highest Scoring Week') {
+            switch (award.award) {
+                case 1:
+                    return '1st';
+                case 2:
+                    return '2nd';
+                case 3:
+                    return '3rd';
+                default:
+                    return String(award.award);
+            }
+        }
+
+        return computeAward(award.award);
     }
 
     async function loadPlayerAwards() {
@@ -273,28 +284,20 @@
     }
 
     function initChampionLottie(node) {
-        const animation = lottie.loadAnimation({
-            container: node,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: '/trophy.json'
-        });
-
-        return {
-            destroy() {
-                animation.destroy();
-            }
-        };
+        return initAwardLottie(node, '/trophy.json');
     }
 
     function initDivisionLottie(node) {
+        return initAwardLottie(node, '/winner-badge.json');
+    }
+
+    function initAwardLottie(node, path) {
         const animation = lottie.loadAnimation({
             container: node,
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: '/winner-badge.json'
+            path
         });
 
         return {
@@ -407,9 +410,10 @@
     }
 
     .awardLabel {
-        font-size: 0.9em;
+        font-size: 1.02em;
         margin-top: 1em;
-        font-weight: 500;
+        font-weight: 700;
+        line-height: 1.05;
         width: 130px;
     }
 
@@ -418,6 +422,26 @@
         width: 130px;
         color: var(--g555);
         margin-top: 0.3em;
+    }
+
+    .awardLabel.pointsAwardLabel {
+        margin-bottom: 0.28em;
+    }
+
+    .stackedAwardMeta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.18em;
+        width: 130px;
+        margin-top: 1em;
+        text-align: center;
+    }
+
+    .stackedAwardMeta span {
+        display: block;
+        line-height: 1.15;
     }
 
     .sad {
@@ -437,6 +461,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
         height: 80px;
         width: 80px;
         border-radius: 100%;
@@ -464,6 +489,28 @@
         width: 78%;
         height: 78%;
         margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .awardLottie.largeLottie {
+        width: 78%;
+        height: 78%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow: visible;
+    }
+
+    .awardLottie.largeLottie :global(svg) {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 auto;
+        transform: translate(0, 0) !important;
+        transform-origin: center center !important;
     }
 
     .carouselButton {
@@ -534,6 +581,12 @@
             width: 60px;
         }
 
+        .awardLottie.largeLottie :global(svg) {
+            width: 126%;
+            height: 126%;
+            transform: translate(-2%, -5%);
+        }
+
         .playerAwardMedia {
             padding-bottom: 3.6em;
         }
@@ -551,13 +604,29 @@
         }
 
         .awardLabel {
-            font-size: 0.7em;
+            font-size: 0.82em;
             width: 65px;
         }
 
         .subText {
             font-size: 0.6em;
             width: 65px;
+        }
+
+        .stackedAwardMeta {
+            width: 65px;
+            font-size: 0.7em;
+        }
+
+        .awardLottie.largeLottie {
+            width: 78%;
+            height: 78%;
+        }
+
+        .awardLottie.largeLottie :global(svg) {
+            width: 100% !important;
+            height: 100% !important;
+            transform: translate(0, 0) !important;
         }
     }
 
@@ -571,23 +640,41 @@
         <div class="awardsCaseInner" bind:this={carouselEl}>
         {#each sortedAwards as award}
             <div class="award">
-                <div class="awardHeader">{award.type != 'award' ? award.type : ''}</div>
+                <div class="awardHeader">{String(award.type).includes('Scoring Title') ? '' : (award.type != 'award' ? award.type : '')}</div>
                 <div class="awardIcon">
                     {#if award.type == 'award' && award.award == 'Champion'}
                         <div class="awardLottie" use:initChampionLottie></div>
+                    {:else if award.type == 'award' && (award.award == 'Best Record' || award.award == 'BestRecord')}
+                        <div class="awardLottie" use:initAwardLottie={'/best-record.json'}></div>
                     {:else if award.type == 'award' && String(award.award).includes('Division Champion')}
                         <div class="awardLottie" use:initDivisionLottie></div>
                     {:else if award.type == 'award' && award.award == 'Toilet'}
                         <video class="awardVideo" autoplay muted loop playsinline aria-label="Toilet Bowl award">
                             <source src="/ToiletBowl.mp4" type="video/mp4" />
                         </video>
+                    {:else if award.type == 'All-Time Lineup IQ'}
+                        <div class="awardLottie largeLottie" use:initAwardLottie={'/lineup-iq.json'}></div>
+                    {:else if String(award.type).includes('Scoring Title')}
+                        <div class="awardLottie" use:initAwardLottie={'/scoring-title.json'}></div>
                     {:else}
                         <img class="awardImage" src="{award.icon}" alt="trophy" />
                     {/if}
                 </div>
-                <div class="awardLabel">{award.type == 'award' ? `${award.year} ` : ''}{computeAward(award.award)}{award.former ? '*' : ''}</div>
-                {#if award.extraInfo}
+                {#if award.type === 'All-Time Highest Scoring Week'}
+                    <div class="stackedAwardMeta">
+                        <span>{computeAwardLabel(award)}{award.former ? '*' : ''}</span>
+                        <span>{award.year}</span>
+                        <span>Week {award.week}</span>
+                        <span>{award.extraInfo}pts</span>
+                    </div>
+                {:else}
+                    <div class="awardLabel {award.extraInfo && !award.wins && !award.iq ? 'pointsAwardLabel' : ''}" style={String(award.type).includes('Scoring Title') ? 'white-space: pre-line;' : undefined}>{award.type == 'award' ? `${award.year} ` : ''}{computeAwardLabel(award)}{award.former ? '*' : ''}</div>
+                {/if}
+                {#if award.extraInfo && award.type !== 'All-Time Highest Scoring Week'}
                     <div class="subText">{award.year ? `${award.year} ` : ''}{award.week ? `Week ${award.week} ` : ''}{award.year || award.week ? ' - ' : ''}{award.extraInfo}{award.wins ? ' Wins' : ''}{award.iq ? '%' : ''}{!award.wins && !award.iq ? 'pts' : ''}</div>
+                    {#if award.type === 'All-Time Lineup IQ'}
+                        <div class="subText">Start/Sit Accuracy</div>
+                    {/if}
                 {/if}
             </div>
         {:else}
